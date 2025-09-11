@@ -3,7 +3,7 @@ import { Phone, Mail, MessageCircle } from "lucide-react";
 
 export default function FloatingActions({
   phone = "+18608213853",
-  whatsapp = "8608213853",
+  whatsapp = "18608213853",
   email = "fishlymind@gmail.com",
 }) {
   return (
