@@ -7,6 +7,7 @@ import LocalMarketing from "../sections/LocalMarketing";
 import Services from "../sections/Services";
 import Testimonials from "../sections/Testimonials";
 import ContactForm from "../sections/ContactForm";
+import FloatingActions from "../sections/FloatingActions";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <Services />
       <Testimonials />
       <ContactForm />
+      <FloatingActions />
     </>
   );
 };

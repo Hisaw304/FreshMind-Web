@@ -2,6 +2,7 @@ import { Facebook, Instagram, Linkedin } from "lucide-react";
 import ContactForm from "../sections/ContactForm";
 
 import FAQSection from "../sections/FAQSection";
+import FloatingActions from "../sections/FloatingActions";
 
 export default function ContactPage() {
   return (
@@ -70,6 +71,7 @@ export default function ContactPage() {
           <FAQSection />
         </section>
       </section>
+      <FloatingActions />
     </div>
   );
 }

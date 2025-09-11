@@ -1,3 +1,4 @@
+import FloatingActions from "../sections/FloatingActions";
 import About from "../sections/About";
 
 export default function AboutPage() {
@@ -155,6 +156,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <FloatingActions />
     </div>
   );
 }
