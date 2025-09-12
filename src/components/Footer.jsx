@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8">
         {/* Brand */}
         <div>
-          <h2 className="text-2xl font-bold text-teal-600">FreshMind Web</h2>
+          <h2 className="text-2xl font-bold text-teal-400">FreshMind Web</h2>
           <p className="mt-1 text-sm text-slate-600">
             Building modern websites with speed & creativity
           </p>

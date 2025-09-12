@@ -19,7 +19,7 @@ export default function Navbar() {
           />
 
           {/* Brand Name */}
-          <span className="text-2xl font-bold text-teal-600 tracking-tight">
+          <span className="text-2xl font-bold text-teal-400 tracking-tight">
             FreshMind Web
           </span>
         </Link>
