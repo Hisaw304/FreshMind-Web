@@ -1,85 +1,116 @@
-// src/sections/Hero.jsx
+import React from "react";
 import { Link } from "react-router-dom";
 import { ReactTyped } from "react-typed";
-import { motion } from "framer-motion";
-import { cities } from "../data/cities"; // <- list of cities
+import { motion, useScroll, useTransform } from "framer-motion";
+import { cities } from "../data/cities";
 
 export default function Hero({
   phone = "+1 (860) 821-3853",
   bookLink = "/contact",
   bgImage = "/images/hero-bg.jpg",
 }) {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 600], [0, -24]);
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.12, when: "beforeChildren" },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 16 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
     <section
+      id="hero"
+      role="region"
+      aria-labelledby="hero-heading"
       className="relative isolate overflow-hidden py-20 md:py-28"
       style={{
-        backgroundImage: `url('${bgImage}')`,
+        backgroundImage: `linear-gradient(rgba(2,6,23,0.65), rgba(2,6,23,0.65)), url('${bgImage}')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      {/* Overlay with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-900/85 to-slate-900/80" />
+      {/* overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-slate-900/80 to-slate-900/80 pointer-events-none" />
 
-      <div className="relative mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-12 items-center">
-        {/* Left Content */}
+      <div className="relative mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-12 items-start">
+        {/* LEFT SIDE CONTENT */}
         <motion.div
-          className="text-center md:text-left"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center md:text-left z-10"
+          variants={container}
+          initial="hidden"
+          animate="visible"
         >
+          {/* TOP HEADING */}
           <motion.h1
-            className="text-4xl md:text-6xl font-extrabold text-white leading-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
+            id="hero-heading"
+            className="text-4xl md:text-6xl font-extrabold leading-tight text-white mb-6"
+            variants={item}
           >
-            Build a modern online presence
-            <span className="block text-teal-400">
+            <span className="block">Build a modern online presence</span>
+            <span className="block gradient-animated-text mt-1">
               Websites that drive growth & trust
             </span>
           </motion.h1>
 
+          {/* Paragraph */}
           <motion.p
             className="mt-6 text-lg md:text-xl text-slate-200 max-w-2xl mx-auto md:mx-0"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            variants={item}
           >
-            We design, develop, and manage professional websites with clean
-            code, reliable hosting, and marketing support tailored to your
-            business.
+            We design, develop and ship production-grade websites with clean
+            code, fast hosting, and conversion-first UX — tailored to your
+            business goals.
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
             className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
+            variants={item}
           >
             <Link
-              to="/contact"
-              className="inline-flex items-center justify-center rounded-xl bg-teal-500 px-7 py-4 text-lg font-semibold text-white shadow-md
-                         hover:bg-teal-600 active:scale-[0.98] transition"
+              to={bookLink}
+              className="inline-flex items-center justify-center rounded-xl px-7 py-4 text-lg font-semibold text-white shadow-md cta-glow cta-frost focus-visible:ring-4"
             >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                className="mr-3"
+                aria-hidden
+              >
+                <path
+                  d="M2 11.5L22 2L13.5 22L9 14L2 11.5Z"
+                  fill="currentColor"
+                  opacity="0.92"
+                />
+              </svg>
               Send Us a Message
             </Link>
 
             <a
               href={bookLink}
-              className="inline-flex items-center justify-center rounded-xl border border-orange-500/70 px-6 py-3 font-semibold text-orange-300
-                         hover:bg-orange-500 hover:text-white transition active:scale-[0.98]"
+              className="inline-flex items-center justify-center rounded-xl border border-orange-500/60 px-6 py-3 font-semibold text-orange-300 hover:bg-orange-500 hover:text-white transition active:scale-[0.98]"
             >
               Book a Call
             </a>
 
             <a
               href={`tel:${phone.replace(/[^\d+]/g, "")}`}
-              aria-label={`Call ${phone}`}
-              className="inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold text-slate-300
-                         hover:text-teal-300 transition"
+              className="inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold text-slate-300 hover:text-teal-300 transition"
             >
               Call {phone}
             </a>
@@ -88,12 +119,11 @@ export default function Hero({
           {/* Typed Cities */}
           <motion.p
             className="mt-10 text-xl font-semibold text-orange-400"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
+            variants={item}
           >
-            Looking for website design near{" "}
+            Looking for website design near&nbsp;
             <ReactTyped
+              className="inline-block text-orange-300 font-bold"
               strings={cities}
               typeSpeed={80}
               backSpeed={40}
@@ -102,20 +132,55 @@ export default function Hero({
             />
             ? You’re in the right place!
           </motion.p>
+
+          {/* Metrics */}
+          <motion.div
+            className="mt-8 flex flex-wrap gap-4 items-center text-sm text-slate-300"
+            variants={item}
+          >
+            <div className="inline-flex items-center gap-3">
+              <strong className="text-white">140+</strong>
+              <span>Websites launched</span>
+            </div>
+            <div className="inline-flex items-center gap-3">
+              <strong className="text-white">95%</strong>
+              <span>Client satisfaction</span>
+            </div>
+            <div className="inline-flex items-center gap-3">
+              <strong className="text-white">Faster</strong>
+              <span>Page speed & conversions</span>
+            </div>
+          </motion.div>
         </motion.div>
 
-        {/* Right Side: Optional Hero Image */}
+        {/* RIGHT SIDE MOCKUP */}
         <motion.div
-          className="hidden md:block"
-          initial={{ opacity: 0, scale: 0.9 }}
+          className="mx-auto md:block hidden relative"
+          style={{ y }}
+          initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
+          transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
+          aria-hidden
         >
-          <img
-            src="/images/hero-mockup.png"
-            alt="Website preview"
-            className="rounded-xl shadow-2xl border border-slate-800/30"
-          />
+          <div className="hero-accent-blur" />
+          <div className="relative max-w-[520px]">
+            <div className="absolute -inset-4 rounded-2xl bg-gradient-to-tr from-teal-500/10 to-orange-400/6 -z-10" />
+            <picture>
+              <source srcSet="/images/hero-mockup.png" type="image/webp" />
+              <img
+                src="/images/hero-mockup.png"
+                alt="Website preview"
+                loading="lazy"
+                decoding="async"
+                className="rounded-xl shadow-2xl border border-slate-800/30 w-full"
+                width="520"
+                height="360"
+              />
+            </picture>
+            <div className="absolute left-4 bottom-4 px-3 py-1 rounded-full bg-slate-900/60 text-xs font-semibold text-white backdrop-blur-md">
+              <span>Crafting websites for businesses & creators worldwide</span>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -2,10 +2,119 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FreshMind Web</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <!-- Primary title + description (change per page for SEO) -->
+    <title>FreshMind Web — Modern websites that convert</title>
+    <meta
+      name="description"
+      content="FreshMind Web — modern web design & development for businesses. Fast, accessible websites with clear UX that convert visitors into customers."
+    />
+    <meta
+      name="keywords"
+      content="web design, web development, portfolio, UI/UX, React developer, Vite, performance"
+    />
+    <link rel="canonical" href="https://freshmindweb.vercel.app/" />
+
+    <!-- Robots: index or noindex depending on environment -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Theme / tile colors (adjust to your brand) -->
+    <meta name="theme-color" content="#3e2723" />
+    <meta name="msapplication-TileColor" content="#3e2723" />
+
+    <!-- Favicon / icons (put files in public/) -->
+    <link rel="icon" href="/images/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/apple-touch-icon.png"
+    />
+    <link
+      rel="mask-icon"
+      href="/images/safari-pinned-tab.svg"
+      color="#3e2723"
+    />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Open Graph (social previews) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FreshMind Web" />
+    <meta
+      property="og:title"
+      content="FreshMind Web — Modern websites that convert"
+    />
+    <meta
+      property="og:description"
+      content="We design and build fast, accessible websites tailored to business needs — from prototypes to production."
+    />
+    <meta property="og:url" content="https://freshmindweb.vercel.app/" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- OG image: create a 1200x630px image and place at /public/images/og-cover.jpg -->
+    <meta
+      property="og:image"
+      content="https://freshmindweb.vercel.app/images/og-cover.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="FreshMind Web — modern websites and web apps"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE" />
+    <meta name="twitter:creator" content="@YOUR_TWITTER_HANDLE" />
+    <meta
+      name="twitter:title"
+      content="FreshMind Web — Modern websites that convert"
+    />
+    <meta
+      name="twitter:description"
+      content="We design and build fast, accessible websites tailored to business needs."
+    />
+    <meta
+      name="twitter:image"
+      content="https://freshmindweb.vercel.app/images/og-cover.jpg"
+    />
+
+    <!-- Preconnect / preload (fonts & critical assets) -->
+    <!-- only keep preconnects you actually use -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Example: preload a hero image (optional) -->
+    <!-- <link rel="preload" href="/images/hero-large.jpg" as="image"> -->
+
+    <!-- Structured Data (JSON-LD) — Person/Organization (update fields) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "FreshMind Web",
+        "url": "https://freshmindweb.vercel.app/",
+        "logo": "https://freshmindweb.vercel.app/images/logo.png",
+        "sameAs": [
+          "https://www.linkedin.com/in/YOURPROFILE",
+          "https://twitter.com/YOUR_TWITTER_HANDLE"
+        ],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+1-860-821-3853",
+            "contactType": "sales",
+            "areaServed": "US"
+          }
+        ]
+      }
+    </script>
+
+    <!-- Optional: small CSS critical styles or link to fonts/stylesheets -->
+    <link rel="stylesheet" href="/assets/style.css" />
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
