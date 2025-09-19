@@ -70,8 +70,8 @@ export default function Hero({
             variants={item}
           >
             We design, develop and ship production-grade websites with clean
-            code, fast hosting, and conversion-first UX — tailored to your
-            business goals.
+            code, fast hosting, and marketing support tailored to your business
+            goals.
           </motion.p>
 
           {/* CTA Buttons */}
