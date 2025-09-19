@@ -9,8 +9,8 @@ import { HelpCircle } from "lucide-react";
 
 export default function FAQSection() {
   return (
-    <section className="bg-gradient-to-b from-slate-50 to-white py-20 px-6">
-      <div className="max-w-3xl mx-auto text-center">
+    <section className="bg-gradient-to-b from-slate-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-slate-800 mb-6">
           Frequently Asked Questions
         </h2>
@@ -26,7 +26,7 @@ export default function FAQSection() {
       <Accordion
         type="single"
         collapsible
-        className="max-w-3xl mx-auto space-y-4"
+        className="max-w-4xl lg:max-w-5xl mx-auto space-y-4"
       >
         {[
           {
@@ -53,7 +53,8 @@ export default function FAQSection() {
           <AccordionItem
             key={i}
             value={`item-${i}`}
-            className="border rounded-xl shadow-sm data-[state=open]:bg-orange-50 data-[state=open]:shadow-md transition"
+            className="w-full border rounded-xl shadow-sm 
+                       data-[state=open]:bg-orange-50 data-[state=open]:shadow-md transition"
           >
             <AccordionTrigger className="px-4 py-3 text-lg font-medium text-slate-700 flex items-center gap-2">
               <HelpCircle className="w-5 h-5 text-orange-500" />
