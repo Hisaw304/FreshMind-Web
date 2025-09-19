@@ -17,12 +17,10 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form + Extras */}
-      <section className="max-w-5xl mx-auto px-6 py-16 space-y-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
         {/* Contact Form */}
         <div>
-          <h2 className="text-2xl font-semibold text-slate-800 mb-6">
-            Send Us a Message
-          </h2>
+          {/* Contact Form */}
           <ContactForm />
         </div>
 

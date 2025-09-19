@@ -124,8 +124,8 @@ export default function ContactForm() {
   const subjects = ["Project Estimate", "Collaboration", "General Inquiry"];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-slate-100">
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-start">
+    <section className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl shadow-xl">
+      <div className="px-6 py-12 grid md:grid-cols-2 gap-12 items-start">
         {/* Left Column - Info */}
         <div className="space-y-6">
           <h2 className="text-4xl font-bold text-slate-800">
@@ -161,7 +161,7 @@ export default function ContactForm() {
         {/* Right Column - Form */}
         <form
           onSubmit={handleSubmit}
-          className="bg-white rounded-2xl shadow-xl p-8 space-y-6 relative"
+          className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 space-y-6 sm:space-y-8"
           noValidate
         >
           <h3 className="text-2xl font-semibold text-slate-800 mb-2">
