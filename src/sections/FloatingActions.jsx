@@ -56,9 +56,7 @@ export default function FloatingActions({
               <span className="w-6 h-6 flex items-center justify-center">
                 {icon}
               </span>
-              <span className="hidden sm:inline text-sm font-medium">
-                {label}
-              </span>
+              <span className=" sm:inline text-sm font-medium">{label}</span>
             </a>
           ))}
         </div>
