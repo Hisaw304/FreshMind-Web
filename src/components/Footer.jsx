@@ -38,7 +38,7 @@ export default function Footer() {
         {/* Contact */}
         <div>
           <h3 className="text-lg font-semibold text-orange-500">Contact</h3>
-          <p className="mt-2 text-sm">Email: info@websmart.com</p>
+          <p className="mt-2 text-sm">Email: info@fishlymind.com</p>
           <p className="text-sm">Phone: (123) 456-7890</p>
         </div>
       </div>
