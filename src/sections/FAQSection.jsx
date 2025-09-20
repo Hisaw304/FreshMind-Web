@@ -9,15 +9,15 @@ import { HelpCircle } from "lucide-react";
 
 export default function FAQSection() {
   return (
-    <section className="bg-gradient-to-b from-slate-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+    <section className="bg-slate-900 py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-slate-800 mb-6">
+        <h2 className="text-3xl font-bold text-white mb-6">
           Frequently Asked Questions
         </h2>
-        <p className="text-slate-600 mb-10">
+        <p className="text-slate-300 mb-10">
           Here are some common questions we get. Can’t find what you’re looking
           for?{" "}
-          <span className="text-orange-600 font-medium cursor-pointer hover:underline">
+          <span className="text-orange-400 font-medium cursor-pointer hover:underline">
             Reach out to us directly.
           </span>
         </p>
@@ -26,7 +26,7 @@ export default function FAQSection() {
       <Accordion
         type="single"
         collapsible
-        className="max-w-4xl lg:max-w-5xl mx-auto space-y-4"
+        className="w-full max-w-5xl mx-auto space-y-4"
       >
         {[
           {
@@ -53,10 +53,19 @@ export default function FAQSection() {
           <AccordionItem
             key={i}
             value={`item-${i}`}
-            className="w-full border rounded-xl shadow-sm 
-                       data-[state=open]:bg-orange-50 data-[state=open]:shadow-md transition"
+            className="
+              w-full border border-slate-700 rounded-xl bg-slate-800 
+              shadow-sm transition
+              data-[state=open]:border-orange-500/60 
+              data-[state=open]:shadow-lg data-[state=open]:shadow-orange-500/20
+            "
           >
-            <AccordionTrigger className="px-4 py-3 text-lg font-medium text-slate-700 flex items-center gap-2">
+            <AccordionTrigger
+              className="
+                px-4 py-3 text-lg font-medium text-slate-200
+                flex items-center gap-2 hover:bg-slate-700/40 rounded-t-xl
+              "
+            >
               <HelpCircle className="w-5 h-5 text-orange-500" />
               {item.q}
             </AccordionTrigger>
@@ -66,7 +75,7 @@ export default function FAQSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -5 }}
                 transition={{ duration: 0.2 }}
-                className="px-4 pb-4 text-slate-600"
+                className="px-4 pb-4 text-slate-400"
               >
                 {item.a}
               </motion.div>

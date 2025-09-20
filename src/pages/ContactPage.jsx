@@ -64,8 +64,7 @@ export default function ContactPage() {
         </div>
 
         {/* Mini FAQ */}
-        {/* Mini FAQ */}
-        <section className="bg-white py-16 px-6">
+        <section className=" pt-16  ">
           <FAQSection />
         </section>
       </section>
