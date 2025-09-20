@@ -703,7 +703,7 @@
 }
 
 /* service card: gradient border + glass inner */
-.service-card {
+.service-cards {
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.98),
@@ -716,8 +716,8 @@
   transition: transform 220ms cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 220ms;
 }
 /* subtle lift on hover/focus */
-.service-card:hover,
-.service-card:focus-within {
+.service-cards:hover,
+.service-cards:focus-within {
   transform: translateY(-6px);
   box-shadow: 0 22px 44px rgba(2, 6, 23, 0.1);
 }
@@ -738,11 +738,11 @@
 }
 
 /* service-tag */
-.service-tag {
+.service-tags {
   transition: box-shadow 180ms ease, transform 180ms ease;
 }
-.service-tag:hover,
-.service-tag:focus-within {
+.service-tags:hover,
+.service-tags:focus-within {
   transform: translateY(-6px);
   box-shadow: 0 18px 36px rgba(2, 6, 23, 0.06);
 }

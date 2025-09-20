@@ -260,7 +260,7 @@ export default function AboutPage() {
               <div key={idx} className="p-4">
                 <div
                   className="
-              service-tag relative bg-white rounded-lg p-4 shadow
+              service-tags relative bg-white rounded-lg p-4 shadow
               border-r-4 border-orange-500
               hover:shadow-lg hover:border-orange-600
               transition
@@ -295,7 +295,7 @@ function ServiceCard({ title, desc, icon }) {
   return (
     <article
       role="article"
-      className="service-card group flex flex-col gap-4 p-6 rounded-2xl"
+      className="service-cards group flex flex-col gap-4 p-6 rounded-2xl"
       aria-label={title}
     >
       <div className="icon w-12 h-12 rounded-md bg-white/10 flex items-center justify-center text-[var(--accent-start)]">
