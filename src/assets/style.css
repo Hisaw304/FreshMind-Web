@@ -31,6 +31,18 @@
     transform: translateY(0);
   }
 }
+html,
+body {
+  background-color: #0f172a; /* your page bg fallback */
+  background-color: var(--background); /* your CSS variable if supported */
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+nav {
+  padding-top: env(safe-area-inset-top); /* pushes navbar content below notch */
+}
 
 /* frosted glass CTA border / focus */
 .cta-frost {
