@@ -828,3 +828,18 @@ nav {
 .max-w-6xl .text-2xl {
   letter-spacing: -0.02em;
 }
+
+/*
+Extra small customizations for the preloader. Tailwind handles most styling,
+but you can place additional visual tweaks here (drop-shadow, blur, etc.)
+*/
+
+/* subtle drop shadow behind the logo */
+img[alt="Logo"] {
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
+}
+
+/* if you want a slightly different easing / duration you can override here */
+.preloader-fade {
+  transition: opacity 500ms ease-out;
+}
