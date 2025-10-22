@@ -42,7 +42,7 @@ export default function Hero({
       }}
     >
       {/* overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-slate-900/80 to-slate-900/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-slate-900/20 to-slate-900/20 pointer-events-none" />
 
       <div className="relative mx-auto max-w-6xl px-6">
         {/* FULL-WIDTH HEADING + SUBHEADING */}
