@@ -7,7 +7,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-slate-800/90 backdrop-blur-md text-white shadow-md">
+    <nav className="sticky top-0 z-50 bg-slate-900 backdrop-blur-md text-white shadow-md">
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo + Company Name */}
         <Link to="/" className="flex items-center space-x-2 cursor-pointer">
@@ -50,7 +50,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-slate-700 px-6 pb-4 space-y-3">
+        <div className="md:hidden bg-slate-900  px-6 pb-4 space-y-3">
           {["Home", "About", "Contact"].map((item) => (
             <Link
               key={item}
