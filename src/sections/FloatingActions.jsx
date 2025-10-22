@@ -31,7 +31,7 @@ export default function FloatingActions({
           className="
             dock-inner flex items-center gap-3 px-4 py-2
             rounded-2xl backdrop-blur-md
-            bg-slate-800/80 border border-white/10
+            bg-slate-900 border border-white/10
             shadow-xl
           "
           role="navigation"
