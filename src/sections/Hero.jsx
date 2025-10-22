@@ -168,7 +168,7 @@ export default function Hero({
           >
             <div className="hero-accent-blur" />
             <div className="relative max-w-[520px]">
-              <div className="absolute -inset-4 rounded-2xl bg-gradient-to-tr from-teal-500/10 to-orange-400/6 -z-10" />
+              <div className="absolute border border-white -inset-4 rounded-2xl -z-10" />
               <picture>
                 <source srcSet="/images/hero-mockup.png" type="image/webp" />
                 <img
