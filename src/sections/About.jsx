@@ -112,7 +112,7 @@ export default function About() {
                 className="relative rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-xl p-8 text-center transition-transform duration-300 hover:-translate-y-2"
               >
                 <div
-                  className="badge flex items-center justify-center mx-auto mb-6"
+                  className="badge text-white flex items-center justify-center mx-auto mb-6"
                   aria-hidden="true"
                 >
                   {step.id}

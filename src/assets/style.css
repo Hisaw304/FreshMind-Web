@@ -195,7 +195,7 @@ nav {
   bottom: -8px;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+  background-color: var(--accent-start);
   border-radius: 9999px;
 }
 

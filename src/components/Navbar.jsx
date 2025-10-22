@@ -12,14 +12,14 @@ export default function Navbar() {
         {/* Logo + Company Name */}
         <Link to="/" className="flex items-center space-x-2 cursor-pointer">
           {/* Logo Icon */}
-          <img
+          {/* <img
             src="/logo.png"
             alt="FreshMind Web Logo"
             className="h-10 w-10 object-contain"
-          />
+          /> */}
 
           {/* Brand Name */}
-          <span className="text-2xl lg-block font-bold text-teal-400 tracking-tight">
+          <span className="text-2xl lg-block font-bold text-white tracking-tight">
             FreshMind Web
           </span>
         </Link>

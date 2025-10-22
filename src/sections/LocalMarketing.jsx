@@ -183,7 +183,7 @@ export default function LocalMarketing({ cities = [] }) {
                     {/* pulsing background (if allowed) */}
                     {!prefersReducedMotion && (
                       <span
-                        className="absolute -inset-1 w-5 h-5 rounded-full bg-orange-400/30 animate-ping"
+                        className="absolute -inset-1 w-5 h-5 rounded-full bg-white animate-ping"
                         aria-hidden
                       />
                     )}
@@ -204,8 +204,8 @@ export default function LocalMarketing({ cities = [] }) {
                           y1="0"
                           y2="1"
                         >
-                          <stop offset="0%" stopColor="var(--accent-start)" />
-                          <stop offset="100%" stopColor="var(--accent-end)" />
+                          <stop offset="0%" stopColor="#ffffff" />
+                          <stop offset="100%" stopColor="#ffffff" />
                         </linearGradient>
                       </defs>
                       <path
@@ -229,7 +229,7 @@ export default function LocalMarketing({ cities = [] }) {
               })}
 
               <div className="absolute bottom-3 left-3 text-xs text-slate-500 z-10">
-                Sample service areas — local strategy tailored to each market
+                service areas
               </div>
             </div>
           </div>
