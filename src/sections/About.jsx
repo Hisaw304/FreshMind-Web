@@ -92,7 +92,7 @@ export default function About() {
 
       {/* --- Approach Section --- */}
       <section
-        className="py-20 bg-slate-900 relative overflow-hidden"
+        className="py-10 bg-slate-900 relative overflow-hidden"
         aria-labelledby="approach-heading"
       >
         <div className="max-w-6xl mx-auto px-6">
@@ -128,7 +128,7 @@ export default function About() {
       </section>
 
       {/* --- Mission Section --- */}
-      <section className="py-16 bg-white text-center">
+      <section className="py-10 bg-white text-center">
         <div className="max-w-3xl mx-auto px-6">
           <h3 className="section-title text-2xl md:text-3xl font-semibold mb-4 text-slate-800">
             Our Mission
