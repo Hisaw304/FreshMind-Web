@@ -20,8 +20,8 @@ const Home = () => {
       <LocalMarketing />
       <Services />
       <Testimonials />
-      <ContactForm />
       <FAQSection />
+      <ContactForm />
       <FloatingActions />
     </>
   );
