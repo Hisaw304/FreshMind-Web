@@ -88,7 +88,7 @@ export default function ClientsCarousel() {
           </Splide>
 
           {/* Progress Bar (teal -> orange gradient to match hero accents) */}
-          <div className="splide__progress h-1 bg-slate-200 rounded-full overflow-hidden">
+          {/* <div className="splide__progress h-1 bg-slate-200 rounded-full overflow-hidden">
             <div
               ref={progressBarRef}
               className="splide__progress__bar h-full transition-all duration-300"
@@ -98,7 +98,7 @@ export default function ClientsCarousel() {
                 width: "0%",
               }}
             ></div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
