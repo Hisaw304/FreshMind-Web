@@ -34,7 +34,7 @@ export default function Hero({
       id="hero"
       role="region"
       aria-labelledby="hero-heading"
-      className="relative isolate overflow-hidden py-20 md:py-28"
+      className="relative isolate overflow-hidden mb-8 py-10 md:py-28"
       style={{
         backgroundImage: `linear-gradient(rgba(2,6,23,0.65), rgba(2,6,23,0.65)), url('${bgImage}')`,
         backgroundSize: "cover",

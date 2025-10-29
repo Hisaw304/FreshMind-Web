@@ -35,18 +35,18 @@ export default function ClientsCarousel() {
   const progressBarRef = useRef(null);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+    <section className="bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="section-title text-3xl md:text-5xl font-extrabold text-center mb-14 text-slate-800">
           Companies We’ve Worked With
         </h2>
 
-        <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-2xl p-10">
+        <div>
           <Splide
             options={{
               type: "loop",
               perPage: 4,
-              gap: "2rem",
+              gap: "1.5rem",
               autoplay: true,
               interval: 3000,
               pauseOnHover: true,
@@ -60,13 +60,11 @@ export default function ClientsCarousel() {
               },
             }}
             aria-label="Client logos carousel"
-            // update the bar while autoplay is running
             onAutoplayPlaying={(_, rate) => {
               if (progressBarRef.current) {
                 progressBarRef.current.style.width = `${rate * 100}%`;
               }
             }}
-            // reset the bar immediately when a slide finishes moving (keeps timing consistent)
             onMoved={() => {
               if (progressBarRef.current) {
                 progressBarRef.current.style.width = "0%";
@@ -75,27 +73,28 @@ export default function ClientsCarousel() {
           >
             {clients.map((client, idx) => (
               <SplideSlide key={idx}>
-                <div className="client-card border border-slate-200/60 rounded-xl overflow-hidden h-[200px] md:h-[260px] bg-white">
+                <div className="client-slide">
                   <img
                     src={client.logo}
-                    alt={`${client.name} logo`}
-                    className="w-full h-full object-cover"
+                    alt={`${client.name} image`}
+                    className="client-image"
                     loading="lazy"
                     decoding="async"
                   />
+                  <div className="client-overlay" aria-hidden="true" />
                 </div>
               </SplideSlide>
             ))}
           </Splide>
 
           {/* Progress Bar (teal -> orange gradient to match hero accents) */}
-          <div className="splide__progress mt-4 h-1 bg-slate-200 rounded-full overflow-hidden">
+          <div className="splide__progress h-1 bg-slate-200 rounded-full overflow-hidden">
             <div
               ref={progressBarRef}
               className="splide__progress__bar h-full transition-all duration-300"
               // Tailwind gradient classes; replace with CSS if you prefer external styles
               style={{
-                background: "linear-gradient(90deg,#14b8a6,#f97316)",
+                background: "linear-gradient(90deg,#14b8a6,#14b8a6",
                 width: "0%",
               }}
             ></div>

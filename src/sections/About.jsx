@@ -51,7 +51,7 @@ export default function About() {
   return (
     <div>
       {/* --- Hero Section --- */}
-      <section className="py-16 bg-white">
+      <section className="mb-8 py-10 bg-white">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <h2 className="section-title text-3xl md:text-4xl font-bold text-slate-800 mb-6">
             Successful businesses start with a strong online foundation.
@@ -109,7 +109,7 @@ export default function About() {
                 key={step.id}
                 role="group"
                 aria-label={step.title}
-                className="relative rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-xl p-8 text-center transition-transform duration-300 hover:-translate-y-2"
+                className="relative rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-xl p-8 box text-center transition-transform duration-300 hover:-translate-y-2"
               >
                 <div
                   className="badge text-white flex items-center justify-center mx-auto mb-6"

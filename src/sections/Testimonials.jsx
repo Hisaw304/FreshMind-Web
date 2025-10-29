@@ -122,7 +122,7 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section
-      className="py-20 bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50"
+      className="mb-8 py-10 bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50"
       id="testimonials"
     >
       <div className="max-w-6xl mx-auto px-6">

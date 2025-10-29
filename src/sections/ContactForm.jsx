@@ -124,8 +124,8 @@ export default function ContactForm() {
   const subjects = ["Project Estimate", "Collaboration", "General Inquiry"];
 
   return (
-    <section className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl shadow-xl">
-      <div className="px-6 py-12 grid md:grid-cols-2 gap-12 items-start">
+    <section className="bg-gradient-to-br py-10 from-slate-50 to-slate-100 rounded-2xl shadow-xl">
+      <div className="px-6 grid md:grid-cols-2 gap-12 items-start">
         {/* Left Column - Info */}
         <div className="space-y-6">
           <h2 className="text-4xl font-bold text-slate-800">

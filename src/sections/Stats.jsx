@@ -106,7 +106,10 @@ export default function Stats() {
   }
 
   return (
-    <section className="py-16 stats-section" aria-labelledby="stats-heading">
+    <section
+      className="mb-8 py-10 stats-section"
+      aria-labelledby="stats-heading"
+    >
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center stats-inner">
         {/* Stats side */}
         <div ref={containerRef} tabIndex={-1} onKeyDown={onKeyDown}>

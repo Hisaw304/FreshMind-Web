@@ -9,7 +9,7 @@ import { HelpCircle } from "lucide-react";
 
 export default function FAQSection() {
   return (
-    <section className="bg-slate-900 py-20 px-4 sm:px-6 lg:px-8">
+    <section className="bg-slate-900 mb-8 py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-white mb-6">
           Frequently Asked Questions

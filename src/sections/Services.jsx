@@ -51,7 +51,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="py-20 bg-slate-900 services-section"
+      className="mb-8 py-10 bg-slate-900 services-section"
       aria-labelledby="services-heading"
     >
       <div className="max-w-6xl mx-auto px-6 relative">
@@ -73,37 +73,34 @@ export default function Services() {
         {/* grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
           {services.map((svc, idx) => (
-            <article
-              key={idx}
-              className="service-card service-shadow focus-within:outline-none"
-              tabIndex={0}
-              aria-labelledby={`svc-${idx}-title`}
-            >
-              {/* number badge */}
-              <div className="service-badge" aria-hidden>
-                {idx + 1}
-              </div>
-
-              {/* card top: icon + title */}
-              <div className="flex items-start gap-4">
-                <div className="icon-wrap">
-                  {/* icon color retained from services array (teal/orange) */}
-                  {svc.icon}
+            <div className="electric-border" key={idx}>
+              <article
+                className="service-card service-shadow focus-within:outline-none"
+                tabIndex={0}
+                aria-labelledby={`svc-${idx}-title`}
+              >
+                {/* number badge */}
+                <div className="service-badge" aria-hidden>
+                  {idx + 1}
                 </div>
 
-                <div className="ml-2">
-                  <h3 id={`svc-${idx}-title`} className="service-title">
-                    {svc.title}
-                  </h3>
-                  <div className="service-intro">{svc.intro}</div>
+                {/* card top: icon + title */}
+                <div className="flex items-start gap-4">
+                  <div className="icon-wrap">{svc.icon}</div>
+
+                  <div className="ml-2">
+                    <h3 id={`svc-${idx}-title`} className="service-title">
+                      {svc.title}
+                    </h3>
+                    <div className="service-intro">{svc.intro}</div>
+                  </div>
                 </div>
-              </div>
 
-              {/* divider like the example */}
-              <div className="service-divider" />
+                <div className="service-divider" />
 
-              <p className="service-desc">{svc.desc}</p>
-            </article>
+                <p className="service-desc">{svc.desc}</p>
+              </article>
+            </div>
           ))}
         </div>
       </div>

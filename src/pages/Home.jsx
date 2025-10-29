@@ -8,6 +8,7 @@ import Services from "../sections/Services";
 import Testimonials from "../sections/Testimonials";
 import ContactForm from "../sections/ContactForm";
 import FloatingActions from "../sections/FloatingActions";
+import FAQSection from "../sections/FAQSection";
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <Services />
       <Testimonials />
       <ContactForm />
+      <FAQSection />
       <FloatingActions />
     </>
   );

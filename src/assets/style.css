@@ -113,73 +113,123 @@ nav {
     font-size: 1.25rem;
   }
 }
-.clients-card {
+
+/* ------------------------
+   Clients carousel - image cards
+   ------------------------ */
+
+/* Slide container — image is the card */
+.client-slide {
+  position: relative;
+  width: 100%;
+  height: 420px; /* default large size; see responsive rules below */
   border-radius: 14px;
   overflow: hidden;
-}
-.client-slide {
-  transition: transform 250ms cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 250ms;
-}
-.client-slide:hover,
-.client-slide:focus {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.06);
-}
-.client-logo {
-  max-height: 64px;
-  width: auto;
   display: block;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.25); /* soft shadow to lift from page */
+  transition: transform 280ms cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 280ms;
 }
-.client-slide:focus-visible {
+
+/* Hover & focus: subtle lift */
+.client-slide:hover,
+.client-slide:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(2, 6, 23, 0.32);
   outline: none;
-  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.12);
-  border-radius: 8px;
 }
 
-/* Fallback grid for no-JS (keeps layout consistent & SEO friendly) */
-.client-grid-fallback {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1.25rem;
-  align-items: center;
-}
-.client-grid-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem;
-  background: transparent;
-  border-radius: 10px;
+/* The image fills the slide and crops gracefully */
+.client-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* key: image is the card */
+  object-position: center;
+  -webkit-user-drag: none;
+  user-select: none;
+  transition: transform 0.45s ease, opacity 0.35s ease;
 }
 
-/* small screens: reduce logo height */
-@media (max-width: 640px) {
-  .client-logo {
-    max-height: 52px;
+/* Slight zoom on hover for lively feel */
+.client-slide:hover .client-image {
+  transform: scale(1.03);
+}
+
+/* Subtle overlay to harmonize images and preserve contrast */
+.client-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.12) 0%,
+    rgba(0, 0, 0, 0.08) 40%,
+    rgba(0, 0, 0, 0.16) 100%
+  );
+  mix-blend-mode: multiply;
+  opacity: 1;
+  transition: opacity 200ms ease;
+}
+
+/* Make overlay slightly reduce on hover to reveal more color */
+.client-slide:hover .client-overlay {
+  opacity: 0.6;
+}
+
+/* Accessible focus ring if user tabs into slide */
+.client-slide:focus-visible {
+  outline: 3px solid rgba(20, 184, 166, 0.18); /* teal-ish focus */
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+/* Progress bar (keeps your gradient) */
+.splide__progress {
+  background: rgba(0, 0, 0, 0.06);
+  height: 6px;
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.splide__progress__bar {
+  background: linear-gradient(
+    90deg,
+    var(--accent-start, #14b8a6),
+    var(--accent-end, #f97316)
+  );
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* RESPONSIVE: adjust slide height so images stay prominent */
+@media (min-width: 1280px) {
+  .client-slide {
+    height: 420px;
   }
 }
-/* =========================
-   ADD TO src/assets/style.css
-   ========================= */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .client-slide {
+    height: 420px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .client-slide {
+    height: 420px;
+  }
+}
+@media (max-width: 767px) {
+  .client-slide {
+    height: 300px;
+  }
+  .client-image {
+    transition: transform 0.25s ease;
+  }
+}
 
-/* grayscale + smooth reveal */
-.client-logo {
-  filter: grayscale(95%) contrast(1.05) brightness(0.95);
-  transition: filter 0.4s ease, transform 0.35s ease;
-}
-.client-logo:hover {
-  filter: grayscale(0%) contrast(1.1) brightness(1);
-  transform: scale(1.05);
-}
-
-/* card wrapper */
-.client-card {
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s;
-}
-.client-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.15);
-}
+/* If you want images to be center-contained instead of cover, switch to object-fit: contain */
+/* .client-image { object-fit: contain; background: transparent; } */
 
 /* section title underline */
 .section-title {
@@ -397,6 +447,78 @@ nav {
   /* subtle accent wash behind the section */
   overflow: visible;
 }
+/* electric border wrapper — modeled after your sample */
+/* --- ELECTRIC BORDER WRAPPER --- */
+.electric-border {
+  position: relative;
+  border-radius: 1rem;
+  padding: 0; /* remove padding so the ring aligns properly */
+  isolation: isolate;
+  z-index: 0;
+  overflow: visible;
+}
+
+/* create a glowing electric ring BEHIND the card */
+.electric-border::before,
+.electric-border::after {
+  content: "";
+  position: absolute;
+  inset: -3px; /* controls thickness of the outer glow */
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    var(--accent-start, #14b8a6),
+    var(--accent-mid, #06b6d4),
+    var(--accent-end, #f97316)
+  );
+  filter: url(#turbulent-displace);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* soft blurred bloom glow */
+.electric-border::after {
+  filter: blur(18px) url(#turbulent-displace);
+  opacity: 0.45;
+  animation: electric-flicker 2.6s ease-in-out infinite;
+}
+
+@keyframes electric-flicker {
+  0% {
+    opacity: 0.45;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-0.5px);
+  }
+  100% {
+    opacity: 0.45;
+    transform: translateY(0);
+  }
+}
+
+/* card itself (stays above the glow) */
+.electric-border > .service-card {
+  position: relative;
+  z-index: 1; /* sits above glow */
+  background: linear-gradient(
+    180deg,
+    rgba(10, 15, 30, 0.8),
+    rgba(5, 10, 25, 0.75)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .electric-border::after {
+    animation: none;
+    filter: blur(12px);
+  }
+}
 
 .services-section::before {
   content: "";
@@ -422,7 +544,7 @@ nav {
 /* Card surface (dark glass look) */
 .service-card {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   border-radius: 1rem;
   padding: 1.75rem;
   background: linear-gradient(
@@ -842,4 +964,45 @@ img[alt="Logo"] {
 /* if you want a slightly different easing / duration you can override here */
 .preloader-fade {
   transition: opacity 500ms ease-out;
+}
+.box {
+  position: relative;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  z-index: 0; /* create stacking context */
+}
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.box::before,
+.box::after {
+  content: "";
+  position: absolute;
+  inset: 0; /* or slightly negative for thicker glow */
+  border-radius: inherit;
+  padding: 4px; /* simulate border width */
+  background: conic-gradient(from var(--angle), #14b8a6, #fff, #f97316);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out; /* Safari support */
+  z-index: -1;
+  animation: rotate 3s linear infinite;
+}
+
+.box::after {
+  filter: blur(25px);
+  opacity: 0.8;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
 }
