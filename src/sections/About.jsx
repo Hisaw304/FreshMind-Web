@@ -51,7 +51,7 @@ export default function About() {
   return (
     <div>
       {/* --- Hero Section --- */}
-      <section className="mb-8 py-10 bg-white">
+      <section className="mb-8 py-10 ">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <h2 className="section-title text-3xl md:text-4xl font-bold text-slate-800 mb-6">
             Successful businesses start with a strong online foundation.
@@ -128,7 +128,7 @@ export default function About() {
       </section>
 
       {/* --- Mission Section --- */}
-      <section className="py-10 bg-white text-center">
+      <section className="py-10 text-center">
         <div className="max-w-3xl mx-auto px-6">
           <h3 className="section-title text-2xl md:text-3xl font-semibold mb-4 text-slate-800">
             Our Mission

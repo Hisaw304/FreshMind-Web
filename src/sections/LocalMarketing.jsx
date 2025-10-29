@@ -50,7 +50,7 @@ export default function LocalMarketing({ cities = [] }) {
 
   return (
     <section
-      className="mb-8 py-10 bg-slate-50 local-marketing"
+      className="mb-8 py-10 local-marketing"
       aria-labelledby="local-marketing-title"
     >
       <div className="max-w-6xl mx-auto px-6">
