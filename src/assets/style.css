@@ -447,23 +447,130 @@ nav {
   /* subtle accent wash behind the section */
   overflow: visible;
 }
-/* electric border wrapper — modeled after your sample */
+/* electric border wrapper — modeled after your sample
 /* --- ELECTRIC BORDER WRAPPER --- */
+/* --- ELECTRIC ENERGY BORDER --- */
 .electric-border {
   position: relative;
   border-radius: 1rem;
-  padding: 0; /* remove padding so the ring aligns properly */
+  overflow: visible;
+  isolation: isolate;
+  z-index: 0;
+}
+
+/* shimmering energy ring */
+.electric-border::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  background: linear-gradient(
+    115deg,
+    #14b8a6,
+    #06b6d4 25%,
+    #f97316 50%,
+    #06b6d4 75%,
+    #14b8a6
+  );
+  background-size: 300% 300%;
+  filter: blur(3px);
+  opacity: 0.9;
+  animation: energyFlow 4s linear infinite, energyPulse 3s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* diffuse outer glow bloom */
+.electric-border::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, #14b8a6, #06b6d4, #f97316);
+  filter: blur(22px);
+  opacity: 0.45;
+  animation: energyPulse 4s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* inner card */
+.electric-border > .service-card {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 18, 35, 0.88),
+    rgba(6, 10, 25, 0.82)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border-radius: inherit;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* lift effect */
+.electric-border:hover > .service-card {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(20, 184, 166, 0.25),
+    0 0 32px rgba(249, 115, 22, 0.1);
+}
+
+/* animations */
+@keyframes energyFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes energyPulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}
+
+/* mobile-friendly optimization */
+@media (max-width: 640px) {
+  .electric-border::before {
+    inset: -2px;
+    filter: blur(2px);
+    opacity: 0.7;
+  }
+  .electric-border::after {
+    inset: -4px;
+    filter: blur(12px);
+    opacity: 0.35;
+  }
+}
+
+/* .electric-border {
+  position: relative;
+  border-radius: 1rem;
+  padding: 0;
   isolation: isolate;
   z-index: 0;
   overflow: visible;
 }
 
-/* create a glowing electric ring BEHIND the card */
+
 .electric-border::before,
 .electric-border::after {
   content: "";
   position: absolute;
-  inset: -3px; /* controls thickness of the outer glow */
+  inset: -3px; 
   border-radius: inherit;
   background: linear-gradient(
     90deg,
@@ -477,7 +584,7 @@ nav {
   z-index: 0;
 }
 
-/* soft blurred bloom glow */
+
 .electric-border::after {
   filter: blur(18px) url(#turbulent-displace);
   opacity: 0.45;
@@ -499,10 +606,10 @@ nav {
   }
 }
 
-/* card itself (stays above the glow) */
+
 .electric-border > .service-card {
   position: relative;
-  z-index: 1; /* sits above glow */
+  z-index: 1; 
   background: linear-gradient(
     180deg,
     rgba(10, 15, 30, 0.8),
@@ -512,15 +619,14 @@ nav {
   backdrop-filter: blur(6px);
 }
 
-/* reduced motion */
+
 @media (prefers-reduced-motion: reduce) {
   .electric-border::after {
     animation: none;
     filter: blur(12px);
   }
-}
-
-.services-section::before {
+} */
+*/ .services-section::before {
   content: "";
   position: absolute;
   inset: 0;

@@ -17,7 +17,7 @@ export default function App() {
     <div className="flex flex-col min-h-screen">
       {/* Invisible SVG filter for electric borders */}
       {/* Invisible, global SVG filter for electric borders */}
-      <svg
+      {/* <svg
         id="electric-filters"
         style={{ position: "absolute", width: 0, height: 0 }}
         aria-hidden="true"
@@ -32,7 +32,6 @@ export default function App() {
             width="140%"
             height="140%"
           >
-            {/* layered turbulence + animated offsets to mimic the sample */}
             <feTurbulence
               type="turbulence"
               baseFrequency="0.02"
@@ -119,7 +118,7 @@ export default function App() {
             />
           </filter>
         </defs>
-      </svg>
+      </svg> */}
 
       <Navbar />
       <main className="flex-1">
