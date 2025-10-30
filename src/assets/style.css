@@ -124,26 +124,13 @@ nav {
 /* Section wrapper */
 .clients-carousel-section {
   padding: 3.5rem 0;
-
   color: #0f172a;
 }
 
 /* container like max-w-6xl centered */
 .clients-carousel-section .container {
   max-width: 84rem;
-  margin: 0 auto;
   padding: 0 1.5rem;
-}
-
-/* heading */
-.clients-heading {
-  font-size: 2.25rem;
-  font-weight: 800;
-  margin-bottom: 1.25rem;
-  letter-spacing: -0.02em;
-}
-.clients-heading .accent {
-  color: var(--accent-end);
 }
 
 /* Splide progress */
