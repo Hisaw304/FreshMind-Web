@@ -59,7 +59,7 @@ export default function Services() {
         <div className="text-center mb-14 relative z-10">
           <h2
             id="services-heading"
-            className="text-3xl md:text-4xl font-bold text-white mb-4"
+            className="text-3xl section-title md:text-4xl font-bold text-white mb-4"
           >
             What We Do
           </h2>

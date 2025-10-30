@@ -114,7 +114,7 @@ export default function Hero({
 
               <a
                 href={`tel:${phone.replace(/[^\d+]/g, "")}`}
-                className="inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold text-slate-300 hover:text-teal-300 transition"
+                className="inline-flex border border-teal-50 items-center justify-center rounded-xl px-6 py-3 font-semibold text-slate-300 hover:text-teal-300 transition"
               >
                 Call {phone}
               </a>
@@ -125,7 +125,7 @@ export default function Hero({
               className="mt-10 text-xl font-semibold text-orange-400"
               variants={item}
             >
-              Looking for website design near&nbsp;
+              Looking for website developer near&nbsp;
               <ReactTyped
                 className="inline-block text-orange-300 font-bold"
                 strings={cities}

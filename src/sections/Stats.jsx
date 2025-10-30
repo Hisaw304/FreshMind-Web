@@ -110,17 +110,16 @@ export default function Stats() {
       className="mb-8 py-10 stats-section"
       aria-labelledby="stats-heading"
     >
+      <div className="max-w-6xl mx-auto px-6">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4">
+          Results <span className="text-orange-500">You Can Trust</span>
+        </h1>
+      </div>
+
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center stats-inner">
         {/* Stats side */}
         <div ref={containerRef} tabIndex={-1} onKeyDown={onKeyDown}>
-          <h2
-            id="stats-heading"
-            className="section-title text-3xl md:text-4xl font-bold text-slate-800 mb-6"
-          >
-            Results You Can Trust
-          </h2>
-
-          <p className="text-slate-600 mb-10">
+          <p className="text-slate-700 mb-10">
             Our experience and proven track record help businesses grow with
             measurable results. From local startups to international brands, we
             deliver strategies that work.

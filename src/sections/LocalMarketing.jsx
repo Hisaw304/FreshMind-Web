@@ -49,21 +49,15 @@ export default function LocalMarketing({ cities = [] }) {
   }, []);
 
   return (
-    <section
-      className="mb-8 py-10 local-marketing"
-      aria-labelledby="local-marketing-title"
-    >
+    <section className="mb-8 py-10 local-marketing">
       <div className="max-w-6xl mx-auto px-6">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4">
+          Local <span className="text-orange-500">Marketing Professionals</span>
+        </h1>
+
         <div className="grid md:grid-cols-2 gap-10 items-center">
           {/* Left column */}
           <div>
-            <h2
-              id="local-marketing-title"
-              className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4"
-            >
-              Local Digital Marketing Professionals
-            </h2>
-
             <p className="text-lg text-slate-600 mb-6">
               Currently helping businesses grow in cities across the US, UK,
               Scotland, and beyond.

@@ -125,17 +125,18 @@ export default function ContactForm() {
 
   return (
     <section className="bg-gradient-to-br py-10 from-slate-50 to-slate-100 rounded-2xl shadow-xl">
+      <div className="max-w-6xl mx-auto mb-14 px-6">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4">
+          Let’s <span className="text-orange-500">Build</span> Something Great
+        </h2>
+        <p className="text-slate-600">
+          Have questions or ready to start your next project? Reach out using
+          the form, or contact us directly through the details below.
+        </p>
+      </div>
       <div className="px-6 grid md:grid-cols-2 gap-12 items-start">
         {/* Left Column - Info */}
         <div className="space-y-6">
-          <h2 className="text-4xl font-bold text-slate-800">
-            Let’s <span className="text-orange-500">Build</span> Something Great
-          </h2>
-          <p className="text-slate-600">
-            Have questions or ready to start your next project? Reach out using
-            the form, or contact us directly through the details below.
-          </p>
-
           <div className="space-y-4">
             <ContactInfo
               icon={<Phone className="text-orange-500" />}

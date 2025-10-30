@@ -52,14 +52,21 @@ export default function About() {
     <div>
       {/* --- Hero Section --- */}
       <section className="mb-8 py-10 ">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="section-title text-3xl md:text-4xl font-bold text-slate-800 mb-6">
+        <div className="max-w-5xl mx-auto px-6 ">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4">
+            Trusted by{" "}
+            <span className="text-orange-500">Ambitious Businesses</span>
+          </h1>
+
+          <p className="text-lg text-slate-700 font-medium max-w-2xl mb-6">
             Successful businesses start with a strong online foundation.
-          </h2>
-          <p className="text-lg text-slate-600 mb-6">
+          </p>
+
+          {/* Body Text */}
+          <p className="text-lg text-slate-700 font-medium mb-6">
             Your website and digital presence should work as hard as you do.
-            That’s why we design and market websites that not only look great
-            but also deliver real results.
+            That’s why we design and market websites that not only look great,
+            but also deliver real growth and results.
           </p>
           <p className="text-lg text-slate-700 font-medium mb-6">
             We specialize in helping businesses shine in their own communities.
@@ -76,7 +83,7 @@ export default function About() {
               </>
             )}
           </p>
-          <p className="text-lg text-slate-600 mb-8">
+          <p className="text-lg text-slate-700 font-medium mb-6">
             Our approach blends creative design, smart technology, and marketing
             strategies tailored to your market—so you can focus on what you do
             best while we help you get noticed.

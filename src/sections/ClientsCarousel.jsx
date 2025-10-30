@@ -35,11 +35,15 @@ export default function ClientsCarousel() {
   const progressBarRef = useRef(null);
 
   return (
-    <section className="bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+    <section className="bg-gradient-to-b mb-8 py-10  from-slate-50 to-white relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="section-title text-3xl md:text-5xl font-extrabold text-center mb-14 text-slate-800">
+        {/* <h2 className="section-title text-3xl md:text-5xl font-extrabold text-center text-slate-800">
           Companies We’ve Worked With
-        </h2>
+        </h2> */}
+
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4">
+          Companies We've <span className="text-orange-500">Worked With</span>
+        </h1>
 
         <div>
           <Splide

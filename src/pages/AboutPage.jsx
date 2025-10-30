@@ -144,11 +144,32 @@ export const PORTFOLIO = [
 export default function AboutPage() {
   return (
     <div className="bg-slate-50">
+      {/* About CTA Section */}
+      <section className="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-20 text-center">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-4xl sm:text-5xl font-extrabold mb-4">
+            Ready to Grow With a Team That Cares?
+          </h2>
+          <p className="text-lg opacity-85 mb-8">
+            We don’t just build digital experiences — we build long-term
+            partnerships. Let’s talk about how we can help your business scale
+            with confidence.
+          </p>
+
+          <a
+            href="/contact"
+            className="inline-block bg-orange-500 hover:bg-orange-600 transition px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl"
+          >
+            Let’s Connect
+          </a>
+        </div>
+      </section>
+
       {/* Hero / intro — reuse your existing About hero */}
       <About />
 
       {/* Consulting overview */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 ">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h3 className="text-2xl md:text-3xl font-semibold text-slate-800 mb-4">
             Website Strategy & Consulting
@@ -161,7 +182,7 @@ export default function AboutPage() {
       </section>
 
       {/* Full-service offerings — responsive grid */}
-      <section className="py-16 bg-white">
+      <section className="py-16 ">
         <div className="max-w-6xl mx-auto px-6">
           <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-slate-800">
             What We Do
@@ -180,7 +201,7 @@ export default function AboutPage() {
       </section>
 
       {/* Portfolio / Visual Work */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 ">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-start justify-between gap-6 mb-6">
             <div>
@@ -209,7 +230,7 @@ export default function AboutPage() {
       </section>
 
       {/* Why it matters - compact card */}
-      <section className="py-16 bg-white">
+      <section className="py-16 ">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-slate-800">
             Why Strong Design Matters
@@ -226,7 +247,7 @@ export default function AboutPage() {
       <section className="py-10 bg-slate-900">
         <div className="max-w-6xl mx-auto px-6 text-center">
           {/* Heading */}
-          <h3 className="text-2xl md:text-3xl font-semibold text-white mb-4">
+          <h3 className="text-2xl section-title md:text-3xl font-semibold text-white mb-4">
             How We Can Help You
           </h3>
           <p className="text-lg text-slate-300 mb-10">
