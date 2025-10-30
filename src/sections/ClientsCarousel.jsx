@@ -39,9 +39,11 @@ export default function ClientsCarousel() {
   return (
     <section className="clients-carousel-section">
       <div className="container">
-        <h2 className="clients-heading">
-          Companies We’ve <span className="accent">Worked With</span>
-        </h2>
+        <div className="max-w-5xl mx-auto px-6 ">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4">
+            Companies We've <span className="text-orange-500">Worked With</span>
+          </h1>
+        </div>
 
         <Splide
           options={{
