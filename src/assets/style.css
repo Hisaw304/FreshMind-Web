@@ -16,6 +16,9 @@
   --accent-mid: #06b6d4; /* optional subtle cyan */
   --card-bg: rgba(255, 255, 255, 0.98);
   --glass-border: rgba(255, 255, 255, 0.06);
+
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-radius: 20px;
 }
 .float-slow {
   animation: float 6s ease-in-out infinite;
@@ -113,117 +116,248 @@ nav {
   }
 }
 
-/* ------------------------
-   Clients carousel - image cards
-   ------------------------ */
+/* clients-carousel.css
+   Senior-level styling: glass card, rotating conic ring, 3D tilt, caption overlay.
+   Drop this next to the component and import it.
+*/
 
-/* Slide container — image is the card */
-.client-slide {
-  position: relative;
-  width: 100%;
-  height: 420px; /* default large size; see responsive rules below */
-  border-radius: 14px;
+/* Section wrapper */
+.clients-carousel-section {
+  padding: 3.5rem 0;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); /* subtle */
+  color: #0f172a;
+}
+
+/* container like max-w-6xl centered */
+.clients-carousel-section .container {
+  max-width: 84rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* heading */
+.clients-heading {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+.clients-heading .accent {
+  color: var(--accent-end);
+}
+
+/* Splide progress */
+.splide-progress {
+  margin-top: 1.25rem;
+  height: 6px;
+  background: rgba(15, 23, 42, 0.06);
+  border-radius: 999px;
   overflow: hidden;
-  display: block;
-  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.25); /* soft shadow to lift from page */
-  transition: transform 280ms cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 280ms;
+}
+.splide-progress-bar {
+  height: 100%;
+  width: 0%;
+  transition: width 300ms linear;
+  background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
 }
 
-/* Hover & focus: subtle lift */
-.client-slide:hover,
-.client-slide:focus-within {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 48px rgba(2, 6, 23, 0.32);
+/* Card base */
+.client-card {
+  position: relative;
+  border-radius: var(--card-radius);
+  overflow: visible;
+  height: 0; /* controlled by aspect-ratio below */
+  padding-bottom: 68%; /* approx aspect-ratio 16:10 for visual cards */
+  transform-style: preserve-3d;
+  perspective: 1400px;
+  cursor: pointer;
   outline: none;
+  transition: transform 360ms cubic-bezier(0.2, 0.9, 0.25, 1), box-shadow 360ms;
 }
 
-/* The image fills the slide and crops gracefully */
+/* make interactive focus visible */
+.client-card:focus-visible {
+  box-shadow: 0 8px 30px rgba(20, 184, 166, 0.12);
+  transform: translateY(-6px) scale(1.01);
+}
+
+/* animated conic ring behind the card (thin) */
+.client-card .ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    var(--accent-start),
+    var(--accent-mid),
+    var(--accent-end),
+    var(--accent-start)
+  );
+  z-index: 0;
+  filter: blur(10px);
+  opacity: 0.85;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+  transform-origin: center;
+  animation: ringRotate 9s linear infinite;
+  mix-blend-mode: screen;
+}
+
+/* inner soft ring (crisp) using mask to appear as border */
+.client-card .ring::after {
+  content: "";
+  position: absolute;
+  inset: 6px; /* thickness of the visible ring */
+  border-radius: inherit;
+  background: rgba(0, 0, 0, 0.35); /* inner hole */
+  /* create a hollow ring */
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 8px),
+    black calc(100% - 8px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 8px),
+    black calc(100% - 8px)
+  );
+  mix-blend-mode: normal;
+}
+
+/* image wrapper sits above ring */
+.client-card .media-wrap {
+  position: absolute;
+  inset: 6px; /* leave some space so the ring is visible */
+  border-radius: calc(var(--card-radius) - 6px);
+  overflow: hidden;
+  z-index: 2;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  transform-origin: center;
+  transition: transform 420ms cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+
+/* actual image */
 .client-image {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* key: image is the card */
+  object-fit: cover;
   object-position: center;
-  -webkit-user-drag: none;
-  user-select: none;
-  transition: transform 0.45s ease, opacity 0.35s ease;
+  transform-origin: center;
+  transition: transform 600ms cubic-bezier(0.2, 0.9, 0.25, 1), filter 400ms;
+  will-change: transform;
+  filter: grayscale(40%) contrast(1.02) brightness(0.95);
 }
 
-/* Slight zoom on hover for lively feel */
-.client-slide:hover .client-image {
-  transform: scale(1.03);
-}
-
-/* Subtle overlay to harmonize images and preserve contrast */
-.client-overlay {
+/* caption overlay (bottom) */
+.client-caption {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.12) 0%,
-    rgba(0, 0, 0, 0.08) 40%,
-    rgba(0, 0, 0, 0.16) 100%
-  );
-  mix-blend-mode: multiply;
-  opacity: 1;
-  transition: opacity 200ms ease;
-}
-
-/* Make overlay slightly reduce on hover to reveal more color */
-.client-slide:hover .client-overlay {
-  opacity: 0.6;
-}
-
-/* Accessible focus ring if user tabs into slide */
-.client-slide:focus-visible {
-  outline: 3px solid rgba(20, 184, 166, 0.18); /* teal-ish focus */
-  outline-offset: 4px;
+  left: 14px;
+  right: 14px;
+  bottom: 18px;
+  z-index: 6;
   border-radius: 12px;
+  padding: 10px 14px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.16));
+  color: #fff;
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 6px 30px rgba(2, 6, 23, 0.25);
+  transition: transform 300ms ease, opacity 300ms ease;
 }
 
-/* Progress bar (keeps your gradient) */
-.splide__progress {
-  background: rgba(0, 0, 0, 0.06);
-  height: 6px;
-  border-radius: 9999px;
-  overflow: hidden;
-  margin-top: 1rem;
+/* name and small index */
+.client-title {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.client-name {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+}
+.client-index {
+  display: inline-block;
+  font-size: 12px;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  color: #fff;
+  opacity: 0.95;
+  font-weight: 600;
 }
 
-.splide__progress__bar {
-  background: linear-gradient(
-    90deg,
-    var(--accent-start, #14b8a6),
-    var(--accent-end, #f97316)
-  );
-  height: 100%;
-  width: 0%;
-  transition: width 0.3s ease;
+/* hover/interaction: tilt and pop */
+.client-card:hover,
+.client-card:focus-within {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 28px 80px rgba(2, 6, 23, 0.22);
+}
+.client-card:hover .media-wrap,
+.client-card:focus-within .media-wrap {
+  transform: translateY(-6px) scale(1.02);
+}
+.client-card:hover .client-image {
+  transform: scale(1.06);
+  filter: grayscale(0%) contrast(1.03) brightness(1.02);
+}
+.client-card:hover .ring {
+  filter: blur(14px);
+  opacity: 1;
+  animation-play-state: running;
 }
 
-/* RESPONSIVE: adjust slide height so images stay prominent */
-@media (min-width: 1280px) {
-  .client-slide {
-    height: 420px;
+/* subtle parallax mouse move tilt (JS-free CSS alternative) */
+.client-card:active .media-wrap {
+  transform: translateY(-4px) scale(1.01) translateZ(0);
+}
+
+/* make the carousel items nicely spaced on small screens */
+@media (max-width: 639px) {
+  .client-card {
+    padding-bottom: 78%;
+    border-radius: 14px;
+  }
+  .client-caption {
+    left: 12px;
+    right: 12px;
+    bottom: 14px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  .client-name {
+    font-size: 13px;
   }
 }
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .client-slide {
-    height: 420px;
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .client-card,
+  .ring {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
   }
 }
-@media (min-width: 768px) and (max-width: 1023px) {
-  .client-slide {
-    height: 420px;
+
+/* ring rotate keyframe */
+@keyframes ringRotate {
+  0% {
+    transform: rotate(0deg);
   }
-}
-@media (max-width: 767px) {
-  .client-slide {
-    height: 300px;
-  }
-  .client-image {
-    transition: transform 0.25s ease;
+  100% {
+    transform: rotate(360deg);
   }
 }
 
