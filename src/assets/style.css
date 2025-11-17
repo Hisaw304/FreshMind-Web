@@ -1,28 +1,15 @@
-/* =========================
-
-
-@keyframes gradientShift {
-0% { background-position: 0% 50%; }
-50% { background-position: 100% 50%; }
-100% { background-position: 0% 50%; }
-}
-
-
-/* subtle floating animation for decorative shapes */
 :root {
-  /* Primary accent (matches hero): teal -> orange */
-  --accent-start: #14b8a6; /* teal-ish */
-  --accent-end: #f97316; /* orange */
-  --accent-mid: #06b6d4; /* optional subtle cyan */
-  --card-bg: rgba(255, 255, 255, 0.98);
-  --glass-border: rgba(255, 255, 255, 0.06);
-
+  --accent-start: #14b8a6;
+  --accent-end: #f97316;
+  --accent-mid: #14b8a6;
   --card-bg: rgba(255, 255, 255, 0.03);
   --card-radius: 20px;
 }
+
 .float-slow {
   animation: float 6s ease-in-out infinite;
 }
+
 @keyframes float {
   0% {
     transform: translateY(0);
@@ -34,6 +21,7 @@
     transform: translateY(0);
   }
 }
+
 html,
 body {
   background-color: rgb(248, 250, 252);
@@ -43,10 +31,9 @@ body {
 }
 
 nav {
-  padding-top: env(safe-area-inset-top); /* pushes navbar content below notch */
+  padding-top: env(safe-area-inset-top);
 }
 
-/* frosted glass CTA border / focus */
 .cta-frost {
   background: linear-gradient(
     90deg,
@@ -58,23 +45,24 @@ nav {
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* gentle glow around important CTAs */
 .cta-glow {
   transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 220ms;
 }
+
 .cta-glow:hover {
   transform: translateY(-4px);
   box-shadow: 0 18px 40px rgba(8, 145, 178, 0.12);
 }
 
-/* typed cursor styling (react-typed outputs .typed-cursor) */
 .typed-cursor {
   opacity: 0.9;
   font-weight: 700;
 }
+
 .typed-cursor.blink {
   animation: blink 1s infinite;
 }
+
 @keyframes blink {
   0%,
   50% {
@@ -86,7 +74,6 @@ nav {
   }
 }
 
-/* slow blur background accent behind hero image */
 .hero-accent-blur {
   position: absolute;
   right: -4rem;
@@ -100,40 +87,31 @@ nav {
   pointer-events: none;
 }
 
-/* accessibility fallback for keyboard focus if user has reduced motion or uses keyboard */
 :focus {
   outline: none;
 }
+
 :focus-visible {
   box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.14);
   border-radius: 12px;
 }
 
-/* small helper - keep hero having enough contrast on very small screens */
 @media (max-width: 640px) {
   .gradient-animated-text {
     font-size: 1.25rem;
   }
 }
 
-/* clients-carousel.css
-   Senior-level styling: glass card, rotating conic ring, 3D tilt, caption overlay.
-   Drop this next to the component and import it.
-*/
-
-/* Section wrapper */
 .clients-carousel-section {
   padding: 3.5rem 0;
   color: #0f172a;
 }
 
-/* container like max-w-6xl centered */
 .clients-carousel-section .container {
   max-width: 84rem;
   padding: 0 1.5rem;
 }
 
-/* Splide progress */
 .splide-progress {
   margin-top: 1.25rem;
   height: 6px;
@@ -141,6 +119,7 @@ nav {
   border-radius: 999px;
   overflow: hidden;
 }
+
 .splide-progress-bar {
   height: 100%;
   width: 0%;
@@ -148,13 +127,12 @@ nav {
   background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
 }
 
-/* Card base */
 .client-card {
   position: relative;
   border-radius: var(--card-radius);
   overflow: visible;
-  height: 0; /* controlled by aspect-ratio below */
-  padding-bottom: 68%; /* approx aspect-ratio 16:10 for visual cards */
+  height: 0;
+  padding-bottom: 68%;
   transform-style: preserve-3d;
   perspective: 1400px;
   cursor: pointer;
@@ -162,13 +140,11 @@ nav {
   transition: transform 360ms cubic-bezier(0.2, 0.9, 0.25, 1), box-shadow 360ms;
 }
 
-/* make interactive focus visible */
 .client-card:focus-visible {
   box-shadow: 0 8px 30px rgba(20, 184, 166, 0.12);
   transform: translateY(-6px) scale(1.01);
 }
 
-/* animated conic ring behind the card (thin) */
 .client-card .ring {
   position: absolute;
   inset: -8px;
@@ -190,14 +166,12 @@ nav {
   mix-blend-mode: screen;
 }
 
-/* inner soft ring (crisp) using mask to appear as border */
 .client-card .ring::after {
   content: "";
   position: absolute;
-  inset: 6px; /* thickness of the visible ring */
+  inset: 6px;
   border-radius: inherit;
-  background: rgba(0, 0, 0, 0.35); /* inner hole */
-  /* create a hollow ring */
+  background: rgba(0, 0, 0, 0.35);
   -webkit-mask: radial-gradient(
     farthest-side,
     transparent calc(100% - 8px),
@@ -211,10 +185,9 @@ nav {
   mix-blend-mode: normal;
 }
 
-/* image wrapper sits above ring */
 .client-card .media-wrap {
   position: absolute;
-  inset: 6px; /* leave some space so the ring is visible */
+  inset: 6px;
   border-radius: calc(var(--card-radius) - 6px);
   overflow: hidden;
   z-index: 2;
@@ -230,7 +203,6 @@ nav {
   transition: transform 420ms cubic-bezier(0.2, 0.9, 0.25, 1);
 }
 
-/* actual image */
 .client-image {
   display: block;
   width: 100%;
@@ -239,11 +211,9 @@ nav {
   object-position: center;
   transform-origin: center;
   transition: transform 600ms cubic-bezier(0.2, 0.9, 0.25, 1), filter 400ms;
-  will-change: transform;
   filter: grayscale(40%) contrast(1.02) brightness(0.95);
 }
 
-/* caption overlay (bottom) */
 .client-caption {
   position: absolute;
   left: 14px;
@@ -263,17 +233,18 @@ nav {
   transition: transform 300ms ease, opacity 300ms ease;
 }
 
-/* name and small index */
 .client-title {
   display: flex;
   gap: 12px;
   align-items: center;
 }
+
 .client-name {
   font-weight: 700;
   font-size: 14px;
   letter-spacing: -0.01em;
 }
+
 .client-index {
   display: inline-block;
   font-size: 12px;
@@ -285,37 +256,38 @@ nav {
   font-weight: 600;
 }
 
-/* hover/interaction: tilt and pop */
 .client-card:hover,
 .client-card:focus-within {
   transform: translateY(-8px) scale(1.01);
   box-shadow: 0 28px 80px rgba(2, 6, 23, 0.22);
 }
+
 .client-card:hover .media-wrap,
 .client-card:focus-within .media-wrap {
   transform: translateY(-6px) scale(1.02);
 }
+
 .client-card:hover .client-image {
   transform: scale(1.06);
   filter: grayscale(0%) contrast(1.03) brightness(1.02);
 }
+
 .client-card:hover .ring {
   filter: blur(14px);
   opacity: 1;
   animation-play-state: running;
 }
 
-/* subtle parallax mouse move tilt (JS-free CSS alternative) */
 .client-card:active .media-wrap {
   transform: translateY(-4px) scale(1.01) translateZ(0);
 }
 
-/* make the carousel items nicely spaced on small screens */
 @media (max-width: 639px) {
   .client-card {
     padding-bottom: 78%;
     border-radius: 14px;
   }
+
   .client-caption {
     left: 12px;
     right: 12px;
@@ -323,12 +295,12 @@ nav {
     padding: 8px 10px;
     font-size: 13px;
   }
+
   .client-name {
     font-size: 13px;
   }
 }
 
-/* reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .client-card,
   .ring {
@@ -338,7 +310,6 @@ nav {
   }
 }
 
-/* ring rotate keyframe */
 @keyframes ringRotate {
   0% {
     transform: rotate(0deg);
@@ -348,16 +319,11 @@ nav {
   }
 }
 
-/* If you want images to be center-contained instead of cover, switch to object-fit: contain */
-/* .client-image { object-fit: contain; background: transparent; } */
-
-/* section title underline */
 .section-title {
   position: relative;
-  display: inline-block; /* keep heading’s own width */
+  display: inline-block;
 }
 
-/* Heading underline (match hero) */
 .section-title::after {
   content: "";
   position: absolute;
@@ -369,23 +335,19 @@ nav {
   border-radius: 9999px;
 }
 
-/* Splide progress bar */
 .splide__progress {
-  background: #e5e7eb; /* light gray track */
+  background: #e5e7eb;
   height: 4px;
   border-radius: 2px;
   overflow: hidden;
   margin-top: 1.25rem;
 }
+
 .splide__progress__bar {
   background: linear-gradient(90deg, #6366f1, #ec4899);
   height: 100%;
   transition: width 0.3s ease;
 }
-
-/* =========================
-   END CSS BLOCK
-   ========================= */
 
 /* -------------------------
   Stats section + card styles
@@ -530,15 +492,20 @@ nav {
  Uses your root variables: --accent-start, --accent-end, --glass-border
  --------------------------- */
 
+/* ===========================
+   SERVICES SECTION WRAPPER
+=========================== */
 .services-section {
   position: relative;
-  /* subtle accent wash behind the section */
   overflow: visible;
 }
-/* electric border wrapper — modeled after your sample
-/* --- ELECTRIC BORDER WRAPPER --- */
-/* --- ELECTRIC ENERGY BORDER --- */
-.electric-border {
+
+/* ===========================
+   PER-ITEM WRAPPER (neutral)
+   used instead of .electric-border
+=========================== */
+.service-item {
+  /* neutral wrapper so we can add per-item spacing or layout-specific hooks later */
   position: relative;
   border-radius: 1rem;
   overflow: visible;
@@ -546,176 +513,10 @@ nav {
   z-index: 0;
 }
 
-/* shimmering energy ring */
-.electric-border::before {
-  content: "";
-  position: absolute;
-  inset: -3px;
-  border-radius: inherit;
-  background: linear-gradient(
-    115deg,
-    #14b8a6,
-    #06b6d4 25%,
-    #f97316 50%,
-    #06b6d4 75%,
-    #14b8a6
-  );
-  background-size: 300% 300%;
-  filter: blur(3px);
-  opacity: 0.9;
-  animation: energyFlow 4s linear infinite, energyPulse 3s ease-in-out infinite;
-  z-index: 0;
-}
-
-/* diffuse outer glow bloom */
-.electric-border::after {
-  content: "";
-  position: absolute;
-  inset: -6px;
-  border-radius: inherit;
-  background: linear-gradient(120deg, #14b8a6, #06b6d4, #f97316);
-  filter: blur(22px);
-  opacity: 0.45;
-  animation: energyPulse 4s ease-in-out infinite;
-  z-index: 0;
-}
-
-/* inner card */
-.electric-border > .service-card {
-  position: relative;
-  z-index: 1;
-  background: linear-gradient(
-    180deg,
-    rgba(12, 18, 35, 0.88),
-    rgba(6, 10, 25, 0.82)
-  );
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  border-radius: inherit;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-/* lift effect */
-.electric-border:hover > .service-card {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(20, 184, 166, 0.25),
-    0 0 32px rgba(249, 115, 22, 0.1);
-}
-
-/* animations */
-@keyframes energyFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes energyPulse {
-  0% {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.75;
-    transform: scale(1.02);
-  }
-  100% {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-}
-
-/* mobile-friendly optimization */
-@media (max-width: 640px) {
-  .electric-border::before {
-    inset: -2px;
-    filter: blur(2px);
-    opacity: 0.7;
-  }
-  .electric-border::after {
-    inset: -4px;
-    filter: blur(12px);
-    opacity: 0.35;
-  }
-}
-
-/* .electric-border {
-  position: relative;
-  border-radius: 1rem;
-  padding: 0;
-  isolation: isolate;
-  z-index: 0;
-  overflow: visible;
-}
-
-
-.electric-border::before,
-.electric-border::after {
-  content: "";
-  position: absolute;
-  inset: -3px; 
-  border-radius: inherit;
-  background: linear-gradient(
-    90deg,
-    var(--accent-start, #14b8a6),
-    var(--accent-mid, #06b6d4),
-    var(--accent-end, #f97316)
-  );
-  filter: url(#turbulent-displace);
-  mix-blend-mode: screen;
-  pointer-events: none;
-  z-index: 0;
-}
-
-
-.electric-border::after {
-  filter: blur(18px) url(#turbulent-displace);
-  opacity: 0.45;
-  animation: electric-flicker 2.6s ease-in-out infinite;
-}
-
-@keyframes electric-flicker {
-  0% {
-    opacity: 0.45;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 0.6;
-    transform: translateY(-0.5px);
-  }
-  100% {
-    opacity: 0.45;
-    transform: translateY(0);
-  }
-}
-
-
-.electric-border > .service-card {
-  position: relative;
-  z-index: 1; 
-  background: linear-gradient(
-    180deg,
-    rgba(10, 15, 30, 0.8),
-    rgba(5, 10, 25, 0.75)
-  );
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(6px);
-}
-
-
-@media (prefers-reduced-motion: reduce) {
-  .electric-border::after {
-    animation: none;
-    filter: blur(12px);
-  }
-} */
-
-/* Card surface (dark glass look) */
+/* ===========================
+   SERVICE CARD CORE STYLE
+   (dark glass, hover lift, accessible focus)
+=========================== */
 .service-card {
   position: relative;
   z-index: 2;
@@ -723,8 +524,8 @@ nav {
   padding: 1.75rem;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.02),
-    rgba(255, 255, 255, 0.01)
+    rgba(12, 18, 35, 0.88),
+    rgba(6, 10, 25, 0.82)
   );
   border: 1px solid rgba(255, 255, 255, 0.04);
   color: #fff;
@@ -733,31 +534,38 @@ nav {
   min-height: 100%;
   transition: transform 280ms cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 280ms;
   will-change: transform, box-shadow;
-  overflow: hidden;
+
+  outline: none;
 }
 
-/* Card directional shadows: left and bottom emphasis */
+/* subtle default shadow for separation */
 .service-shadow {
-  box-shadow:
-    /* left shadow */ -12px 10px 28px rgba(2, 6, 23, 0.4),
-    /* bottom shadow */ 0 26px 60px rgba(2, 6, 23, 0.45);
+  box-shadow: -12px 10px 28px rgba(2, 6, 23, 0.28),
+    0 20px 48px rgba(2, 6, 23, 0.32);
 }
 
-/* Hover / focus lift with warm accent glow */
+/* hover / focus lift with warm accent glow */
 .service-card:hover,
 .service-card:focus-within {
   transform: translateY(-8px);
   box-shadow: -14px 12px 36px rgba(2, 6, 23, 0.36),
-    0 40px 80px rgba(249, 115, 22, 0.07); /* faint warm glow */
+    0 40px 80px rgba(249, 115, 22, 0.07);
 }
 
-/* Number badge that sits above the card */
+/* accessible focus ring for keyboard users */
+.service-card:focus-visible {
+  box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.12),
+    -10px 8px 30px rgba(2, 6, 23, 0.3);
+}
+
+/* ===========================
+   BADGES / ICONS / TEXT
+=========================== */
 .service-badge {
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
   top: 0;
-  translate: 0 -50%;
   width: 68px;
   height: 68px;
   border-radius: 9999px;
@@ -774,14 +582,14 @@ nav {
   color: #fff;
   box-shadow: 0 10px 30px rgba(2, 6, 23, 0.45);
   z-index: 3;
+  pointer-events: none;
 }
 
-/* Small icon container (circle) */
 .icon-wrap {
   width: 62px;
   height: 62px;
   border-radius: 9999px;
-  display: inline-grid;
+  display: grid;
   place-items: center;
   background: linear-gradient(
     135deg,
@@ -792,22 +600,19 @@ nav {
   box-shadow: 0 12px 24px rgba(2, 6, 23, 0.4) inset;
 }
 
-/* Thin divider line like the reference */
 .service-divider {
   height: 1px;
   background: rgba(255, 255, 255, 0.04);
   margin: 1.25rem 0;
 }
 
-/* title style override so it's bold and centered like the screenshot */
 .service-title {
-  font-size: 1.35rem; /* approx 22px */
+  font-size: 1.35rem;
   font-weight: 700;
   color: #fff;
   margin: 0;
 }
 
-/* smaller intro text */
 .service-intro {
   color: rgba(255, 255, 255, 0.85);
   font-weight: 600;
@@ -815,187 +620,43 @@ nav {
   margin-bottom: 0.6rem;
 }
 
-/* card description */
 .service-desc {
   color: rgba(255, 255, 255, 0.72);
-  margin-top: auto; /* push description to the lower area if you want consistent spacing */
+  margin-top: auto;
   line-height: 1.55;
 }
 
-/* responsive behavior - reduce shadows on small screens for perf */
+/* ===========================
+   MOBILE OPTIMIZATION
+=========================== */
 @media (max-width: 640px) {
   .service-card {
     transform: none !important;
-    box-shadow: 0 10px 28px rgba(2, 6, 23, 0.22);
+    box-shadow: 0 10px 22px rgba(2, 6, 23, 0.22);
+  }
+
+  .service-badge {
+    width: 56px;
+    height: 56px;
+    font-size: 18px;
+    border-width: 2px;
+  }
+
+  .icon-wrap {
+    width: 52px;
+    height: 52px;
   }
 }
 
-/* respects reduced motion */
+/* ===========================
+   REDUCED MOTION (accessibility)
+=========================== */
 @media (prefers-reduced-motion: reduce) {
   .service-card,
   .service-badge,
   .icon-wrap {
     transition: none !important;
   }
-}
-/* =========================
-   FloatingActions — premium box-pointer
-   ========================= */
-
-.floating-dock {
-  position: relative;
-  z-index: 60;
-  display: inline-flex;
-  align-items: center;
-}
-
-.dock-inner {
-  position: relative;
-  z-index: 70;
-  will-change: transform, box-shadow;
-}
-
-/* ---------- box-style pointer tail (ground contact) ---------- */
-.box-shadow-tail {
-  position: absolute;
-  left: 50%;
-  bottom: -14px;
-  transform: translateX(-50%) rotate(-4deg);
-  width: clamp(160px, 18vw, 320px);
-  height: clamp(28px, 3.8vw, 56px);
-  border-radius: 12px;
-
-  /* base gradient for depth */
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.25) 0%,
-    rgba(0, 0, 0, 0.15) 45%,
-    rgba(0, 0, 0, 0.05) 70%,
-    transparent 100%
-  );
-
-  filter: blur(10px);
-  opacity: 0.36;
-  pointer-events: none;
-  z-index: 10;
-
-  /* multi-direction glow: black anchor + orange aura all sides */
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25),
-    /* bottom depth */ 0 -10px 22px rgba(0, 0, 0, 0.18),
-    /* top depth */ -10px 0 22px rgba(0, 0, 0, 0.2),
-    /* left depth */ 10px 0 22px rgba(0, 0, 0, 0.2),
-    /* right depth */ 0 0 32px rgba(249, 115, 22, 0.45),
-    /* center orange glow */ 0 12px 28px rgba(249, 115, 22, 0.45),
-    /* bottom orange */ 0 -12px 28px rgba(249, 115, 22, 0.35),
-    /* top orange */ -12px 0 28px rgba(249, 115, 22, 0.4),
-    /* left orange */ 12px 0 28px rgba(249, 115, 22, 0.4); /* right orange */
-
-  transition: transform 240ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 200ms ease;
-}
-
-/* subtle brand tint above the black tail */
-.box-shadow-tint {
-  position: absolute;
-  left: 50%;
-  bottom: -10px;
-  transform: translateX(-50%);
-  width: clamp(120px, 14vw, 260px);
-  height: clamp(18px, 2.8vw, 48px);
-  border-radius: 999px;
-
-  background: linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--accent-start) 28%, transparent),
-    color-mix(in srgb, var(--accent-end) 28%, transparent)
-  );
-
-  filter: blur(12px);
-  opacity: 0.18;
-  pointer-events: none;
-  z-index: 12;
-  transition: opacity 240ms ease, transform 240ms ease;
-}
-
-/* ---------- coordinated pulse (box-shadow + tail) ---------- */
-.shadow-blink .dock-inner {
-  animation: dockLift 2.6s cubic-bezier(0.2, 0.9, 0.2, 1) infinite;
-}
-
-@keyframes dockLift {
-  0% {
-    transform: translateY(0);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
-  }
-  45% {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 36px rgba(249, 115, 22, 0.55);
-  }
-  60% {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 36px rgba(249, 115, 22, 0.55);
-  }
-  100% {
-    transform: translateY(0);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
-  }
-}
-
-/* tail + tint pulse synchronized with dock */
-.shadow-blink .box-shadow-tail,
-.shadow-blink .box-shadow-tint {
-  animation: tailPulse 2.6s cubic-bezier(0.2, 0.9, 0.2, 1) infinite;
-}
-
-@keyframes tailPulse {
-  0% {
-    transform: translateX(-50%) rotate(-4deg) scaleX(0.96);
-    opacity: 0.28;
-    filter: blur(10px);
-  }
-  45% {
-    transform: translateX(-50%) rotate(-4deg) scaleX(1.1);
-    opacity: 0.7;
-    filter: blur(14px);
-  }
-  60% {
-    transform: translateX(-50%) rotate(-4deg) scaleX(1.1);
-    opacity: 0.7;
-    filter: blur(14px);
-  }
-  100% {
-    transform: translateX(-50%) rotate(-4deg) scaleX(0.96);
-    opacity: 0.28;
-    filter: blur(10px);
-  }
-}
-
-/* Pause while user interacts */
-.floating-dock:hover .dock-inner,
-.floating-dock:focus-within .dock-inner,
-.floating-dock:hover .box-shadow-tail,
-.floating-dock:focus-within .box-shadow-tail,
-.floating-dock:hover .box-shadow-tint,
-.floating-dock:focus-within .box-shadow-tint {
-  animation-play-state: paused;
-  transform: translateY(-2px);
-  opacity: 0.85;
-}
-
-/* Respect reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .shadow-blink .dock-inner,
-  .shadow-blink .box-shadow-tail,
-  .shadow-blink .box-shadow-tint {
-    animation: none;
-    transform: none;
-    opacity: 0.34;
-  }
-}
-
-/* stronger accent option */
-.shadow-pointer--accent .box-shadow-tint {
-  opacity: 0.25;
-  filter: blur(14px);
 }
 
 /* =========================
@@ -1109,7 +770,6 @@ nav {
   }
 }
 
-/* small helper: use accent variables for borders where useful */
 .border-accent {
   border-image-slice: 1;
   border-width: 1px;
@@ -1125,17 +785,10 @@ nav {
   letter-spacing: -0.02em;
 }
 
-/*
-Extra small customizations for the preloader. Tailwind handles most styling,
-but you can place additional visual tweaks here (drop-shadow, blur, etc.)
-*/
-
-/* subtle drop shadow behind the logo */
 img[alt="Logo"] {
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
 }
 
-/* if you want a slightly different easing / duration you can override here */
 .preloader-fade {
   transition: opacity 500ms ease-out;
 }

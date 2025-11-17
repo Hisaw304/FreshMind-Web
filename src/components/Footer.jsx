@@ -7,8 +7,16 @@ export default function Footer() {
       <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8">
         {/* Brand */}
         <div>
-          <h2 className="text-2xl font-bold text-white">FreshMind Web</h2>
-          <p className="mt-1 text-sm text-slate-600">
+          {/* Logo + Company Name */}
+          <Link to="/" className="flex items-center cursor-pointer">
+            {/* Logo */}
+            <img
+              src="/logo.png" // your public folder logo
+              alt="FreshMind Web Logo"
+              className="w-40 h-10 md:w-50 md:h-13 object-cover"
+            />
+          </Link>
+          <p className="mt-1 text-sm text-white">
             Building modern websites with speed & creativity
           </p>
         </div>

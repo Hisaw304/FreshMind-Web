@@ -1,68 +1,38 @@
-// src/components/FloatingActions.jsx
-import { Phone, Mail, MessageCircle } from "lucide-react";
+// components/WhatsAppFloat.jsx
 
-export default function FloatingActions({
-  phone = "+18608213853",
-  whatsapp = "18608213853",
-  email = "fishlymind@gmail.com",
-}) {
-  const actions = [
-    { href: `tel:${phone}`, label: "Call", icon: <Phone size={18} /> },
-    {
-      href: `https://wa.me/${whatsapp}?text=Hey%2C%20I%27d%20love%20to%20know%20more%20about%20your%20services!`,
-      label: "WhatsApp",
-      icon: <MessageCircle size={18} />,
-      external: true,
-    },
-    { href: `mailto:${email}`, label: "Email", icon: <Mail size={18} /> },
-  ];
-
+export default function WhatsAppFloat({ whatsapp = "18608213853" }) {
   return (
-    /* outer fixed wrapper — do NOT set position:relative here */
-    <div className="fixed bottom-6 right-6 z-[9999]">
-      {/* relative container anchors the pointer elements */}
-      <div className="floating-dock shadow-blink shadow-pointer--accent">
-        {/* visual pointer layers (DOM elements = easier to debug) */}
-        <span className="box-shadow-tail" aria-hidden />
-        <span className="box-shadow-tint" aria-hidden />
+    <a
+      href={`https://wa.me/${whatsapp}?text=Hi!%20I'm%20interested%20in%20your%20services`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        fixed bottom-6 right-6 z-[9999]
+        flex items-center justify-center
+        w-14 h-14 rounded-full
+        bg-[#25D366] shadow-xl hover:scale-110 transition
+      "
+    >
+      {/* Glow ring */}
+      <span
+        className="
+          absolute w-full h-full rounded-full
+          border-2 border-[#25D366] opacity-60
+          animate-ping
+        "
+      ></span>
 
-        {/* actual dock — keep your Tailwind styles here */}
-        <div
-          className="
-            dock-inner flex items-center gap-3 px-4 py-2
-            rounded-2xl backdrop-blur-md
-            bg-slate-900 border border-white/10
-            shadow-xl
-          "
-          role="navigation"
-          aria-label="Quick contact options"
-        >
-          {actions.map(({ href, label, icon, external }, idx) => (
-            <a
-              key={idx}
-              href={href}
-              {...(external && {
-                target: "_blank",
-                rel: "noopener noreferrer",
-              })}
-              aria-label={label}
-              className="
-                group flex items-center gap-2 px-3 py-2 rounded-xl
-                text-white hover:bg-white/10
-                transition transform hover:scale-105
-                focus:outline-none focus:ring-2 focus:ring-[--accent-start]
-              "
-            >
-              <span className="w-6 h-6 flex items-center justify-center">
-                {icon}
-              </span>
-              <span className="hidden sm:inline text-sm font-medium">
-                {label}
-              </span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </div>
+      {/* REAL WhatsApp SVG icon */}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        fill="white"
+        width="26"
+        height="26"
+        className="relative z-10"
+      >
+        <path d="M16.001 3.2c-7.065 0-12.8 5.735-12.8 12.8 0 2.256.589 4.438 1.718 6.356L3.2 28.8l6.635-1.706A12.726 12.726 0 0 0 16.001 28.8c7.065 0 12.8-5.735 12.8-12.8s-5.735-12.8-12.8-12.8Zm0 23.467a10.6 10.6 0 0 1-5.387-1.48l-.386-.229-3.94 1.013 1.047-3.837-.251-.394a10.56 10.56 0 1 1 8.917 4.927Zm6.08-7.947c-.331-.165-1.954-.964-2.256-1.075-.301-.112-.52-.165-.739.165-.218.331-.848 1.075-1.04 1.29-.19.218-.385.24-.716.082-.33-.165-1.39-.513-2.646-1.635-.978-.873-1.635-1.954-1.825-2.285-.19-.33-.02-.508.144-.673.15-.149.331-.385.496-.58.165-.196.218-.33.331-.55.113-.218.056-.413-.028-.58-.083-.165-.739-1.782-1.012-2.445-.265-.636-.533-.55-.739-.561l-.631-.012c-.218 0-.57.082-.868.385-.297.331-1.14 1.112-1.14 2.707 0 1.595 1.168 3.135 1.331 3.353.165.218 2.298 3.51 5.563 4.92.778.336 1.384.538 1.856.688.78.248 1.49.213 2.053.129.626-.093 1.954-.798 2.229-1.568.278-.77.278-1.435.196-1.569-.082-.132-.301-.218-.632-.381Z" />
+      </svg>
+    </a>
   );
 }

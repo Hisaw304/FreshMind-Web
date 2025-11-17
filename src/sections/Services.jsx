@@ -73,7 +73,7 @@ export default function Services() {
         {/* grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
           {services.map((svc, idx) => (
-            <div className="electric-border" key={idx}>
+            <div className="service-item" key={idx}>
               <article
                 className="service-card service-shadow focus-within:outline-none"
                 tabIndex={0}

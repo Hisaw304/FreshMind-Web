@@ -10,18 +10,18 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-slate-900 backdrop-blur-md text-white shadow-md">
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo + Company Name */}
-        <Link to="/" className="flex items-center space-x-2 cursor-pointer">
-          {/* Logo Icon */}
-          {/* <img
-            src="/logo.png"
+        <Link to="/" className="flex items-center gap-3 cursor-pointer">
+          {/* Logo */}
+          <img
+            src="/logo.png" // your public folder logo
             alt="FreshMind Web Logo"
-            className="h-10 w-10 object-contain"
-          /> */}
+            className="w-40 h-10 md:w-50 md:h-13 object-cover"
+          />
 
           {/* Brand Name */}
-          <span className="text-2xl lg-block font-bold text-white tracking-tight">
+          {/* <span className="text-2xl md:text-3xl font-bold text-white tracking-tight">
             FreshMind Web
-          </span>
+          </span> */}
         </Link>
 
         {/* Desktop Menu */}
