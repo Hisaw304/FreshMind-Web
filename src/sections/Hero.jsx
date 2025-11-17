@@ -12,21 +12,78 @@ export default function Hero({
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 600], [0, -24]);
 
+  // CRAZY MOTION SYSTEM
   const container = {
-    hidden: { opacity: 0 },
+    hidden: {
+      opacity: 0,
+      y: 80,
+      scale: 0.9,
+      rotateX: -20,
+      filter: "blur(18px)",
+    },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.12, when: "beforeChildren" },
+      y: 0,
+      scale: 1,
+      rotateX: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 1.4,
+        ease: [0.16, 1, 0.3, 1],
+        staggerChildren: 0.2,
+      },
     },
   };
 
   const item = {
-    hidden: { opacity: 0, y: 16 },
+    hidden: {
+      opacity: 0,
+      y: 50,
+      rotateX: -15,
+      rotateY: 8,
+      scale: 0.9,
+      filter: "blur(12px)",
+    },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      rotateX: 0,
+      rotateY: 0,
+      scale: 1,
+      filter: "blur(0px)",
+      transition: {
+        duration: 1.1,
+        ease: [0.18, 1, 0.22, 1],
+        type: "spring",
+        stiffness: 90,
+        damping: 12,
+      },
     },
+  };
+
+  const crazyParallax = {
+    hidden: { opacity: 0, scale: 0.95, y: 60 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        delay: 0.5,
+        duration: 1.2,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  };
+
+  const hover3D = {
+    whileHover: {
+      scale: 1.04,
+      rotateX: 4,
+      rotateY: -4,
+      boxShadow: "0 25px 35px rgba(0,0,0,0.35)",
+      transition: { duration: 0.35 },
+    },
+    whileTap: { scale: 0.97 },
   };
 
   return (
@@ -160,10 +217,23 @@ export default function Hero({
           {/* RIGHT SIDE MOCKUP */}
           <motion.div
             className="mx-auto md:block hidden relative"
-            style={{ y }}
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
+            variants={crazyParallax}
+            initial="hidden"
+            animate="visible"
+            style={{
+              transformStyle: "preserve-3d",
+              perspective: 1200,
+            }}
+            whileHover={{
+              ...hover3D.whileHover, // 🔥 keep your original 3D tilt
+              boxShadow: "0 35px 55px rgba(0,0,0,0.45)",
+              transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
+            }}
+            whileTap={{
+              scale: 0.97,
+              rotateX: 2,
+              rotateY: -2,
+            }}
             aria-hidden
           >
             <div className="hero-accent-blur" />

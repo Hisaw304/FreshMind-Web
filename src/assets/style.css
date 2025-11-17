@@ -34,6 +34,78 @@ nav {
   padding-top: env(safe-area-inset-top);
 }
 
+/* === Infinite marquee animation & helpers === */
+.marquee {
+  --marquee-speed: 28s; /* adjust speed */
+  position: relative;
+  overflow: hidden;
+}
+
+/* each group moves left continuously */
+.marquee__group {
+  display: inline-flex;
+  animation: marquee var(--marquee-speed) linear infinite;
+  gap: 0.5rem;
+  padding-right: 2rem;
+}
+
+/* duplicate groups so the loop is seamless — second group continues where first ends */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  } /* because we duplicate content */
+}
+
+/* Ensure children aren't wrapped */
+.marquee__group > * {
+  white-space: nowrap;
+}
+
+/* Tool chip fallback styling for non-tailwind environments; Tailwind will override most */
+.tool-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Fade overlay - absolute inset(0), pointer-events none, linear-gradient background */
+.fade {
+  /* pointer-events none is applied via class on the element, but ensure it here too */
+  pointer-events: none;
+  inset: 0;
+  position: absolute;
+  z-index: 10;
+  /* left and right soft fades + a subtle top/bottom */
+  background: linear-gradient(
+      90deg,
+      rgba(14, 17, 24, 1) 0%,
+      rgba(14, 17, 24, 0) 10%
+    ),
+    linear-gradient(90deg, rgba(14, 17, 24, 0) 90%, rgba(14, 17, 24, 1) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+  mix-blend-mode: normal;
+}
+
+/* subtle chip focus + reduce motion support */
+.tool-card:focus {
+  outline: 2px solid rgba(34, 197, 94, 0.6);
+  outline-offset: 3px;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__group {
+    animation: none;
+  }
+}
+
+/* small helper to make the marquee height consistent */
+.marquee {
+  height: 5rem;
+}
+
 .cta-frost {
   background: linear-gradient(
     90deg,
