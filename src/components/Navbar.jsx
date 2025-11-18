@@ -63,7 +63,7 @@ export default function Navbar() {
 
           {/* Tools marquee directly under the navbar */}
           <div className="w-full">
-            <div className="container mx-auto px-4 py-2">
+            <div className="w-screen relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] py-2">
               <ToolsMarquee />
             </div>
           </div>

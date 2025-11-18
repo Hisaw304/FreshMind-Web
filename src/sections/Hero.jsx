@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ReactTyped } from "react-typed";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cities } from "../data/cities";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Hero({
   phone = "+1 (860) 821-3853",
@@ -91,16 +92,8 @@ export default function Hero({
       id="hero"
       role="region"
       aria-labelledby="hero-heading"
-      className="relative isolate overflow-hidden mb-8 py-10 md:py-28"
-      style={{
-        backgroundImage: `linear-gradient(rgba(2,6,23,0.65), rgba(2,6,23,0.65)), url('${bgImage}')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative isolate overflow-hidden mb-8 py-10 md:py-28 bg-slate-900"
     >
-      {/* overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-slate-900/20 to-slate-900/20 pointer-events-none" />
-
       <div className="relative mx-auto max-w-6xl px-6">
         {/* FULL-WIDTH HEADING + SUBHEADING */}
         <motion.h1
@@ -216,46 +209,43 @@ export default function Hero({
 
           {/* RIGHT SIDE MOCKUP */}
           <motion.div
-            className="mx-auto md:block hidden relative"
+            className="mx-auto md:block hidden relative w-full h-full flex items-center"
             variants={crazyParallax}
             initial="hidden"
             animate="visible"
-            style={{
-              transformStyle: "preserve-3d",
-              perspective: 1200,
-            }}
+            style={{ transformStyle: "preserve-3d", perspective: 1200 }}
             whileHover={{
-              ...hover3D.whileHover, // 🔥 keep your original 3D tilt
+              ...hover3D.whileHover,
               boxShadow: "0 35px 55px rgba(0,0,0,0.45)",
               transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
             }}
-            whileTap={{
-              scale: 0.97,
-              rotateX: 2,
-              rotateY: -2,
-            }}
+            whileTap={{ scale: 0.97, rotateX: 2, rotateY: -2 }}
             aria-hidden
           >
+            {/* blur accent */}
             <div className="hero-accent-blur" />
-            <div className="relative max-w-[520px]">
-              <div className="absolute border border-white -inset-4 rounded-2xl -z-10" />
-              <picture>
-                <source srcSet="/images/hero-mockup.png" type="image/webp" />
-                <img
-                  src="/images/hero-mockup.png"
-                  alt="Website preview"
-                  loading="lazy"
-                  decoding="async"
-                  className="rounded-xl shadow-2xl border border-slate-800/30 w-full"
-                  width="520"
-                  height="360"
-                />
-              </picture>
-              <div className="absolute left-4 bottom-4 px-3 py-1 rounded-full bg-slate-900/60 text-xs font-semibold text-white backdrop-blur-md">
-                <span>
-                  Crafting websites for businesses & creators worldwide
-                </span>
-              </div>
+
+            {/* ❗ IMPORTANT PART — NO FIXED HEIGHT, LOTTIE EXPANDS BASED ON CONTENT HEIGHT */}
+            <div className="w-full">
+              <DotLottieReact
+                src="https://lottie.host/e702af8f-f006-432e-9199-3cd3b88eae9c/vfKhfxm7C1.lottie"
+                loop
+                autoplay
+                renderer="canvas"
+                rendererSettings={{
+                  preserveAspectRatio: "xMidYMid slice",
+                  devicePixelRatio: 2,
+                }}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+              />
+            </div>
+
+            {/* badge */}
+            <div className="absolute left-4 bottom-4 px-3 py-1 rounded-full bg-slate-900/60 text-xs font-semibold text-white backdrop-blur-md">
+              Crafting websites for businesses & creators worldwide
             </div>
           </motion.div>
         </div>

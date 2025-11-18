@@ -173,8 +173,149 @@ nav {
     font-size: 1.25rem;
   }
 }
+/* ClientsLoop — logos fill exact same height as fades; names sit above images */
+.clients-marquee {
+  --marquee-speed: 28s;
+  --row-height: 220px; /* fallback, overridden by inline style */
+  --gap: 28px; /* fallback */
+  --min-item-width: 180px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
 
-.clients-carousel-section {
+/* inner wrapper height equals the row height */
+.clients-marquee__inner {
+  display: flex;
+  align-items: center;
+  height: var(--row-height);
+}
+
+/* duplicated group scrolls for seamless loop */
+.clients-marquee__group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap);
+  padding-right: calc(var(--gap)); /* spacing between repetitions */
+  animation: clients-marquee var(--marquee-speed) linear infinite;
+  will-change: transform;
+}
+
+@keyframes clients-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* each client item: name above (absolute), logo occupies full row height */
+.client-item {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--min-item-width);
+  /* keep same total height as marquee — logo will fill it */
+  height: var(--row-height);
+  box-sizing: border-box;
+}
+
+/* name visually above the logo (does not consume the row-height) */
+.client-name {
+  position: absolute;
+  top: -18px; /* controls vertical gap between name and fade strip */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* logo fills the *entire* marquee height (same height as fades) */
+.client-logo {
+  height: 100%; /* THIS makes logo height === fade height */
+  width: auto;
+  display: block;
+  object-fit: contain; /* preserves aspect ratio; crops if necessary */
+}
+
+/* fade overlays aligned to the same row height */
+.clients-fade-left,
+.clients-fade-right {
+  position: absolute;
+  top: 0;
+  height: var(--row-height);
+  width: 6.5rem;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.clients-fade-left {
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(15, 23, 42, 1) 0%,
+    /* slate-900 */ rgba(15, 23, 42, 0) 100%
+  );
+}
+
+.clients-fade-right {
+  right: 0;
+  background: linear-gradient(
+    270deg,
+    rgba(15, 23, 42, 1) 0%,
+    /* slate-900 */ rgba(15, 23, 42, 0) 100%
+  );
+}
+
+/* pause animation on hover / focus / touch */
+.clients-marquee:hover .clients-marquee__group,
+.clients-marquee:focus-within .clients-marquee__group,
+.clients-marquee__group:active {
+  animation-play-state: paused;
+}
+
+/* responsive tuning: bigger on large screens, smaller on small screens */
+@media (min-width: 1024px) {
+  .clients-marquee {
+    --row-height: 260px;
+    --gap: 36px;
+    --min-item-width: 220px;
+  }
+  .clients-fade-left,
+  .clients-fade-right {
+    width: 8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .clients-marquee {
+    --row-height: 260px;
+    --gap: 36px;
+    --min-item-width: 220px;
+  }
+  .clients-fade-left,
+  .clients-fade-right {
+    width: 4.5rem;
+  }
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .clients-marquee__group {
+    animation: none;
+    transform: translateX(0);
+  }
+}
+
+/* .clients-carousel-section {
   padding: 3.5rem 0;
   color: #0f172a;
 }
@@ -389,7 +530,7 @@ nav {
   100% {
     transform: rotate(360deg);
   }
-}
+} */
 
 .section-title {
   position: relative;
