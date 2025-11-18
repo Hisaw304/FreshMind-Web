@@ -17,7 +17,8 @@ export default function Footer() {
             />
           </Link>
           <p className="mt-1 text-sm text-white">
-            Building modern websites with speed & creativity
+            FreshMind Web Agency helps businesses grow through modern, fast, and
+            beautifully crafted websites.
           </p>
         </div>
 

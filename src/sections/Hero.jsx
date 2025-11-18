@@ -228,7 +228,7 @@ export default function Hero({
             {/* ❗ IMPORTANT PART — NO FIXED HEIGHT, LOTTIE EXPANDS BASED ON CONTENT HEIGHT */}
             <div className="w-full">
               <DotLottieReact
-                src="https://lottie.host/e702af8f-f006-432e-9199-3cd3b88eae9c/vfKhfxm7C1.lottie"
+                src="https://lottie.host/5d82d9f6-5cb6-4bb3-8685-0f825c8818f0/Zy17fC17sQ.lottie"
                 loop
                 autoplay
                 renderer="canvas"

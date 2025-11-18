@@ -53,6 +53,10 @@ export default function About() {
       {/* --- Hero Section --- */}
       <section className="mb-8 py-10 ">
         <div className="max-w-5xl mx-auto px-6 ">
+          <span className="text-sm font-semibold text-orange-500 tracking-wide uppercase block mb-3">
+            FreshMind Web Agency
+          </span>
+
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4">
             Trusted by{" "}
             <span className="text-orange-500">Ambitious Businesses</span>
@@ -62,12 +66,19 @@ export default function About() {
             Successful businesses start with a strong online foundation.
           </p>
 
-          {/* Body Text */}
+          <p className="text-lg text-slate-700 font-medium mb-6">
+            At FreshMind Web Agency, we help businesses build a modern,
+            credible, and results-driven online presence. Our team blends
+            design, strategy, and technology to create digital experiences that
+            fuel real growth.
+          </p>
+
           <p className="text-lg text-slate-700 font-medium mb-6">
             Your website and digital presence should work as hard as you do.
             That’s why we design and market websites that not only look great,
             but also deliver real growth and results.
           </p>
+
           <p className="text-lg text-slate-700 font-medium mb-6">
             We specialize in helping businesses shine in their own communities.
             {randomCities.length > 0 && (
@@ -83,14 +94,16 @@ export default function About() {
               </>
             )}
           </p>
+
           <p className="text-lg text-slate-700 font-medium mb-6">
             Our approach blends creative design, smart technology, and marketing
             strategies tailored to your market—so you can focus on what you do
             best while we help you get noticed.
           </p>
+
           <Link
             to="/contact"
-            className="inline-block rounded-xl border border-orange-500/60 px-6 py-3 font-semibold text-white bg-orange-500 hover:bg-orange-200 hover:text-orange-500 transition active:scale-[0.98] rounded-lg shadow-lg hover:shadow-xl transition"
+            className="inline-block rounded-xl border border-orange-500/60 px-6 py-3 font-semibold text-white bg-orange-500 hover:bg-orange-200 hover:text-orange-500 transition active:scale-[0.98] shadow-lg hover:shadow-xl"
           >
             Ready to grow your business? Let’s talk today.
           </Link>
