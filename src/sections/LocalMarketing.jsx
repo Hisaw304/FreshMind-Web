@@ -58,12 +58,12 @@ export default function LocalMarketing({ cities = [] }) {
         <div className="grid md:grid-cols-2 gap-10 items-center">
           {/* Left column */}
           <div>
-            <p className="text-lg text-slate-600 mb-6">
+            <p className="text-lg text-slate-700 font-medium mb-6">
               Currently helping businesses grow in cities across the US, UK,
               Scotland, and beyond.
             </p>
 
-            <p className="text-slate-600 leading-relaxed mb-6">
+            <p className="text-lg text-slate-700 font-medium mb-6">
               Every business is unique — and so is every market. Our team
               tailors digital strategies that connect with local audiences.
             </p>

@@ -50,12 +50,11 @@ export default function About() {
 
   return (
     <div>
-      {/* --- Hero Section --- */}
       <section className="mb-8 py-10 ">
-        <div className="max-w-5xl mx-auto px-6 ">
-          <span className="text-sm font-semibold text-orange-500 tracking-wide uppercase block mb-3">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* <span className="text-sm font-semibold text-orange-500 tracking-wide uppercase block mb-3">
             FreshMind Web Agency
-          </span>
+          </span> */}
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4">
             Trusted by{" "}
@@ -148,12 +147,12 @@ export default function About() {
       </section>
 
       {/* --- Mission Section --- */}
-      <section className="py-10 text-center">
-        <div className="max-w-3xl mx-auto px-6">
+      <section className="py-10 text-start">
+        <div className=" max-w-6xl mx-auto px-6">
           <h3 className="section-title text-2xl md:text-3xl font-semibold mb-4 text-slate-800">
             Our Mission
           </h3>
-          <p className="text-lg text-slate-600">
+          <p className="text-lg text-slate-700 font-medium mb-6">
             To empower small businesses and entrepreneurs with the same
             world-class design and marketing tools used by big brands—helping
             them grow, connect, and succeed online.

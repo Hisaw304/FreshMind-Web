@@ -119,7 +119,7 @@ export default function Stats() {
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center stats-inner">
         {/* Stats side */}
         <div ref={containerRef} tabIndex={-1} onKeyDown={onKeyDown}>
-          <p className="text-slate-700 mb-10">
+          <p className="text-lg text-slate-700 font-medium mb-6">
             Our experience and proven track record help businesses grow with
             measurable results. From local startups to international brands, we
             deliver strategies that work.

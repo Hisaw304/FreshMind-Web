@@ -131,7 +131,7 @@ export default function Testimonials() {
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4">
             What Our <span className="text-orange-500">Clients Say</span>
           </h1>
-          <p className="text-slate-600 ">
+          <p className="text-lg text-slate-700 font-medium mb-6 ">
             Trusted by business owners worldwide. Here’s why they love working
             with us.
           </p>

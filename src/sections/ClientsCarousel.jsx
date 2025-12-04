@@ -49,10 +49,10 @@ export default function ClientsCarousel({
             Companies We've <span className="text-orange-500">Worked With</span>
           </h2>
           <p className="text-lg text-slate-700 font-medium mb-6">
-            Over the years, we’ve partnered with companies across New Hampshire
-            and beyond — from small family-owned businesses to established
-            regional brands. Each project, big or small, receives the same level
-            of care, attention to detail, and commitment to results.
+            Over the years, we’ve partnered with companies — from small
+            family-owned businesses to established regional brands. Each
+            project, big or small, receives the same level of care, attention to
+            detail, and commitment to results.
           </p>
 
           <p className="text-lg text-slate-700 font-medium mb-6">
