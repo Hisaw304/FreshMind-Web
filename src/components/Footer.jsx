@@ -1,59 +1,81 @@
-// src/components/Footer.jsx
-import { Link } from "react-router-dom";
+import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300 py-8 ">
-      <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8">
-        {/* Brand */}
-        <div>
-          {/* Logo + Company Name */}
-          <Link to="/" className="flex items-center cursor-pointer">
-            {/* Logo */}
-            <img
-              src="/logo.png" // your public folder logo
-              alt="FreshMind Web Logo"
-              className="w-40 h-10 md:w-50 md:h-13 object-cover"
-            />
-          </Link>
-          <p className="mt-1 text-sm text-white">
-            FreshMind Web Agency helps businesses grow through modern, fast, and
-            beautifully crafted websites.
-          </p>
+    <footer className="fm-footer">
+      <div className="fm-footer-container">
+        {/* TOP */}
+        <div className="fm-footer-top">
+          {/* BRAND */}
+          <motion.div
+            className="fm-footer-brand"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <img src="/logo.png" alt="logo" className="fm-logo" />
+
+            <p>
+              We build modern websites and digital experiences that help
+              businesses grow, connect, and stand out online.
+            </p>
+          </motion.div>
+
+          {/* NAV + SOCIAL */}
+          <motion.div
+            className="fm-footer-nav-group"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <div className="fm-footer-nav">
+              <h4>Navigation</h4>
+              <a href="/">Home</a>
+              <a href="/about">About</a>
+              <a href="/contact">Contact</a>
+            </div>
+
+            <div className="fm-footer-social">
+              <h4>Follow Us</h4>
+              <div className="fm-socials">
+                <a href="#">
+                  <Facebook size={18} />
+                </a>
+                <a href="#">
+                  <Instagram size={18} />
+                </a>
+                <a href="#">
+                  <Linkedin size={18} />
+                </a>
+                <a href="#">
+                  <Twitter size={18} />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* NEWSLETTER */}
+          <motion.div
+            className="fm-footer-newsletter"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h4>Stay Updated</h4>
+            <p>Get insights, tips, and updates delivered to your inbox.</p>
+
+            <form className="fm-newsletter-form">
+              <input type="email" placeholder="Enter your email" />
+              <button type="submit">Subscribe</button>
+            </form>
+          </motion.div>
         </div>
 
-        {/* Links */}
-        <div>
-          <h3 className="text-lg font-semibold text-orange-500">Quick Links</h3>
-          <ul className="mt-2 space-y-2">
-            <li>
-              <Link to="/" className="hover:text-teal-400">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" className="hover:text-teal-400">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" className="hover:text-teal-400">
-                Contact
-              </Link>
-            </li>
-          </ul>
+        {/* BOTTOM */}
+        <div className="fm-footer-bottom">
+          <p>© {new Date().getFullYear()} All rights reserved.</p>
         </div>
-
-        {/* Contact */}
-        <div>
-          <h3 className="text-lg font-semibold text-orange-500">Contact</h3>
-          <p className="mt-2 text-sm">Email: info@fishlymind.com</p>
-          <p className="text-sm">Phone: +1 (860) 821-3853</p>
-        </div>
-      </div>
-
-      <div className="text-center text-xs text-slate-500 mt-6">
-        © {new Date().getFullYear()} WebSmart. All rights reserved.
       </div>
     </footer>
   );

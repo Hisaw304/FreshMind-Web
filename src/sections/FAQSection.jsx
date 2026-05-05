@@ -1,88 +1,104 @@
-import { motion } from "framer-motion";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "../components/ui/accordion";
-import { HelpCircle } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const faqs = [
+  {
+    q: "How long does it take to build a website?",
+    a: "Most websites are completed within weeks or months, depending on the scope and complexity of the project. Simpler sites can be delivered faster, while more advanced features like custom integrations, animations, or dashboards may extend the timeline slightly. We follow a structured process—planning, design, development, and testing—to ensure everything is done efficiently without compromising quality. You’ll also be kept in the loop at every stage so there are no surprises.",
+  },
+  {
+    q: "Do you provide ongoing support after launch?",
+    a: "Yes, we don’t just disappear after launch. We offer ongoing support, maintenance, and updates to keep your website secure, fast, and performing at its best. This includes fixing bugs, updating content, improving performance, and ensuring compatibility with new technologies. Whether you need occasional help or long-term support, we’re available to grow with your business.",
+  },
+  {
+    q: "Will my website be mobile-friendly?",
+    a: "Absolutely. Every website we build is fully responsive and designed to work seamlessly across all devices—mobile, tablet, and desktop. We prioritize mobile performance because most users will visit your site from their phones. This means fast loading times, clean layouts, and an intuitive experience that keeps visitors engaged no matter what device they’re using.",
+  },
+  {
+    q: "Can you help with SEO and marketing?",
+    a: "Yes, we build every website with SEO best practices from the ground up. This includes proper structure, fast performance, optimized content, and clean code that search engines can easily understand. Beyond that, we can guide you on marketing strategies such as content creation, local SEO, and conversion optimization to help you attract the right audience and turn visitors into customers.",
+  },
+  {
+    q: "Do I need to provide content?",
+    a: "You can provide your own content if you have it, but it’s not required. We help you structure, refine, and improve your messaging to make sure it’s clear, professional, and conversion-focused. If needed, we can guide you on what content works best or even assist in rewriting sections so your website not only looks good but also communicates effectively and drives results.",
+  },
+  {
+    q: "What makes FreshMind Web Agency different?",
+    a: "We focus on results, not just aesthetics. While design matters, every decision we make is centered around helping your business grow—whether that’s generating leads, increasing conversions, or building trust with your audience. We combine strategy, design, and performance to create websites that don’t just look good, but actually work for your business long-term.",
+  },
+  {
+    q: "How do we get started?",
+    a: "Getting started is simple. Reach out through our contact form and tell us a bit about your project and goals. From there, we’ll schedule a quick discussion to understand your needs, recommend the best approach, and outline the next steps. Once everything is clear, we’ll begin the process and keep you updated every step of the way.",
+  },
+];
 
 export default function FAQSection() {
-  return (
-    <section className="bg-slate-900 mb-8 py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-white mb-6">
-          Frequently Asked Questions
-        </h2>
-        <p className="text-slate-300 mb-10">
-          Here are some common questions we get. Can’t find what you’re looking
-          for?{" "}
-          <span className="text-orange-400 font-medium cursor-pointer hover:underline">
-            Reach out to us directly.
-          </span>
-        </p>
-      </div>
+  const [active, setActive] = useState(null);
 
-      <Accordion
-        type="single"
-        collapsible
-        className="w-full max-w-5xl mx-auto space-y-4"
-      >
-        {[
-          {
-            q: "Do you work with clients outside the Lakes Region?",
-            a: "Absolutely! We work with businesses across the U.S. and internationally.",
-          },
-          {
-            q: "How fast can I expect a response?",
-            a: "We usually respond within 24 hours, Monday through Friday.",
-          },
-          {
-            q: "Do you only build websites?",
-            a: "No — we also provide SEO, digital ads, hosting, and ongoing support.",
-          },
-          {
-            q: "Can you handle e-commerce projects?",
-            a: "Yes! We build secure, scalable online stores with modern payment integrations.",
-          },
-          {
-            q: "What makes your team different?",
-            a: "We combine creative design with technical expertise, ensuring your brand stands out and performs.",
-          },
-        ].map((item, i) => (
-          <AccordionItem
-            key={i}
-            value={`item-${i}`}
-            className="
-              w-full border border-slate-700 rounded-xl bg-slate-800 
-              shadow-sm transition
-              data-[state=open]:border-orange-500/60 
-              data-[state=open]:shadow-lg data-[state=open]:shadow-orange-500/20
-            "
-          >
-            <AccordionTrigger
-              className="
-                px-4 py-3 text-lg font-medium text-slate-200
-                flex items-center gap-2 hover:bg-slate-700/40 rounded-t-xl
-              "
-            >
-              <HelpCircle className="w-5 h-5 text-orange-500" />
-              {item.q}
-            </AccordionTrigger>
-            <AccordionContent asChild>
-              <motion.div
-                initial={{ opacity: 0, y: -5 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -5 }}
-                transition={{ duration: 0.2 }}
-                className="px-4 pb-4 text-slate-400"
+  const toggle = (index) => {
+    setActive(active === index ? null : index);
+  };
+
+  return (
+    <section className="fm-faq">
+      <div className="fm-faq-container">
+        {/* HEADER */}
+        <div className="fm-faq-header">
+          <h2>
+            Frequently Asked <span>Questions</span>
+          </h2>
+          <p>
+            Everything you need to know about working with FreshMind Web Agency
+            and how we help businesses grow online.
+          </p>
+        </div>
+
+        {/* GRID */}
+        <div className="fm-faq-grid">
+          {/* LEFT (FAQ LIST) */}
+          <div className="fm-faq-list">
+            {faqs.map((item, i) => (
+              <div
+                key={i}
+                className={`fm-faq-item ${active === i ? "active" : ""}`}
+                onClick={() => toggle(i)}
               >
-                {item.a}
-              </motion.div>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+                <div className="fm-faq-question">
+                  <h3>{item.q}</h3>
+                  <span className="fm-faq-icon">
+                    {active === i ? "−" : "+"}
+                  </span>
+                </div>
+
+                <AnimatePresence>
+                  {active === i && (
+                    <motion.div
+                      className="fm-faq-answer"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <p>{item.a}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+
+          {/* RIGHT (CARD) */}
+          <div className="fm-faq-card">
+            <h3>Still have questions?</h3>
+            <p>
+              We’re here to help. Reach out and we’ll guide you through
+              everything step by step.
+            </p>
+
+            <button className="fm-btn-primary">Contact Us</button>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

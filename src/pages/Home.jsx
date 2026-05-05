@@ -9,6 +9,8 @@ import Testimonials from "../sections/Testimonials";
 import ContactForm from "../sections/ContactForm";
 import FloatingActions from "../sections/FloatingActions";
 import FAQSection from "../sections/FAQSection";
+import FooterCTA from "../sections/FooterCTA";
+import WhyChooseUs from "../sections/WhyChooseUs";
 
 const Home = () => {
   return (
@@ -17,11 +19,13 @@ const Home = () => {
       <ClientsCarousel />
       <About />
       <Stats />
+      <WhyChooseUs />
       <LocalMarketing />
       <Services />
       <Testimonials />
       <FAQSection />
       <ContactForm />
+      <FooterCTA />
       <FloatingActions />
     </>
   );

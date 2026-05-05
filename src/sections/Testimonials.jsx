@@ -1,7 +1,5 @@
 // src/sections/Testimonials.jsx
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
-import { Quote } from "lucide-react";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -105,10 +103,10 @@ const testimonials = [
   },
   {
     quote:
-      "The hosting is rock solid, and their support is always there when you need it. I can finally focus on my business instead of worrying about my website.",
-    name: "James Wilson",
-    role: "Owner, Lakeside Auto",
-    image: "/images/clients/james.jpg",
+      "I had no technical knowledge but needed a website for my business. They took care of everything from start to finish and continued supporting me even after launch. It was a smooth, stress-free experience.",
+    name: "Karen Mitchell",
+    role: "Owner, Mitchell Consulting",
+    image: "/images/clients/karen.jpg",
   },
   {
     quote:
@@ -121,66 +119,50 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section
-      className="mb-8 py-10 bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50"
-      id="testimonials"
-    >
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Heading */}
-        <div className="text-left mb-14">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4">
-            What Our <span className="text-orange-500">Clients Say</span>
-          </h1>
-          <p className="text-lg text-slate-700 font-medium mb-6 ">
-            Trusted by business owners worldwide. Here’s why they love working
-            with us.
+    <section className="fm-testimonials">
+      <div className="fm-testimonials-container">
+        {/* HEADER */}
+        <div className="fm-testimonials-header">
+          <h2>
+            What Clients Say About <span>FreshMind</span>
+          </h2>
+          <p>
+            We don’t just build websites — we build relationships. Here’s what
+            business owners say about working with FreshMind Web Agency and the
+            results we’ve helped them achieve.
           </p>
         </div>
 
-        {/* Testimonials Slider */}
-        <Splide
-          options={{
-            type: "loop",
-            perPage: 3,
-            gap: "2rem",
-            autoplay: true,
-            pauseOnHover: true,
-            arrows: true,
-            pagination: false,
-            breakpoints: {
-              1024: { perPage: 2 },
-              640: { perPage: 1 },
-            },
-          }}
-          aria-label="Client testimonials"
-        >
-          {testimonials.map((t, idx) => (
-            <SplideSlide key={idx}>
-              <div className="bg-white rounded-2xl shadow-lg p-8 border border-slate-200 hover:shadow-2xl transition-all duration-300 h-full flex flex-col justify-between">
-                {/* Quote Icon */}
-                <div className="flex justify-center mb-4">
-                  <Quote className="w-10 h-10 text-orange-500 opacity-70" />
+        {/* SCROLL WRAPPER */}
+        <div className="fm-testimonials-wrapper">
+          <div className="fm-testimonials-track">
+            {[...testimonials, ...testimonials].map((t, i) => (
+              <div key={i} className="fm-testimonial-card">
+                <div className="fm-testimonial-top">
+                  <div className="fm-stars">
+                    <span className="fm-star" />
+                    <span className="fm-star" />
+                    <span className="fm-star" />
+                    <span className="fm-star" />
+                    <span className="fm-star" />
+                  </div>
+
+                  <div className="fm-quote-icon">“</div>
                 </div>
 
-                {/* Quote */}
-                <p className="text-slate-700 italic mb-6 leading-relaxed text-center flex-grow">
-                  “{t.quote}”
-                </p>
+                <p className="fm-quote">{t.quote}</p>
 
-                {/* Avatar */}
-                <div className="flex flex-col items-center">
-                  <img
-                    src={t.image}
-                    alt={t.name}
-                    className="w-16 h-16 rounded-full object-cover border-2 border-orange-500 mb-3"
-                  />
-                  <p className="font-semibold text-slate-800">{t.name}</p>
-                  <p className="text-sm text-slate-500">{t.role}</p>
+                <div className="fm-user">
+                  <img src={t.image} alt={t.name} />
+                  <div>
+                    <h4>{t.name}</h4>
+                    <span>{t.role}</span>
+                  </div>
                 </div>
               </div>
-            </SplideSlide>
-          ))}
-        </Splide>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

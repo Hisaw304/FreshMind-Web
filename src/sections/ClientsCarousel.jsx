@@ -1,4 +1,4 @@
-import React from "react";
+import { motion } from "framer-motion";
 
 const clients = [
   { name: "Belmont Firearms", logo: "/images/belmont.png" },
@@ -31,74 +31,46 @@ const clients = [
   },
 ];
 
-export default function ClientsCarousel({
-  speed = 28, // seconds per full loop
-  rowHeight = 220, // base row height in px (bigger than before)
-  gap = 15, // horizontal gap between items in px (reduced)
-}) {
-  const groups = [clients, clients]; // duplicate for seamless loop
-
+export default function Clients() {
   return (
-    <section
-      className="clients-loop-section py-8"
-      aria-label="Companies we've worked with"
-    >
-      <div>
-        <div className="max-w-5xl mx-auto px-6 ">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4">
-            Companies We've <span className="text-orange-500">Worked With</span>
+    <section className="fm-clients">
+      <div className="fm-clients-container">
+        {/* HEADER */}
+        <motion.div
+          className="fm-clients-header"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2>
+            Companies We’ve <span>Worked With</span>
           </h2>
-          <p className="text-lg text-slate-700 font-medium mb-6">
+
+          <p>
             Over the years, we’ve partnered with companies — from small
             family-owned businesses to established regional brands. Each
             project, big or small, receives the same level of care, attention to
             detail, and commitment to results.
           </p>
 
-          <p className="text-lg text-slate-700 font-medium mb-6">
+          <p>
             Our goal is simple: build long-term relationships by delivering
             digital experiences that genuinely help businesses grow. The
             companies below represent just a portion of the clients who continue
             to trust us with their websites, branding, and ongoing marketing.
           </p>
-        </div>
+        </motion.div>
 
-        <div
-          className="clients-marquee relative overflow-hidden"
-          style={{
-            ["--marquee-speed"]: `${speed}s`,
-            ["--row-height"]: `${rowHeight}px`,
-            ["--gap"]: `${gap}px`,
-            // responsive desktop scale (can be overridden with CSS media queries)
-          }}
-        >
-          <div className="clients-marquee__inner">
-            {groups.map((group, gi) => (
-              <div
-                key={gi}
-                className="clients-marquee__group inline-flex items-center"
-              >
-                {group.map((client, idx) => (
-                  <div
-                    key={`${gi}-${idx}`}
-                    className="client-item flex flex-col items-center"
-                  >
-                    <span className="client-name">{client.name}</span>
-                    <img
-                      src={client.logo}
-                      alt={client.name}
-                      className="client-logo"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                ))}
+        {/* LOGO SCROLLER */}
+        <div className="fm-clients-marquee">
+          <div className="fm-clients-track">
+            {[...clients, ...clients].map((client, i) => (
+              <div key={i} className="fm-client-item">
+                <img src={client.logo} alt={client.name} />
+                <p className="fm-client-name">{client.name}</p>
               </div>
             ))}
           </div>
-
-          <div className="clients-fade-left" aria-hidden />
-          <div className="clients-fade-right" aria-hidden />
         </div>
       </div>
     </section>

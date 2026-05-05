@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 // Images - public/images/...
 const images = [
@@ -13,12 +14,12 @@ export default function Stats() {
   const [isPaused, setIsPaused] = useState(false);
   const [counts, setCounts] = useState([0, 0, 0, 0]);
 
-  const targets = [5, 140, 95, 24];
+  const targets = [5, 340, 95, 38];
   const labels = [
     "Years Experience",
     "Projects Delivered",
     "Client Satisfaction",
-    "Support",
+    "Team Members",
   ];
 
   const containerRef = useRef(null);
@@ -106,138 +107,108 @@ export default function Stats() {
   }
 
   return (
-    <section
-      className="mb-8 py-10 stats-section"
-      aria-labelledby="stats-heading"
-    >
-      <div className="max-w-6xl mx-auto px-6">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4">
-          Results <span className="text-orange-500">You Can Trust</span>
-        </h1>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center stats-inner">
-        {/* Stats side */}
-        <div ref={containerRef} tabIndex={-1} onKeyDown={onKeyDown}>
-          <p className="text-lg text-slate-700 font-medium mb-6">
-            Our experience and proven track record help businesses grow with
-            measurable results. From local startups to international brands, we
-            deliver strategies that work.
-          </p>
-
-          {/* semantic definition list for accessibility */}
-          <dl className="grid grid-cols-2 gap-6" aria-live="polite">
-            {targets.map((_, i) => (
-              <div
-                key={i}
-                className="text-center p-6 rounded-xl card-shadow card-glass"
-                role="group"
-                aria-label={labels[i]}
-              >
-                <dt className="text-4xl font-extrabold text-orange-500 leading-none">
-                  {i === 0
-                    ? `${counts[i]}+`
-                    : i === 2
-                    ? `${counts[i]}%`
-                    : counts[i]}
-                </dt>
-                <dd className="text-slate-600 mt-2">{labels[i]}</dd>
-              </div>
-            ))}
-          </dl>
+    <section className="fm-results">
+      <div className="fm-results-wrapper">
+        {/* HEADER */}
+        <div className="fm-results-header">
+          <h2>
+            Results You Can <span>Expect</span>
+          </h2>
         </div>
 
-        {/* Rotating Image side */}
-        <div>
-          <div
-            className="relative rounded-2xl overflow-hidden card-shadow h-[400px]"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            onFocus={() => setIsPaused(true)}
-            onBlur={() => setIsPaused(false)}
-            tabIndex={0}
-            aria-label="Project imagery carousel. Use left and right arrow keys to navigate."
+        {/* GRID */}
+        <div
+          ref={containerRef}
+          tabIndex={-1}
+          onKeyDown={onKeyDown}
+          className="fm-results-container"
+        >
+          {/* LEFT */}
+          <motion.div
+            className="fm-results-left"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
           >
-            {/* stacked images for smooth crossfade */}
-            {images.map((src, idx) => (
-              <img
-                key={src}
-                src={src}
-                alt={`Office workspace ${idx + 1}`}
-                loading="lazy"
-                decoding="async"
-                className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-out transform ${
-                  idx === currentIndex
-                    ? "opacity-100 scale-100"
-                    : "opacity-0 scale-105"
-                }`}
-                style={{ willChange: "opacity, transform" }}
-              />
-            ))}
+            <p className="fm-results-text">
+              Our experience and proven track record help businesses grow with
+              measurable results. From local startups to established brands, we
+              deliver strategies that actually move the needle.
+            </p>
 
-            {/* soft accent gradient overlay using your CSS variables */}
-            <div
-              aria-hidden
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  "linear-gradient(135deg, var(--accent-start), var(--accent-end))",
-                opacity: 0.1,
-                mixBlendMode: "overlay",
-              }}
-            />
+            <dl className="fm-stats-grid">
+              {targets.map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="fm-stat-card"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <dt className="fm-stat-value">
+                    {i === 0
+                      ? `${counts[i]}+`
+                      : i === 2
+                      ? `${counts[i]}%`
+                      : counts[i]}
+                  </dt>
+                  <dd className="fm-stat-label">{labels[i]}</dd>
+                </motion.div>
+              ))}
+            </dl>
+          </motion.div>
 
-            {/* subtle glass panel in the corner for buttons / indicators */}
-            <div
-              className="absolute bottom-4 left-4 rounded-full px-3 py-2 flex items-center gap-2 backdrop-blur-sm"
-              style={{
-                background: "rgba(255,255,255,0.06)",
-                border: "1px solid var(--glass-border)",
-              }}
-            >
-              <button
-                onClick={() =>
-                  setCurrentIndex(
-                    (i) => (i - 1 + images.length) % images.length
-                  )
-                }
-                aria-label="Previous image"
-                className="p-2 rounded-full text-white bg-black/20 hover:bg-black/30 focus:outline-none focus:ring-2 focus:ring-offset-2"
-              >
-                ◀
-              </button>
+          {/* RIGHT */}
+          <motion.div
+            className="fm-results-right"
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+          >
+            <div className="fm-carousel">
+              {images.map((src, idx) => (
+                <img
+                  key={src}
+                  src={src}
+                  className={`fm-carousel-img ${
+                    idx === currentIndex ? "active" : ""
+                  }`}
+                />
+              ))}
 
-              {/* dots */}
-              <div className="flex items-center gap-2">
-                {images.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentIndex(idx)}
-                    aria-label={`Show image ${idx + 1}`}
-                    className={`w-2 h-2 rounded-full focus:outline-none ${
-                      idx === currentIndex
-                        ? "ring-2 ring-offset-1 ring-white"
-                        : "bg-white/40"
-                    }`}
-                    style={{
-                      background:
-                        idx === currentIndex
-                          ? "white"
-                          : "rgba(255,255,255,0.4)",
-                    }}
-                  />
-                ))}
+              <div className="fm-carousel-controls">
+                <button
+                  onClick={() =>
+                    setCurrentIndex(
+                      (i) => (i - 1 + images.length) % images.length
+                    )
+                  }
+                >
+                  ◀
+                </button>
+
+                <div className="fm-dots">
+                  {images.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentIndex(idx)}
+                      className={idx === currentIndex ? "active" : ""}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  onClick={() =>
+                    setCurrentIndex((i) => (i + 1) % images.length)
+                  }
+                >
+                  ▶
+                </button>
               </div>
-
-              <button
-                onClick={() => setCurrentIndex((i) => (i + 1) % images.length)}
-                aria-label="Next image"
-                className="p-2 rounded-full text-white bg-black/20 hover:bg-black/30 focus:outline-none focus:ring-2 focus:ring-offset-2"
-              >
-                ▶
-              </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
