@@ -760,16 +760,18 @@ body {
   color: var(--fm-text-muted);
   line-height: 1.7;
 }
+
 /* ========================= */
 /* MARQUEE */
 /* ========================= */
 
 .fm-clients-marquee {
-  position: relative;
+  margin-top: 60px;
   overflow: hidden;
+  position: relative;
 }
 
-/* edge fade */
+/* fade edges (premium touch) */
 .fm-clients-marquee::before,
 .fm-clients-marquee::after {
   content: "";
@@ -791,23 +793,15 @@ body {
   background: linear-gradient(to left, var(--fm-body), transparent);
 }
 
-/* ========================= */
-/* TRACK */
-/* ========================= */
-
+/* track animation */
 .fm-clients-track {
   display: flex;
-  gap: 24px; /* tighter */
+  gap: 40px;
   width: max-content;
-
-  animation: fm-scroll 28s linear infinite;
+  animation: scrollClients 50s linear infinite;
 }
 
-.fm-clients-marquee:hover .fm-clients-track {
-  animation-play-state: paused;
-}
-
-@keyframes fm-scroll {
+@keyframes scrollClients {
   from {
     transform: translateX(0);
   }
@@ -817,61 +811,38 @@ body {
 }
 
 /* ========================= */
-/* CARD */
+/* CLIENT ITEM (IMAGE ONLY) */
 /* ========================= */
 
-.fm-client-card {
-  min-width: 220px; /* BIGGER */
-  height: 150px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  padding: 16px;
-  border-radius: 16px;
-
-  border: 1px solid var(--fm-border);
-  background: var(--fm-surface);
-
-  transition: 0.3s ease;
+.fm-client-item {
+  position: relative;
+  min-width: 260px;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
-/* hover */
-.fm-client-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--fm-primary);
-}
+/* IMAGE */
 
-/* ========================= */
-/* LOGO */
-/* ========================= */
-
-.fm-client-card img {
+.fm-client-item img {
   width: 100%;
-  height: 80px; /* BIGGER */
-  object-fit: contain;
-
-  filter: grayscale(100%) opacity(0.7);
-  transition: 0.3s ease;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.fm-client-card:hover img {
-  filter: grayscale(0%) opacity(1);
-  transform: scale(1.05);
-}
-
-/* ========================= */
-/* NAME */
-/* ========================= */
+/* NAME OVERLAY */
 
 .fm-client-name {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 8px 10px;
   font-size: 13px;
-  font-weight: 500;
-  color: var(--fm-text-muted);
-
   text-align: center;
-  margin-top: 6px;
+  color: white;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
 }
 
 /* ========================= */
@@ -879,19 +850,9 @@ body {
 /* ========================= */
 
 @media (max-width: 768px) {
-  .fm-client-card {
-    min-width: 180px;
-    height: 130px;
-    padding: 12px;
-  }
-
-  .fm-client-card img {
-    height: 60px;
-  }
-
-  .fm-clients-track {
-    gap: 16px;
-    animation-duration: 24s;
+  .fm-client-item {
+    min-width: 260px;
+    height: 180px;
   }
 }
 

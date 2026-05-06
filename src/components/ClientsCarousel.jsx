@@ -68,7 +68,7 @@ export default function Clients() {
         <div className="fm-clients-marquee">
           <div className="fm-clients-track">
             {[...clients, ...clients].map((client, i) => (
-              <div key={i} className="fm-client-card">
+              <div key={i} className="fm-client-item">
                 <img src={client.logo} alt={client.name} />
                 <p className="fm-client-name">{client.name}</p>
               </div>
