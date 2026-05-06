@@ -8,7 +8,14 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" },
+
+    // anchor links
+    { name: "Services", path: "#services", type: "anchor" },
+    { name: "FAQ", path: "#faq", type: "anchor" },
+    { name: "Testimonials", path: "#testimonials", type: "anchor" },
+
+    // button
+    { name: "Contact", path: "/contact", type: "button" },
   ];
 
   return (
@@ -24,8 +31,17 @@ export default function Navbar() {
           {/* DESKTOP LINKS */}
           <ul className="fm-nav-links">
             {navLinks.map((link) => (
-              <li key={link.name} className="fm-nav-link">
-                <Link to={link.path}>{link.name}</Link>
+              <li
+                key={link.name}
+                className={`fm-nav-link ${
+                  link.type === "button" ? "fm-nav-btn" : ""
+                }`}
+              >
+                {link.type === "anchor" ? (
+                  <a href={link.path}>{link.name}</a>
+                ) : (
+                  <Link to={link.path}>{link.name}</Link>
+                )}
               </li>
             ))}
           </ul>
@@ -53,13 +69,28 @@ export default function Navbar() {
             <div className="fm-mobile-card">
               {navLinks.map((link, i) => (
                 <div key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="fm-mobile-link"
-                    onClick={() => setOpen(false)} // closes menu on click
-                  >
-                    {link.name}
-                  </Link>
+                  {link.type === "anchor" ? (
+                    <a
+                      href={link.path}
+                      className={`fm-mobile-link ${
+                        link.type === "button" ? "fm-mobile-btn" : ""
+                      }`}
+                      onClick={() => setOpen(false)}
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.path}
+                      className={`fm-mobile-link ${
+                        link.type === "button" ? "fm-mobile-btn" : ""
+                      }`}
+                      onClick={() => setOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  )}
+
                   {i !== navLinks.length - 1 && <hr />}
                 </div>
               ))}

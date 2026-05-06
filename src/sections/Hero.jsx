@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
 import dashboardImg from "../assets/about-hero-fm.jpg";
-
+import { ReactTyped } from "react-typed";
 export default function Hero() {
   return (
     <section className="fm-hero">
@@ -18,6 +18,19 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            <div className="fm-hero-typed">
+              <ReactTyped
+                strings={[
+                  "Professional Web Design",
+                  "High-Converting Websites",
+                  "Modern UI/UX Experiences",
+                  "Business Growth Solutions",
+                ]}
+                typeSpeed={50}
+                backSpeed={30}
+                loop
+              />
+            </div>
             <div className="fm-hero-headlines">
               <div className="fm-hero-card">
                 <h1>
@@ -39,7 +52,7 @@ export default function Hero() {
 
             <div className="fm-hero-actions">
               <a href="#contact" className="fm-btn-primary">
-                Contact Us
+                Let's Get To Work
               </a>
 
               <a href="tel:+1234567890" className="fm-btn-secondary">
@@ -60,29 +73,6 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
-
-        {/* STATS BELOW */}
-        {/* <motion.div
-          className="fm-hero-stats"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          <div className="fm-stat">
-            <h3>50+</h3>
-            <p>Projects Delivered</p>
-          </div>
-
-          <div className="fm-stat">
-            <h3>100%</h3>
-            <p>Client Satisfaction</p>
-          </div>
-
-          <div className="fm-stat">
-            <h3>3+</h3>
-            <p>Years Experience</p>
-          </div>
-        </motion.div> */}
       </div>
     </section>
   );
