@@ -55,9 +55,9 @@ export default function Hero() {
                 Let's Get To Work
               </a>
 
-              <a href="tel:+1234567890" className="fm-btn-secondary">
+              {/* <a href="tel:+1234567890" className="fm-btn-secondary">
                 <Phone size={16} /> +1 (860) 821-3853
-              </a>
+              </a> */}
             </div>
           </motion.div>
 
