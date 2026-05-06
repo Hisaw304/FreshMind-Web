@@ -24,7 +24,7 @@ body {
   right: 0;
   z-index: 10000;
   width: 100%;
-  background: var(--fm-primary);
+  background: var(--fm-primary-hover);
 }
 
 .fm-navbar-inner {
@@ -34,7 +34,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--fm-primary);
+  background: var(--fm-primary-hover);
   border-bottom: 1px solid var(--fm-border);
 }
 
