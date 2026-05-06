@@ -1,16 +1,16 @@
 import React from "react";
-import Hero from "../sections/Hero";
-import ClientsCarousel from "../sections/ClientsCarousel";
-import About from "../sections/About";
-import Stats from "../sections/Stats";
-import LocalMarketing from "../sections/LocalMarketing";
-import Services from "../sections/Services";
-import Testimonials from "../sections/Testimonials";
-import ContactForm from "../sections/ContactForm";
-import FloatingActions from "../sections/FloatingActions";
-import FAQSection from "../sections/FAQSection";
-import FooterCTA from "../sections/FooterCTA";
-import WhyChooseUs from "../sections/WhyChooseUs";
+import Hero from "../components/Hero";
+import ClientsCarousel from "../components/ClientsCarousel";
+import About from "../components/About";
+import Stats from "../components/Stats";
+import LocalMarketing from "../components/LocalMarketing";
+import Services from "../components/Services";
+import Testimonials from "../components/Testimonials";
+import ContactForm from "../components/ContactForm";
+import FloatingActions from "../components/FloatingActions";
+import FAQSection from "../components/FAQSection";
+import FooterCTA from "../components/FooterCTA";
+import WhyChooseUs from "../components/WhyChooseUs";
 
 const Home = () => {
   return (

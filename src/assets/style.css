@@ -424,7 +424,7 @@ body {
   /* keep newsletter inline even on mobile */
   .fm-newsletter-form {
     flex-direction: row;
-    width: 100%;
+    width: 350px;
   }
 }
 /* ========================= */

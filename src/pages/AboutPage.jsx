@@ -1,8 +1,8 @@
 // src/pages/AboutPage.jsx
 import React from "react";
-import FloatingActions from "../sections/FloatingActions";
-import About from "../sections/About";
-import FooterCTA from "../sections/FooterCTA";
+import FloatingActions from "../components/FloatingActions";
+import About from "../components/About";
+import FooterCTA from "../components/FooterCTA";
 
 export const PORTFOLIO = [
   {

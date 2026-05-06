@@ -1,7 +1,7 @@
 import { Facebook, Instagram, Linkedin } from "lucide-react";
-import ContactForm from "../sections/ContactForm";
-import FAQSection from "../sections/FAQSection";
-import FloatingActions from "../sections/FloatingActions";
+import ContactForm from "../components/ContactForm";
+import FAQSection from "../components/FAQSection";
+import FloatingActions from "../components/FloatingActions";
 
 /* ✅ THIS WAS MISSING */
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
