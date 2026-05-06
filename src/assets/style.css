@@ -760,18 +760,16 @@ body {
   color: var(--fm-text-muted);
   line-height: 1.7;
 }
-
 /* ========================= */
 /* MARQUEE */
 /* ========================= */
 
 .fm-clients-marquee {
-  margin-top: 60px;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
-/* fade edges (premium touch) */
+/* edge fade */
 .fm-clients-marquee::before,
 .fm-clients-marquee::after {
   content: "";
@@ -793,15 +791,23 @@ body {
   background: linear-gradient(to left, var(--fm-body), transparent);
 }
 
-/* track animation */
+/* ========================= */
+/* TRACK */
+/* ========================= */
+
 .fm-clients-track {
   display: flex;
-  gap: 40px;
+  gap: 24px; /* tighter */
   width: max-content;
-  animation: scrollClients 50s linear infinite;
+
+  animation: fm-scroll 28s linear infinite;
 }
 
-@keyframes scrollClients {
+.fm-clients-marquee:hover .fm-clients-track {
+  animation-play-state: paused;
+}
+
+@keyframes fm-scroll {
   from {
     transform: translateX(0);
   }
@@ -811,38 +817,61 @@ body {
 }
 
 /* ========================= */
-/* CLIENT ITEM (IMAGE ONLY) */
+/* CARD */
 /* ========================= */
 
-.fm-client-item {
-  position: relative;
-  min-width: 260px;
-  height: 180px;
-  overflow: hidden;
-  border-radius: 12px;
+.fm-client-card {
+  min-width: 220px; /* BIGGER */
+  height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 16px;
+  border-radius: 16px;
+
+  border: 1px solid var(--fm-border);
+  background: var(--fm-surface);
+
+  transition: 0.3s ease;
 }
 
-/* IMAGE */
+/* hover */
+.fm-client-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--fm-primary);
+}
 
-.fm-client-item img {
+/* ========================= */
+/* LOGO */
+/* ========================= */
+
+.fm-client-card img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  height: 80px; /* BIGGER */
+  object-fit: contain;
+
+  filter: grayscale(100%) opacity(0.7);
+  transition: 0.3s ease;
 }
 
-/* NAME OVERLAY */
+.fm-client-card:hover img {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.05);
+}
+
+/* ========================= */
+/* NAME */
+/* ========================= */
 
 .fm-client-name {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 8px 10px;
   font-size: 13px;
+  font-weight: 500;
+  color: var(--fm-text-muted);
+
   text-align: center;
-  color: white;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
+  margin-top: 6px;
 }
 
 /* ========================= */
@@ -850,9 +879,19 @@ body {
 /* ========================= */
 
 @media (max-width: 768px) {
-  .fm-client-item {
-    min-width: 260px;
-    height: 180px;
+  .fm-client-card {
+    min-width: 180px;
+    height: 130px;
+    padding: 12px;
+  }
+
+  .fm-client-card img {
+    height: 60px;
+  }
+
+  .fm-clients-track {
+    gap: 16px;
+    animation-duration: 24s;
   }
 }
 
