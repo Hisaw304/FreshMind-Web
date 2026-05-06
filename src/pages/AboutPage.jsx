@@ -1,8 +1,8 @@
 // src/pages/AboutPage.jsx
 import React from "react";
-import FloatingActions from "../components/FloatingActions";
 import About from "../components/About";
 import FooterCTA from "../components/FooterCTA";
+import ChatWidget from "../components/ChatWidget";
 
 export const PORTFOLIO = [
   {
@@ -245,7 +245,7 @@ export default function AboutPage() {
         </div>
       </section>
       <FooterCTA />
-      <FloatingActions />
+      <ChatWidget />
     </div>
   );
 }

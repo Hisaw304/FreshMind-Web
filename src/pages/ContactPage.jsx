@@ -1,7 +1,6 @@
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import ContactForm from "../components/ContactForm";
 import FAQSection from "../components/FAQSection";
-import FloatingActions from "../components/FloatingActions";
 
 /* ✅ THIS WAS MISSING */
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
@@ -11,6 +10,7 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
+import ChatWidget from "../components/ChatWidget";
 
 const DefaultIcon = L.icon({
   iconUrl: markerIcon,
@@ -99,7 +99,7 @@ export default function ContactPage() {
           <FAQSection />
         </section>
       </section>
-      <FloatingActions />
+      <ChatWidget />
     </div>
   );
 }
