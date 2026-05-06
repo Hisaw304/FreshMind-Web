@@ -1,34 +1,37 @@
 import { motion } from "framer-motion";
-
+import belmont from "../assets/belmont.png";
+import bigfoot from "../assets/bigfoot.png";
+import createescapes from "../assets/createescapes.png";
+import fairspares from "../assets/fairspares.png";
+import laconia from "../assets/laconia.png";
+import lachance from "../assets/lachance.png";
+import trini from "../assets/Trini-and-Sons-1024x1024.webp";
+import trailer from "../assets/Trailer-Outlet-1024x1024.webp";
+import total from "../assets/Total-Concepts-1024x1024.webp";
+import sawin from "../assets/Sawin-1024x1024.webp";
+import prime from "../assets/Prime-Sealcoating-1024x1024.webp";
+import necc from "../assets/NECC-1024x1024.webp";
+import epoxy from "../assets/Lakes-Region-Epoxy-1024x1024.webp";
+import intervale from "../assets/Intervale-Stove-Shop-1024x1024.webp";
+import grasshoppers from "../assets/Grasshoppers-1024x1024.webp";
+import concierge from "../assets/Lakes-Region-Concierge-1024x1024.webp";
 const clients = [
-  { name: "Belmont Firearms", logo: "/images/belmont.png" },
-  { name: "Bigfoot HVAC", logo: "/images/bigfoot.png" },
-  { name: "Create Escapes", logo: "/images/createescapes.png" },
-  { name: "Fair Spares NE", logo: "/images/fairspares.png" },
-  { name: "Laconia Refrigeration", logo: "/images/laconia.png" },
-  { name: "LaChance Water", logo: "/images/lachance.png" },
-  { name: "Trini & Sons", logo: "/images/Trini-and-Sons-1024x1024.webp" },
-  { name: "Trailer Outlet", logo: "/images/Trailer-Outlet-1024x1024.webp" },
-  { name: "Total Concepts", logo: "/images/Total-Concepts-1024x1024.webp" },
-  { name: "Sawin", logo: "/images/Sawin-1024x1024.webp" },
-  {
-    name: "Prime Sealcoating",
-    logo: "/images/Prime-Sealcoating-1024x1024.webp",
-  },
-  { name: "NECC", logo: "/images/NECC-1024x1024.webp" },
-  {
-    name: "Lakes Region Epoxy",
-    logo: "/images/Lakes-Region-Epoxy-1024x1024.webp",
-  },
-  {
-    name: "Intervale Stove Shop",
-    logo: "/images/Intervale-Stove-Shop-1024x1024.webp",
-  },
-  { name: "Grasshoppers", logo: "/images/Grasshoppers-1024x1024.webp" },
-  {
-    name: "Lakes Region Concierge",
-    logo: "/images/Lakes-Region-Concierge-1024x1024.webp",
-  },
+  { name: "Belmont Firearms", logo: belmont },
+  { name: "Bigfoot HVAC", logo: bigfoot },
+  { name: "Create Escapes", logo: createescapes },
+  { name: "Fair Spares NE", logo: fairspares },
+  { name: "Laconia Refrigeration", logo: laconia },
+  { name: "LaChance Water", logo: lachance },
+  { name: "Trini & Sons", logo: trini },
+  { name: "Trailer Outlet", logo: trailer },
+  { name: "Total Concepts", logo: total },
+  { name: "Sawin", logo: sawin },
+  { name: "Prime Sealcoating", logo: prime },
+  { name: "NECC", logo: necc },
+  { name: "Lakes Region Epoxy", logo: epoxy },
+  { name: "Intervale Stove Shop", logo: intervale },
+  { name: "Grasshoppers", logo: grasshoppers },
+  { name: "Lakes Region Concierge", logo: concierge },
 ];
 
 export default function Clients() {
