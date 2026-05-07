@@ -722,7 +722,144 @@ body {
     gap: 40px;
   }
 }
+/* ========================= */
+/* HERO MARQUEE */
+/* ========================= */
 
+.fm-hero-marquee {
+  margin-top: 70px;
+  overflow: hidden;
+  position: relative;
+
+  padding: 22px 0;
+
+  border-top: 1px solid var(--fm-border);
+  border-bottom: 1px solid var(--fm-border);
+
+  /* upgraded background */
+  background: radial-gradient(
+      circle at center,
+      rgba(59, 130, 246, 0.12),
+      transparent 65%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0.01)
+    );
+
+  backdrop-filter: blur(10px);
+}
+
+/* glowing line */
+
+.fm-hero-marquee::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(59, 130, 246, 0.5),
+    transparent
+  );
+}
+
+/* fade edges */
+
+.fm-hero-marquee::before,
+.fm-hero-marquee::after {
+  pointer-events: none;
+}
+
+/* ========================= */
+/* TRACK */
+/* ========================= */
+
+.fm-hero-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: max-content;
+
+  animation: fmHeroScroll 28s linear infinite;
+}
+
+/* ========================= */
+/* PILLS */
+/* ========================= */
+
+.fm-hero-pill {
+  flex-shrink: 0;
+
+  padding: 14px 22px;
+  border-radius: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  /* richer card bg */
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+
+  color: var(--fm-text);
+
+  font-size: 14px;
+  font-weight: 600;
+
+  backdrop-filter: blur(12px);
+
+  transition: 0.3s ease;
+}
+
+/* hover */
+
+.fm-hero-pill:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(59, 130, 246, 0.5);
+
+  background: linear-gradient(
+    180deg,
+    rgba(59, 130, 246, 0.18),
+    rgba(59, 130, 246, 0.08)
+  );
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 20px rgba(59, 130, 246, 0.15);
+}
+/* animation */
+
+@keyframes fmHeroScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .fm-hero-marquee {
+    margin-top: 50px;
+  }
+
+  .fm-hero-pill {
+    padding: 12px 18px;
+    font-size: 13px;
+  }
+}
 /* ========================= */
 /* CLIENTS SECTION */
 /* ========================= */
@@ -828,7 +965,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-
   transition: 0.5s ease;
 }
 
@@ -847,9 +983,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-
   padding: 14px;
-
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.75),
@@ -3059,7 +3193,9 @@ body {
 
 .fm-portfolio {
   padding: 120px 20px;
-  background: var(--fm-bg);
+  background: var(--fm-body);
+  position: relative;
+  overflow: hidden;
 }
 
 .fm-portfolio-container {
@@ -3072,105 +3208,123 @@ body {
 /* ========================= */
 
 .fm-portfolio-header {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 60px;
+  align-items: end;
   margin-bottom: 60px;
 }
 
 .fm-portfolio-header h2 {
-  color: var(--fm-text);
-  font-size: clamp(32px, 5vw, 56px);
+  font-size: clamp(34px, 5vw, 60px);
+  line-height: 1.05;
   font-weight: 800;
   letter-spacing: -1px;
+  color: var(--fm-text);
 }
 
-.fm-portfolio-header span {
+.fm-portfolio-header h2 span {
   color: var(--fm-primary);
 }
 
 .fm-portfolio-header p {
-  margin-top: 16px;
-  margin-bottom: 16px;
   color: var(--fm-text-muted);
-  line-height: 1.7;
+  line-height: 1.8;
+  font-size: 16px;
+  max-width: 560px;
 }
 
 /* ========================= */
-/* ROWS */
+/* SWIPER */
 /* ========================= */
 
-.fm-portfolio-row {
-  overflow: hidden;
-  margin-bottom: 30px;
+.fm-portfolio-slider {
   position: relative;
+  padding-bottom: 60px;
 }
 
-/* TRACK */
-.fm-portfolio-track {
-  display: flex;
-  gap: 20px;
-  width: max-content;
+/* slide spacing fix */
+.fm-portfolio-slider .swiper {
+  overflow: visible;
 }
 
+/* pagination */
+
+.fm-portfolio-slider .swiper-pagination {
+  bottom: 0 !important;
+}
+
+.fm-portfolio-slider .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: var(--fm-border);
+  opacity: 1;
+  transition: 0.3s ease;
+}
+
+.fm-portfolio-slider .swiper-pagination-bullet-active {
+  width: 28px;
+  border-radius: 999px;
+  background: var(--fm-primary);
+}
+
+/* ========================= */
 /* CARD */
-.fm-portfolio-card {
-  min-width: 320px;
-  height: 220px;
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
-  flex-shrink: 0;
+/* ========================= */
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+.fm-portfolio-card {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid var(--fm-border);
+  background: var(--fm-surface);
+  transition: 0.35s ease;
 }
+
+/* image */
 
 .fm-portfolio-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.7s ease;
 }
 
-/* TITLE OVERLAY (BOTTOM) */
+/* hover */
+
+.fm-portfolio-card:hover img {
+  transform: scale(1.05);
+}
+
+.fm-portfolio-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--fm-primary);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* ========================= */
+/* OVERLAY */
+/* ========================= */
+
 .fm-portfolio-overlay {
   position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 14px;
+  inset: auto 0 0 0;
+  padding: 24px;
 
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.35),
+    transparent
+  );
 }
 
 .fm-portfolio-overlay h4 {
   color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-/* ========================= */
-/* SCROLL ANIMATION */
-/* ========================= */
-.fm-scroll-right .fm-portfolio-track {
-  animation: scrollRight 55s linear infinite;
-}
-
-.fm-scroll-left .fm-portfolio-track {
-  animation: scrollLeft 65s linear infinite;
-}
-
-@keyframes scrollRight {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes scrollLeft {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0);
-  }
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
 }
 
 /* ========================= */
@@ -3178,33 +3332,71 @@ body {
 /* ========================= */
 
 .fm-portfolio-footer {
-  text-align: center;
-  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 .fm-portfolio-btn {
-  display: inline-block;
-  padding: 14px 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 30px;
   border-radius: 14px;
-
-  background: linear-gradient(
-    135deg,
-    var(--fm-primary),
-    var(--fm-primary-hover)
-  );
-
-  color: #fff;
+  border: 1px solid var(--fm-border);
+  background: var(--fm-primary);
+  color: var(--fm-text);
   font-weight: 600;
-
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  transition: 0.25s ease;
+  transition: 0.3s ease;
 }
 
 .fm-portfolio-btn:hover {
+  background: var(--fm-primary-hover);
+  border-color: var(--fm-primary);
+  color: white;
   transform: translateY(-3px);
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.3);
 }
 
+/* ========================= */
+/* TABLET */
+/* ========================= */
+
+@media (max-width: 980px) {
+  .fm-portfolio-header {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .fm-portfolio-card {
+    height: 360px;
+  }
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .fm-portfolio {
+    padding: 90px 16px;
+  }
+
+  .fm-portfolio-header {
+    margin-bottom: 40px;
+  }
+
+  .fm-portfolio-card {
+    height: 300px;
+  }
+
+  .fm-portfolio-overlay {
+    padding: 18px;
+  }
+
+  .fm-portfolio-overlay h4 {
+    font-size: 16px;
+  }
+}
 /* ========================= */
 /* CTA SECTION */
 /* ========================= */
@@ -3581,11 +3773,9 @@ body {
   position: absolute;
   bottom: -2px;
   right: -4px;
-
   width: 8px;
   height: 8px;
   border-radius: 50%;
-
   background: var(--fm-accent);
   border: 2px solid var(--fm-surface);
 }
@@ -3597,16 +3787,13 @@ body {
 .fm-chat-panel {
   position: fixed;
   bottom: 24px;
-  left: 24px;
+  right: 24px;
   z-index: 9999;
-
   width: 320px;
   max-width: calc(100% - 40px);
-
   background: var(--fm-surface);
   border: 1px solid var(--fm-border);
   border-radius: 18px;
-
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
   overflow: hidden;
 }
@@ -3619,9 +3806,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 14px 16px;
-
   border-bottom: 1px solid var(--fm-border);
 }
 

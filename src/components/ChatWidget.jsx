@@ -37,7 +37,7 @@ export default function ChatWidget({
 
           {/* BODY */}
           <div className="fm-chat-body">
-            <p className="fm-chat-hi">Hi</p>
+            <p className="fm-chat-hi">Hi 👋</p>
             <p className="fm-chat-sub">How can we help you?</p>
 
             <div className="fm-chat-status">

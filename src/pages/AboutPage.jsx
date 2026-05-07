@@ -3,93 +3,45 @@ import React from "react";
 import About from "../components/About";
 import FooterCTA from "../components/FooterCTA";
 import ChatWidget from "../components/ChatWidget";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
 
-export const PORTFOLIO = [
-  {
-    src: "/images/belmont.png",
-    alt: "Belmont Firearms website screenshot",
-    title: "Belmont Firearms",
-  },
-  {
-    src: "/images/bigfoot.png",
-    alt: "Bigfoot HVAC website screenshot",
-    title: "Bigfoot HVAC",
-  },
-  {
-    src: "/images/createescapes.png",
-    alt: "CreateEscapes travel platform screenshot",
-    title: "CreateEscapes",
-  },
-  {
-    src: "/images/fairspares.png",
-    alt: "Fair Spares NE website screenshot",
-    title: "Fair Spares NE",
-  },
-  {
-    src: "/images/laconia.png",
-    alt: "Laconia Refrigeration website screenshot",
-    title: "Laconia Refrigeration",
-  },
-  {
-    src: "/images/lachance.png",
-    alt: "LaChance Water website screenshot",
-    title: "LaChance Water",
-  },
-  {
-    src: "/images/Belmont-Firearms-1024x1024.webp",
-    alt: "Belmont Firearms project image",
-    title: "Belmont Firearms",
-  },
-  {
-    src: "/images/Trini-and-Sons-1024x1024.webp",
-    alt: "Trini & Sons project screenshot",
-    title: "Trini & Sons",
-  },
-  {
-    src: "/images/Trailer-Outlet-1024x1024.webp",
-    alt: "Trailer Outlet project screenshot",
-    title: "Trailer Outlet",
-  },
-  {
-    src: "/images/Total-Concepts-1024x1024.webp",
-    alt: "Total Concepts project screenshot",
-    title: "Total Concepts",
-  },
-  {
-    src: "/images/Sawin-1024x1024.webp",
-    alt: "Sawin project screenshot",
-    title: "Sawin",
-  },
-  {
-    src: "/images/Prime-Sealcoating-1024x1024.webp",
-    alt: "Prime Sealcoating project screenshot",
-    title: "Prime Sealcoating",
-  },
-  {
-    src: "/images/NECC-1024x1024.webp",
-    alt: "NECC project screenshot",
-    title: "NECC",
-  },
-  {
-    src: "/images/Lakes-Region-Epoxy-1024x1024.webp",
-    alt: "Lakes Region Epoxy project screenshot",
-    title: "Lakes Region Epoxy",
-  },
-  {
-    src: "/images/Intervale-Stove-Shop-1024x1024.webp",
-    alt: "Intervale Stove Shop project screenshot",
-    title: "Intervale Stove Shop",
-  },
-  {
-    src: "/images/Grasshoppers-1024x1024.webp",
-    alt: "Grasshoppers project screenshot",
-    title: "Grasshoppers",
-  },
-  {
-    src: "/images/Lakes-Region-Concierge-1024x1024.webp",
-    alt: "Lakes Region Concierge project screenshot",
-    title: "Lakes Region Concierge",
-  },
+import "swiper/css";
+import "swiper/css/pagination";
+import belmont from "../assets/belmont.png";
+import bigfoot from "../assets/bigfoot.png";
+import createescapes from "../assets/createescapes.png";
+import fairspares from "../assets/fairspares.png";
+import laconia from "../assets/laconia.png";
+import lachance from "../assets/lachance.png";
+import trini from "../assets/Trini-and-Sons-1024x1024.webp";
+import trailer from "../assets/Trailer-Outlet-1024x1024.webp";
+import total from "../assets/Total-Concepts-1024x1024.webp";
+import sawin from "../assets/Sawin-1024x1024.webp";
+import prime from "../assets/Prime-Sealcoating-1024x1024.webp";
+import necc from "../assets/NECC-1024x1024.webp";
+import epoxy from "../assets/Lakes-Region-Epoxy-1024x1024.webp";
+import intervale from "../assets/Intervale-Stove-Shop-1024x1024.webp";
+import grasshoppers from "../assets/Grasshoppers-1024x1024.webp";
+import concierge from "../assets/Lakes-Region-Concierge-1024x1024.webp";
+
+const clients = [
+  { name: "Belmont Firearms", logo: belmont },
+  { name: "Bigfoot HVAC", logo: bigfoot },
+  { name: "Create Escapes", logo: createescapes },
+  { name: "Fair Spares NE", logo: fairspares },
+  { name: "Laconia Refrigeration", logo: laconia },
+  { name: "LaChance Water", logo: lachance },
+  { name: "Trini & Sons", logo: trini },
+  { name: "Trailer Outlet", logo: trailer },
+  { name: "Total Concepts", logo: total },
+  { name: "Sawin", logo: sawin },
+  { name: "Prime Sealcoating", logo: prime },
+  { name: "NECC", logo: necc },
+  { name: "Lakes Region Epoxy", logo: epoxy },
+  { name: "Intervale Stove Shop", logo: intervale },
+  { name: "Grasshoppers", logo: grasshoppers },
+  { name: "Lakes Region Concierge", logo: concierge },
 ];
 
 export default function AboutPage() {
@@ -193,47 +145,66 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="fm-portfolio">
+      <section id="porfolio" className="fm-portfolio">
         <div className="fm-portfolio-container">
-          {/* HEADING */}
+          {/* HEADER */}
           <div className="fm-portfolio-header">
-            <h2>
-              Selected Projects From Our <span>Past Work</span>
-            </h2>
+            <div>
+              <h2>
+                Selected Projects From Our <span>Past Work</span>
+              </h2>
+            </div>
 
-            <p>
-              A curated look at some of the brands and products we’ve helped
-              shape. From strategy to execution, each project reflects our focus
-              on clarity, performance, and meaningful user experience.
-            </p>
-          </div>
-
-          {/* ROW 1 (scroll right) */}
-          <div className="fm-portfolio-row fm-scroll-right">
-            <div className="fm-portfolio-track">
-              {[...PORTFOLIO, ...PORTFOLIO].map((p, i) => (
-                <div key={i} className="fm-portfolio-card">
-                  <img src={p.src} alt={p.alt} />
-                  <div className="fm-portfolio-overlay">
-                    <h4>{p.title}</h4>
-                  </div>
-                </div>
-              ))}
+            <div>
+              <p>
+                A curated look at some of the brands and products we’ve helped
+                shape. From strategy to execution, each project reflects our
+                focus on clarity, performance, and meaningful user experience.
+              </p>
             </div>
           </div>
 
-          {/* ROW 2 (scroll left) */}
-          <div className="fm-portfolio-row fm-scroll-left">
-            <div className="fm-portfolio-track">
-              {[...PORTFOLIO, ...PORTFOLIO].map((p, i) => (
-                <div key={i} className="fm-portfolio-card">
-                  <img src={p.src} alt={p.alt} />
-                  <div className="fm-portfolio-overlay">
-                    <h4>{p.title}</h4>
+          {/* SWIPER */}
+          <div className="fm-portfolio-slider">
+            <Swiper
+              modules={[Autoplay, Pagination]}
+              spaceBetween={24}
+              loop={true}
+              speed={1200}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1.1,
+                },
+                640: {
+                  slidesPerView: 1.5,
+                },
+                900: {
+                  slidesPerView: 2.2,
+                },
+                1200: {
+                  slidesPerView: 3,
+                },
+              }}
+            >
+              {clients.map((client, i) => (
+                <SwiperSlide key={i}>
+                  <div className="fm-portfolio-card">
+                    <img src={client.logo} alt={client.name} />
+
+                    <div className="fm-portfolio-overlay">
+                      <h4>{client.name}</h4>
+                    </div>
                   </div>
-                </div>
+                </SwiperSlide>
               ))}
-            </div>
+            </Swiper>
           </div>
 
           {/* CTA */}

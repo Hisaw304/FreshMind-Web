@@ -1,7 +1,20 @@
 import { motion } from "framer-motion";
-import { Phone } from "lucide-react";
+// import { Phone } from "lucide-react";
 import dashboardImg from "../assets/about-hero-fm.jpg";
 import { ReactTyped } from "react-typed";
+
+const services = [
+  "Custom Websites",
+  "UI/UX Design",
+  "Landing Pages",
+  "SEO Optimization",
+  "Brand Identity",
+  "Website Redesign",
+  "E-Commerce Stores",
+  "Mobile Responsive",
+  "Website Hosting",
+  "Performance Optimization",
+];
 export default function Hero() {
   return (
     <section className="fm-hero">
@@ -72,6 +85,16 @@ export default function Hero() {
               <img src={dashboardImg} alt="Dashboard preview" />
             </div>
           </motion.div>
+        </div>
+        {/* ADD THIS AT THE VERY BOTTOM OF HERO SECTION */}
+        <div className="fm-hero-marquee">
+          <div className="fm-hero-marquee-track">
+            {[...services, ...services].map((item, i) => (
+              <div key={i} className="fm-hero-pill">
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

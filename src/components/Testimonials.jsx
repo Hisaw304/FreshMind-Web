@@ -119,7 +119,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="fm-testimonials">
+    <section id="testimonials" className="fm-testimonials">
       <div className="fm-testimonials-container">
         {/* HEADER */}
         <div className="fm-testimonials-header">
