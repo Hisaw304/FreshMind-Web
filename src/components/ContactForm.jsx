@@ -1,7 +1,7 @@
 // src/components/ContactForm.jsx
 import React, { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
 
 const SERVICE_ID =
   typeof import.meta !== "undefined" && import.meta.env?.VITE_EMAILJS_SERVICE_ID
