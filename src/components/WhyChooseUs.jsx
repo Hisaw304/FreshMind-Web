@@ -43,6 +43,7 @@ const points = [
 export default function WhyChooseUs() {
   return (
     <section className="fm-why">
+      <div className="fm-why-grid-bg" />
       <div className="fm-why-container">
         {/* HEADER */}
         <div className="fm-why-header">

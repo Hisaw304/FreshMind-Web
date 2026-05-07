@@ -1,4 +1,12 @@
+// src/sections/Clients.jsx
+
 import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
 import belmont from "../assets/belmont.png";
 import bigfoot from "../assets/bigfoot.png";
 import createescapes from "../assets/createescapes.png";
@@ -15,6 +23,7 @@ import epoxy from "../assets/Lakes-Region-Epoxy-1024x1024.webp";
 import intervale from "../assets/Intervale-Stove-Shop-1024x1024.webp";
 import grasshoppers from "../assets/Grasshoppers-1024x1024.webp";
 import concierge from "../assets/Lakes-Region-Concierge-1024x1024.webp";
+
 const clients = [
   { name: "Belmont Firearms", logo: belmont },
   { name: "Bigfoot HVAC", logo: bigfoot },
@@ -37,43 +46,84 @@ const clients = [
 export default function Clients() {
   return (
     <section className="fm-clients">
+      <div className="fm-why-grid-bg" />
+
       <div className="fm-clients-container">
-        {/* HEADER */}
-        <motion.div
-          className="fm-clients-header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2>
-            Companies We’ve <span>Worked With</span>
-          </h2>
+        {/* TOP */}
+        <div className="fm-clients-top">
+          {/* LEFT */}
+          <motion.div
+            className="fm-clients-heading"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2>
+              Companies We’ve <span>Worked With</span>
+            </h2>
+          </motion.div>
 
-          <p>
-            Over the years, we’ve partnered with companies — from small
-            family-owned businesses to established regional brands. Each
-            project, big or small, receives the same level of care, attention to
-            detail, and commitment to results.
-          </p>
+          {/* RIGHT */}
+          <motion.div
+            className="fm-clients-text"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <p>
+              Over the years, we’ve partnered with companies — from small
+              family-owned businesses to established regional brands. Each
+              project receives the same level of care, strategy, and commitment
+              to long-term success.
+            </p>
 
-          <p>
-            Our goal is simple: build long-term relationships by delivering
-            digital experiences that genuinely help businesses grow. The
-            companies below represent just a portion of the clients who continue
-            to trust us with their websites, branding, and ongoing marketing.
-          </p>
-        </motion.div>
+            <p>
+              Our focus has always been building relationships through digital
+              experiences that genuinely help businesses grow, build trust, and
+              stand out online.
+            </p>
+          </motion.div>
+        </div>
 
-        {/* LOGO SCROLLER */}
-        <div className="fm-clients-marquee">
-          <div className="fm-clients-track">
-            {[...clients, ...clients].map((client, i) => (
-              <div key={i} className="fm-client-item">
-                <img src={client.logo} alt={client.name} />
-                <p className="fm-client-name">{client.name}</p>
-              </div>
+        {/* SWIPER */}
+        <div className="fm-clients-slider">
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            spaceBetween={24}
+            loop={true}
+            speed={900}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            breakpoints={{
+              0: {
+                slidesPerView: 1.1,
+              },
+              640: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+          >
+            {clients.map((client, i) => (
+              <SwiperSlide key={i}>
+                <div className="fm-client-slide">
+                  <img src={client.logo} alt={client.name} />
+
+                  <div className="fm-client-overlay">
+                    <p>{client.name}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
       </div>
     </section>
