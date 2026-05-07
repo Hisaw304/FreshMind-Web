@@ -868,6 +868,7 @@ body {
   position: relative;
   padding: 120px 20px;
   overflow: hidden;
+  background-color: var(--fm-surface);
 }
 
 .fm-clients-container {
@@ -3533,10 +3534,10 @@ body {
 
   background-image: linear-gradient(
       to right,
-      rgba(15, 23, 42, 0.07) 1px,
+      rgba(15, 23, 42, 0.06) 1px,
       transparent 1px
     ),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.07) 1px, transparent 1px);
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
 
   background-size: 40px 40px;
   pointer-events: none;

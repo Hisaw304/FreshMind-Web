@@ -79,6 +79,7 @@ export default function About() {
 
   return (
     <section className="fm-trusted">
+      <div className="fm-why-grid-bg" />
       <div className="fm-trusted-container">
         {/* HEADER */}
         <motion.div

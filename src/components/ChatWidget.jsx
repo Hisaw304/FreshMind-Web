@@ -3,7 +3,7 @@ import { MessageCircle, X, Phone, Mail } from "lucide-react";
 
 export default function ChatWidget({
   whatsapp = "18608213853",
-  email = "hello@yourdomain.com",
+  email = "fishlymind@gmail.com",
 }) {
   const [open, setOpen] = useState(false);
 
