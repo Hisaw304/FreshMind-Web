@@ -15,7 +15,7 @@ const TEMPLATE_ID =
 const PUBLIC_KEY =
   typeof import.meta !== "undefined" && import.meta.env?.VITE_EMAILJS_PUBLIC_KEY
     ? import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-    : "lf-3xkiD4B2VEYmnQ";
+    : "G4wx8ip9pEZ9cXPdp";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
