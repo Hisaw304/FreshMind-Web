@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 // import { Phone } from "lucide-react";
-import dashboardImg from "../assets/about-hero-fm.jpg";
+import dashboardImg from "../assets/hero-fm.jpg";
 import { ReactTyped } from "react-typed";
 
 const services = [
