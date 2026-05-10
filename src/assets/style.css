@@ -8,6 +8,7 @@
   --fm-text-muted: #9fb7b8;
   --fm-border: rgba(0, 206, 209, 0.12);
 }
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--fm-body);
@@ -1053,7 +1054,7 @@ body {
 }
 
 .fm-highlight-alt {
-  color: var(--fm-primary);
+  color: var(--fm-accent);
   font-weight: 600;
 }
 .fm-ready-btn {
