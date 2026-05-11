@@ -8,7 +8,14 @@
   --fm-text-muted: #9fb7b8;
   --fm-border: rgba(0, 206, 209, 0.12);
 }
-
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--fm-body);
