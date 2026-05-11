@@ -3585,7 +3585,7 @@ body {
 .fm-why-grid {
   display: grid;
   gap: 50px;
-  align-items: center;
+  align-items: start;
 }
 
 @media (min-width: 900px) {
