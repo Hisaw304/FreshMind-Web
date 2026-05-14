@@ -94,11 +94,8 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
-        {/* Mini FAQ */}
-        <section className=" pt-16  ">
-          <FAQSection />
-        </section>
       </section>
+      <FAQSection />
       <ChatWidget />
     </div>
   );
