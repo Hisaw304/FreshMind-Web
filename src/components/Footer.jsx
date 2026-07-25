@@ -8,27 +8,53 @@ export default function Footer() {
         <div className="fm-footer-top">
           {/* BRAND */}
           <div className="fm-footer-brand">
-            <img src="/logo.png" alt="logo" className="fm-logo" />
+            <img src="/logo.png" alt="FreshMind Web Logo" className="fm-logo" />
 
             <p>
-              We build modern, high-performing websites that help businesses
-              grow, convert, and stand out in competitive markets.
+              FreshMind Web builds modern, high-performing websites that help
+              businesses attract customers, build credibility, and grow online.
+              From custom web design to SEO and ongoing support, we create
+              digital experiences that deliver real results.
+            </p>
+
+            <p className="fm-footer-location">
+              🌍 Proudly serving businesses worldwide.
             </p>
 
             <div className="fm-socials">
-              <a href="#">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
                 <Facebook size={18} />
               </a>
 
-              <a href="#">
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+              >
                 <Twitter size={18} />
               </a>
 
-              <a href="#">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
                 <Instagram size={18} />
               </a>
 
-              <a href="#">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
                 <Linkedin size={18} />
               </a>
             </div>
@@ -36,25 +62,38 @@ export default function Footer() {
 
           {/* SERVICES */}
           <div className="fm-footer-col">
+            <h4>Services</h4>
+
+            <Link to="/services">Website Design</Link>
+            <Link to="/services">Website Development</Link>
+            <Link to="/services">UI/UX Design</Link>
+            <Link to="/services">SEO Optimization</Link>
+            <Link to="/services">Website Maintenance</Link>
+            <Link to="/services">Performance Optimization</Link>
+          </div>
+
+          {/* INDUSTRIES */}
+          <div className="fm-footer-col">
             <h4>Industries</h4>
 
-            <Link to="/industries">Web Design</Link>
-            <Link to="/industries">Website Development</Link>
-            <Link to="/industries">UI/UX Design</Link>
-            <Link to="/industries">SEO Optimization</Link>
-            <Link to="/industries">Website Maintenance</Link>
-            <Link to="/industries">Performance Optimization</Link>
+            <Link to="/industries/real-estate">Real Estate</Link>
+            <Link to="/industries/law-firms">Law Firms</Link>
+            <Link to="/industries/healthcare">Healthcare</Link>
+            <Link to="/industries/restaurants">Restaurants</Link>
+            <Link to="/industries/construction">Construction</Link>
+            <Link to="/industries">View All Industries</Link>
           </div>
 
           {/* COMPANY */}
           <div className="fm-footer-col">
             <h4>Company</h4>
 
-            <Link to="/about">About</Link>
-            <Link to="/Services">Services</Link>
-            <Link to="/industries">Industries</Link>
+            <Link to="/about">About Us</Link>
+            <Link to="/services">Services</Link>
             <Link to="/pricing">Pricing</Link>
+            <Link to="/industries">Industries</Link>
             <Link to="/contact">Contact</Link>
+            <Link to="/blog">Blog & Insights</Link>
           </div>
 
           {/* NEWSLETTER */}
@@ -62,8 +101,8 @@ export default function Footer() {
             <h4>Stay Updated</h4>
 
             <p>
-              Get web design insights, business tips, and updates delivered to
-              your inbox.
+              Get practical web design, SEO, and digital marketing insights
+              delivered straight to your inbox.
             </p>
 
             <form className="fm-newsletter-form">
@@ -74,14 +113,15 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
+        {/* BOTTOM */}
 
         <div className="fm-footer-bottom">
-          <p>© 2026 Your Company. All rights reserved.</p>
+          <p>© 2026 FreshMind Web. All rights reserved.</p>
 
           <div className="fm-footer-legal">
             <Link to="/privacy-policy">Privacy Policy</Link>
             <Link to="/terms">Terms & Conditions</Link>
+            <Link to="/blog">Blog</Link>
           </div>
         </div>
       </div>
