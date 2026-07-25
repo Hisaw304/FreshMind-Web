@@ -14,6 +14,8 @@ import PricingPage from "./pages/PricingPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsPage from "./pages/TermsPage";
 import ServicesPage from "./pages/ServicesPage";
+import BlogPage from "./pages/BlogPage";
+import BlogPost from "./pages/BlogPost";
 export default function App() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -28,6 +30,8 @@ export default function App() {
           <Route path="/industries/:slug" element={<IndustryTemplate />} />
 
           <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms" element={<TermsPage />} />
         </Routes>

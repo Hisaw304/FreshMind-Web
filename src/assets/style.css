@@ -1,12 +1,26 @@
 :root {
+  /* Backgrounds */
   --fm-body: #041f20;
   --fm-surface: #093738;
+
+  /* Brand */
   --fm-primary: #00ced1;
   --fm-primary-hover: #11e3e6;
   --fm-accent: #7c3aed;
+
+  /* Text */
+  --fm-heading: #ffffff;
   --fm-text: #f8fafc;
+  --fm-text-light: #c7d6d7;
   --fm-text-muted: #9fb7b8;
+
+  /* Borders */
   --fm-border: rgba(0, 206, 209, 0.12);
+
+  /* Extra (recommended) */
+  --fm-card-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+  --fm-hover-shadow: 0 22px 60px rgba(0, 206, 209, 0.12);
+  --fm-gradient: linear-gradient(135deg, #00ced1 0%, #7c3aed 100%);
 }
 html,
 body {
@@ -1518,6 +1532,7 @@ body {
 /* ========================= */
 
 .fm-service-header {
+  max-width: 760px;
 }
 
 .fm-service-header h2 {
@@ -2043,6 +2058,7 @@ body {
 
 .fm-testimonials-header {
   margin-bottom: 60px;
+  max-width: 760px;
 }
 
 .fm-testimonials-header h2 {
@@ -2299,6 +2315,7 @@ body {
 /* ========================= */
 
 .fm-faq-header {
+  max-width: 760px;
   margin-bottom: 60px;
 }
 
@@ -3266,7 +3283,7 @@ body {
 /* ========================= */
 
 .fm-portfolio-header {
-  max-width: 760px;
+  /* max-width: 760px; */
   text-align: left;
   margin-bottom: 60px;
 }
@@ -3607,6 +3624,7 @@ body {
 
 .fm-why-header {
   margin-bottom: 60px;
+  max-width: 760px;
 }
 
 .fm-why-header h2 {

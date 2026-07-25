@@ -18,7 +18,7 @@ export default function Footer() {
             </p>
 
             <p className="fm-footer-location">
-              🌍 Proudly serving businesses worldwide.
+              Proudly serving businesses worldwide.
             </p>
 
             <div className="fm-socials">

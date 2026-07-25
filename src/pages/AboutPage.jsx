@@ -25,6 +25,10 @@ import intervale from "../assets/Intervale-Stove-Shop-1024x1024.webp";
 import grasshoppers from "../assets/Grasshoppers-1024x1024.webp";
 import concierge from "../assets/Lakes-Region-Concierge-1024x1024.webp";
 import OurStory from "../components/OurStory";
+import MissionVision from "../components/MissionVision";
+import CompanyValues from "../components/CompanyValues";
+import ProcessPreview from "../components/ProcessPreview";
+import StatsAbout from "../components/StatsAbout";
 
 const clients = [
   { name: "Belmont Firearms", logo: belmont },
@@ -70,20 +74,20 @@ export default function AboutPage() {
       </section>
 
       <OurStory />
-      <About />
+      <MissionVision />
+      <CompanyValues />
+      <StatsAbout />
+      <ProcessPreview />
 
-      <section className="fm-consulting">
+      {/* <section className="fm-consulting">
         <div className="fm-consulting-container">
-          {/* MAIN HEADING (FULL WIDTH) */}
           <div className="fm-consulting-heading">
             <h2>
               Website Strategy & <span>Consulting</span>
             </h2>
           </div>
 
-          {/* GRID */}
           <div className="fm-consulting-grid">
-            {/* LEFT SIDE */}
             <div className="fm-consulting-left">
               <p>
                 At FreshMind Agency, we help businesses unlock their full online
@@ -104,7 +108,6 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* RIGHT SIDE (SCROLLING CARDS) */}
             <div className="fm-consulting-right">
               <div className="fm-consulting-scroll">
                 {[
@@ -129,7 +132,6 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* BOTTOM BLOCK (FULL WIDTH) */}
           <div className="fm-consulting-footer">
             <h2>
               How We Can <span>Help You</span>
@@ -146,7 +148,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section id="porfolio" className="fm-portfolio">
         <div className="fm-portfolio-container">
