@@ -164,12 +164,14 @@ export default function BlogArticle() {
 
       <section className="fm-blog-article">
         <div className="fm-container">
-          <Link to="/blog" className="fm-back-link">
-            <ArrowLeft size={18} />
-            Back to Blog
-          </Link>
+          <div className="fm-article-top">
+            <Link to="/blog" className="fm-back-link">
+              <ArrowLeft size={18} />
+              Back to Blog
+            </Link>
 
-          <span className="fm-article-category">{post.category}</span>
+            <span className="fm-article-category">{post.category}</span>
+          </div>
 
           <h1 className="fm-article-title">{post.title}</h1>
 

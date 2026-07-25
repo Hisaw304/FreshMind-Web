@@ -1129,50 +1129,45 @@ BLOG ARTICLE
   margin: 0 auto;
 }
 
-/*==================================================
-BACK BUTTON
-==================================================*/
+.fm-article-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+
+  margin-bottom: 1.8rem;
+}
 
 .fm-back-link {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-
-  margin-bottom: 40px;
-
+  gap: 0.5rem;
+  margin-top: 30px;
   color: var(--fm-primary);
-  font-size: 0.95rem;
+  text-decoration: none;
   font-weight: 600;
 
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .fm-back-link:hover {
-  gap: 14px;
+  color: var(--fm-primary-hover);
+  gap: 0.75rem;
 }
-
-/*==================================================
-CATEGORY
-==================================================*/
 
 .fm-article-category {
   display: inline-flex;
   align-items: center;
 
-  padding: 8px 18px;
+  padding: 0.45rem 1rem;
 
-  border-radius: 100px;
-
-  background: rgba(37, 99, 235, 0.08);
+  background: rgba(0, 206, 209, 0.12);
+  border: 1px solid var(--fm-border);
+  border-radius: 999px;
 
   color: var(--fm-primary);
-
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-
-  margin-bottom: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 /*==================================================

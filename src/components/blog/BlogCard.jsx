@@ -22,7 +22,11 @@ export default function BlogCard({ article }) {
         <div className="fm-blog-card-meta">
           <span>
             <Calendar size={15} />
-            {article.date}
+            {new Date(article.publishedAt).toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            })}
           </span>
 
           <span>
@@ -33,7 +37,9 @@ export default function BlogCard({ article }) {
 
         {/* TITLE */}
         <h3>
-          <Link to={article.slug}>{article.title}</Link>
+          <h3>
+            <Link to={`/blog/${article.slug.current}`}>{article.title}</Link>
+          </h3>
         </h3>
 
         {/* EXCERPT */}
@@ -45,7 +51,10 @@ export default function BlogCard({ article }) {
             By <strong>{article.author}</strong>
           </span>
 
-          <Link to={article.slug} className="fm-blog-read-more">
+          <Link
+            to={`/blog/${article.slug.current}`}
+            className="fm-blog-read-more"
+          >
             Read More
             <ArrowRight size={17} />
           </Link>
