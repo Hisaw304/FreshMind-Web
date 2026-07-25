@@ -1,7 +1,7 @@
 import PricingCards from "../components/PricingCards";
-// import FeatureComparison from "../components/FeatureComparison";
-// import PricingAddons from "../components/PricingAddons";
-// import PricingFAQ from "../components/PricingFAQ";
+import FeatureComparison from "../components/FeatureComparison";
+import PricingAddons from "../components/PricingAddons";
+import PricingFAQ from "../components/PricingFAQ";
 import Testimonials from "../components/Testimonials";
 import FooterCTA from "../components/FooterCTA";
 
@@ -33,11 +33,11 @@ export default function PricingPage() {
 
       <PricingCards />
 
-      {/* <FeatureComparison />
+      <FeatureComparison />
 
       <PricingAddons />
 
-      <PricingFAQ /> */}
+      <PricingFAQ />
 
       <Testimonials />
 

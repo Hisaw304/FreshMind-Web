@@ -198,7 +198,7 @@ export default function ContactForm() {
                 <div className="fm-icon-wrap">
                   <Mail size={16} />
                 </div>
-                <span>freshmindweb@gmail.com</span>
+                <span>freshmindwebagency@gmail.com</span>
               </div>
 
               <div className="fm-contact-item">

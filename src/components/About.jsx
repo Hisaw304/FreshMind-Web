@@ -1,22 +1,21 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { cities } from "../data/cities";
-
 import {
   Search,
-  Palette,
+  FileText,
+  PencilRuler,
   Code2,
-  Megaphone,
   ShieldCheck,
-  BarChart3,
+  Rocket,
 } from "lucide-react";
 
 import discoveryImg from "../assets/discovery.jpg";
-import brandingImg from "../assets/branding.jpg";
+import planningImg from "../assets/planning.jpg";
+import designImg from "../assets/design.jpg";
 import developmentImg from "../assets/development.jpg";
-import marketingImg from "../assets/marketing.jpg";
-import supportImg from "../assets/support.jpg";
-import analyticsImg from "../assets/analytics.jpg";
+import testingImg from "../assets/testing.jpg";
+import launchImg from "../assets/launch.jpg";
 
 const steps = [
   {
@@ -25,47 +24,47 @@ const steps = [
     icon: Search,
     image: discoveryImg,
     description:
-      "We dive deep into your business, audience, and goals to define a clear direction.",
+      "We begin by learning about your business, goals, audience, competitors, and project requirements to create the right strategy.",
   },
   {
     id: 2,
-    title: "Design & Branding",
-    icon: Palette,
-    image: brandingImg,
+    title: "Planning",
+    icon: FileText,
+    image: planningImg,
     description:
-      "We craft a distinctive visual identity that builds trust and stands out.",
+      "We organize your website structure, user journey, content, features, and technical requirements before development begins.",
   },
   {
     id: 3,
+    title: "Design",
+    icon: PencilRuler,
+    image: designImg,
+    description:
+      "Our designers create modern, user-focused layouts that reflect your brand and maximize engagement and conversions.",
+  },
+  {
+    id: 4,
     title: "Development",
     icon: Code2,
     image: developmentImg,
     description:
-      "We build fast, scalable, and reliable websites optimized for every device.",
-  },
-  {
-    id: 4,
-    title: "Marketing",
-    icon: Megaphone,
-    image: marketingImg,
-    description:
-      "We implement strategies that drive traffic, visibility, and conversions.",
+      "Using modern technologies, we build a fast, responsive, secure, and scalable website tailored to your business.",
   },
   {
     id: 5,
-    title: "Support",
+    title: "Testing",
     icon: ShieldCheck,
-    image: supportImg,
+    image: testingImg,
     description:
-      "We provide ongoing support to keep your site secure, updated, and evolving.",
+      "Every page is thoroughly tested across devices and browsers to ensure performance, functionality, and reliability.",
   },
   {
     id: 6,
-    title: "Analytics",
-    icon: BarChart3,
-    image: analyticsImg,
+    title: "Launch & Support",
+    icon: Rocket,
+    image: launchImg,
     description:
-      "We track performance and continuously optimize for better results.",
+      "Once everything is ready, we launch your website and continue providing updates, monitoring, and ongoing support as your business grows.",
   },
 ];
 

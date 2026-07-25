@@ -18,44 +18,49 @@ import serviceGlobal from "../assets/service-global.jpg";
 
 const services = [
   {
-    title: "Website Design & Management",
-    intro: "Make the right first impression.",
-    desc: "For many customers, your website is the first interaction with your business. Outdated or poorly designed websites can hurt your credibility. Our team builds modern, mobile-friendly websites tailored to your brand and optimized for performance.",
+    title: "Website Design",
+    intro: "Modern websites that build trust.",
+    desc: "Custom responsive websites designed to help businesses attract customers, strengthen their brand, and increase conversions.",
     icon: Palette,
     image: serviceDesign,
   },
+
   {
-    title: "Search Engine Optimization (SEO)",
-    intro: "Be found when it matters most.",
-    desc: "We help your website rank higher through optimized content, technical SEO, and strategies that improve visibility so the right customers can find you.",
-    icon: Search,
-    image: serviceSeo,
-  },
-  {
-    title: "Digital Marketing",
-    intro: "Reach your audience with impact.",
-    desc: "From targeted ads to engaging content, we develop strategies that connect you with your ideal audience and maximize your ROI.",
-    icon: BarChart3,
-    image: serviceMarketing,
-  },
-  {
-    title: "Web Development",
-    intro: "Scalable solutions for growth.",
-    desc: "We build scalable, secure, and high-performing digital solutions—from custom features to full backend systems.",
+    title: "Custom Web Development",
+    intro: "Built for performance.",
+    desc: "Scalable web applications, portals, dashboards, and custom business solutions developed with modern technologies.",
     icon: Code2,
     image: serviceDevelopment,
   },
+
   {
-    title: "Mobile-Ready Solutions",
-    intro: "Engage customers on the go.",
-    desc: "We ensure your website looks and performs beautifully across all devices, delivering a seamless mobile-first experience.",
+    title: "SEO Optimization",
+    intro: "Get found on Google.",
+    desc: "Technical SEO, local SEO, schema markup, and performance optimization to improve your search visibility.",
+    icon: Search,
+    image: serviceSeo,
+  },
+
+  {
+    title: "Landing Pages",
+    intro: "Convert more visitors.",
+    desc: "High-converting landing pages designed for advertising campaigns, lead generation, and product launches.",
+    icon: BarChart3,
+    image: serviceMarketing,
+  },
+
+  {
+    title: "E-commerce Websites",
+    intro: "Sell online with confidence.",
+    desc: "Professional online stores with secure payments, product management, and seamless shopping experiences.",
     icon: Smartphone,
     image: serviceMobile,
   },
+
   {
-    title: "Global Reach",
-    intro: "Expand beyond borders.",
-    desc: "We create strategies that help your business connect with audiences locally and globally, no matter where they are.",
+    title: "Website Maintenance",
+    intro: "Keep your website secure.",
+    desc: "Regular updates, backups, monitoring, security improvements, and ongoing technical support.",
     icon: Globe,
     image: serviceGlobal,
   },
@@ -69,7 +74,7 @@ export default function Services() {
         {/* HEADER */}
         <div className="fm-service-header">
           <h2>
-            What We <span>Do</span>
+            Solutions We <span>Provide</span>
           </h2>
           <p>
             Our services are designed to build your online presence, connect you
@@ -120,6 +125,11 @@ export default function Services() {
               </motion.div>
             );
           })}
+        </div>
+        <div className="fm-services-btn">
+          <a href="/services" className="fm-primary-btn">
+            Explore All Services
+          </a>
         </div>
       </div>
     </section>

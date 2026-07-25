@@ -50,20 +50,15 @@ export default function Clients() {
 
       <div className="fm-clients-container">
         {/* TOP */}
-        <div className="fm-clients-top">
-          {/* LEFT */}
-          <motion.div
-            className="fm-clients-heading"
+        <div className="fm-clients-heading">
+          <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2>
-              Companies We’ve <span>Worked With</span>
-            </h2>
-          </motion.div>
+            Companies We've <span>Worked With</span>
+          </motion.h2>
 
-          {/* RIGHT */}
           <motion.div
             className="fm-clients-text"
             initial={{ opacity: 0, y: 30 }}
@@ -72,7 +67,7 @@ export default function Clients() {
             viewport={{ once: true }}
           >
             <p>
-              Over the years, we’ve partnered with companies — from small
+              Over the years, we've partnered with companies—from small
               family-owned businesses to established regional brands. Each
               project receives the same level of care, strategy, and commitment
               to long-term success.

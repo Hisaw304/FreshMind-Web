@@ -72,9 +72,13 @@ export default function IndustryCards() {
           </h2>
 
           <p>
-            Every business is unique. That's why we create tailored websites
-            that match your industry, connect with your audience, and help you
-            achieve measurable business growth.
+            We create custom websites for businesses across a wide range of
+            industries. While the sectors below highlight some of our expertise,
+            they're only a selection of the clients we work with. Whether you're
+            an established company, growing startup, or operate in a niche
+            market, we build tailored digital solutions that connect with your
+            audience, strengthen your brand, and drive measurable business
+            growth.
           </p>
         </div>
 

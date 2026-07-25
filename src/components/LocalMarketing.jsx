@@ -2,18 +2,19 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 const avatars = [
-  { name: "New York, USA", img: "/images/avatar1.jpg", x: 38, y: 55 },
-  { name: "Los Angeles, USA", img: "/images/avatar2.jpg", x: 18, y: 65 },
-  { name: "Chicago, USA", img: "/images/avatar3.jpg", x: 30, y: 58 },
-  { name: "London, UK", img: "/images/avatar4.jpg", x: 75, y: 35 },
-  { name: "Manchester, UK", img: "/images/avatar5.jpg", x: 70, y: 28 },
+  { name: "United States", img: "/images/avatar1.jpg", x: 38, y: 55 },
+  { name: "Canada", img: "/images/avatar2.jpg", x: 25, y: 45 },
+  { name: "United Kingdom", img: "/images/avatar3.jpg", x: 73, y: 34 },
+  { name: "Australia", img: "/images/avatar4.jpg", x: 88, y: 82 },
+  { name: "Worldwide", img: "/images/avatar5.jpg", x: 55, y: 48 },
 ];
 
 export default function LocalMarketing({ cities = [] }) {
   const sampleCities = useMemo(() => {
     const source = cities.length
       ? cities
-      : ["New York", "Los Angeles", "London", "Manchester", "Chicago"];
+      : ["United States", "United Kingdom", "Canada", "Australia", "Worldwide"];
+
     return source.slice(0, 5);
   }, [cities]);
 
@@ -23,7 +24,7 @@ export default function LocalMarketing({ cities = [] }) {
         {/* HEADING (FULL WIDTH) */}
         <div className="fm-local-header">
           <h2>
-            Local <span>Marketing</span> That Connects
+            Helping Businesses <span>Grow Locally</span>
           </h2>
         </div>
 
@@ -31,9 +32,16 @@ export default function LocalMarketing({ cities = [] }) {
           {/* LEFT */}
           <div className="fm-local-content">
             <p>
-              We help businesses grow by connecting them with the right audience
-              in their local markets. Every strategy is tailored to your
-              location, your audience, and your goals.
+              Growing your business starts with being visible where your
+              customers are searching. We create local SEO and digital marketing
+              strategies that increase visibility, generate qualified leads, and
+              turn visitors into loyal customers.
+            </p>
+
+            <p>
+              Whether you serve one neighborhood, an entire city, or multiple
+              locations, we help your business build trust, rank higher in
+              search results, and reach the right audience.
             </p>
 
             <p>
@@ -55,7 +63,7 @@ export default function LocalMarketing({ cities = [] }) {
             {/* CTA */}
             <div className="fm-local-actions">
               <Link to="/contact" className="fm-btn-primary">
-                Start Your Growth
+                Grow My Business
               </Link>
             </div>
           </div>

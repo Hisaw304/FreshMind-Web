@@ -149,19 +149,18 @@ export default function AboutPage() {
         <div className="fm-portfolio-container">
           {/* HEADER */}
           <div className="fm-portfolio-header">
-            <div>
-              <h2>
-                Selected Projects From Our <span>Past Work</span>
-              </h2>
-            </div>
+            <h2>
+              Selected Projects From Our <span>Past Work</span>
+            </h2>
 
-            <div>
-              <p>
-                A curated look at some of the brands and products we’ve helped
-                shape. From strategy to execution, each project reflects our
-                focus on clarity, performance, and meaningful user experience.
-              </p>
-            </div>
+            <p>
+              A curated look at some of the brands and products we've helped
+              shape. From strategy to execution, each project reflects our focus
+              on clarity, performance, and meaningful user experience. These
+              featured projects represent just a selection of our work, as we've
+              partnered with businesses across a wide range of industries to
+              create custom digital experiences that deliver real results.
+            </p>
           </div>
 
           {/* SWIPER */}
