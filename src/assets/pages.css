@@ -1648,3 +1648,228 @@
     font-size: 0.96rem;
   }
 }
+/* ========================================= */
+/* PRICING */
+/* ========================================= */
+
+.fm-pricing-section {
+  padding: 120px 20px;
+}
+
+.fm-pricing-heading {
+  max-width: 760px;
+  margin-bottom: 60px;
+}
+
+.fm-pricing-heading h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--fm-text);
+  margin-bottom: 18px;
+}
+
+.fm-pricing-heading h2 span {
+  color: var(--fm-primary);
+}
+
+.fm-pricing-heading p {
+  color: var(--fm-text-muted);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+/* ========================================= */
+/* GRID */
+/* ========================================= */
+
+.fm-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ========================================= */
+/* CARD */
+/* ========================================= */
+
+.fm-pricing-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 36px 32px;
+
+  border-radius: 24px;
+
+  border: 1px solid var(--fm-border);
+
+  transition: 0.35s ease;
+
+  overflow: hidden;
+}
+
+/* Different backgrounds */
+
+.fm-pricing-card:nth-child(1) {
+  background: linear-gradient(135deg, #093738 0%, #0f4d4e 100%);
+}
+
+.fm-pricing-card:nth-child(2) {
+  background: linear-gradient(135deg, var(--fm-primary) 0%, #00a7aa 100%);
+
+  color: #fff;
+}
+
+.fm-pricing-card:nth-child(3) {
+  background: linear-gradient(135deg, var(--fm-accent) 0%, #5b21b6 100%);
+
+  color: #fff;
+}
+
+.fm-pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35);
+}
+
+/* ========================================= */
+/* BADGE */
+/* ========================================= */
+
+.fm-pricing-badge {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.18);
+
+  backdrop-filter: blur(12px);
+
+  color: #fff;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ========================================= */
+/* TEXT */
+/* ========================================= */
+
+.fm-pricing-card h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.fm-price {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.fm-plan-description {
+  line-height: 1.8;
+  margin-bottom: 30px;
+  opacity: 0.95;
+}
+
+/* ========================================= */
+/* FEATURES */
+/* ========================================= */
+
+.fm-plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  flex: 1;
+}
+
+.fm-plan-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fm-plan-features svg {
+  flex-shrink: 0;
+}
+
+/* ========================================= */
+/* BUTTON */
+/* ========================================= */
+
+.fm-pricing-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 38px;
+
+  height: 56px;
+
+  border-radius: 14px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+/* Individual buttons */
+
+.fm-pricing-card:nth-child(1) .fm-pricing-btn {
+  background: var(--fm-primary);
+  color: white;
+}
+
+.fm-pricing-card:nth-child(2) .fm-pricing-btn,
+.fm-pricing-card:nth-child(3) .fm-pricing-btn {
+  background: white;
+  color: #111827;
+}
+
+.fm-pricing-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* ========================================= */
+/* RESPONSIVE */
+/* ========================================= */
+
+@media (max-width: 1000px) {
+  .fm-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .fm-pricing-section {
+    padding: 80px 20px;
+  }
+
+  .fm-pricing-heading {
+    margin-bottom: 40px;
+  }
+
+  .fm-pricing-card {
+    padding: 28px;
+  }
+
+  .fm-price {
+    font-size: 2.2rem;
+  }
+}

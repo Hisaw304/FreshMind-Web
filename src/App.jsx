@@ -10,6 +10,7 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import IndustriesPage from "./pages/IndustriesPage";
 import IndustryTemplate from "./pages/IndustryTemplate";
+import PricingPage from "./pages/PricingPage";
 export default function App() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -21,6 +22,8 @@ export default function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/industries" element={<IndustriesPage />} />
           <Route path="/industries/:slug" element={<IndustryTemplate />} />
+
+          <Route path="/pricing" element={<PricingPage />} />
         </Routes>
       </main>
       <Footer />
