@@ -3472,3 +3472,250 @@
     font-size: 0.95rem;
   }
 }
+/* ========================================= */
+/* OUR STORY */
+/* ========================================= */
+
+.fm-story-section {
+  padding: 120px 20px;
+  background: var(--fm-body);
+}
+
+.fm-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* ========================================= */
+/* GRID */
+/* ========================================= */
+
+.fm-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+/* ========================================= */
+/* IMAGE */
+/* ========================================= */
+
+.fm-story-image {
+  position: relative;
+}
+
+.fm-story-image img {
+  width: 100%;
+  height: 620px;
+  object-fit: cover;
+  border-radius: 28px;
+  display: block;
+  border: 1px solid var(--fm-border);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+}
+
+/* decorative shape */
+
+.fm-story-image::after {
+  content: "";
+
+  position: absolute;
+  width: 180px;
+  height: 180px;
+
+  right: -35px;
+  bottom: -35px;
+
+  border-radius: 30px;
+
+  background: rgba(0, 206, 209, 0.08);
+
+  z-index: -1;
+}
+
+/* ========================================= */
+/* CONTENT */
+/* ========================================= */
+
+.fm-story-content {
+  max-width: 620px;
+}
+
+.fm-section-tag {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 8px 16px;
+
+  border-radius: 999px;
+
+  background: rgba(0, 206, 209, 0.1);
+
+  color: var(--fm-primary);
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  margin-bottom: 22px;
+}
+
+.fm-story-content h2 {
+  font-size: clamp(2.2rem, 4vw, 3.3rem);
+  font-weight: 800;
+  line-height: 1.15;
+
+  color: var(--fm-text);
+
+  margin-bottom: 22px;
+}
+
+.fm-story-content h2 span {
+  color: var(--fm-primary);
+}
+
+.fm-story-content p {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--fm-text-muted);
+
+  margin-bottom: 18px;
+}
+
+/* ========================================= */
+/* HIGHLIGHTS */
+/* ========================================= */
+
+.fm-story-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+
+  margin: 40px 0;
+}
+
+.fm-story-highlight {
+  padding: 24px;
+
+  background: var(--fm-surface);
+
+  border: 1px solid var(--fm-border);
+
+  border-radius: 18px;
+
+  transition: 0.35s ease;
+}
+
+.fm-story-highlight:hover {
+  transform: translateY(-6px);
+  border-color: var(--fm-primary);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+.fm-story-highlight h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--fm-text);
+
+  margin-bottom: 10px;
+}
+
+.fm-story-highlight p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ========================================= */
+/* BUTTON */
+/* ========================================= */
+
+.fm-story-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 15px 28px;
+
+  border-radius: 14px;
+
+  background: var(--fm-primary);
+
+  color: #fff;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.fm-story-btn:hover {
+  background: var(--fm-primary-hover);
+  transform: translateY(-3px);
+}
+
+.fm-story-btn svg {
+  transition: 0.3s ease;
+}
+
+.fm-story-btn:hover svg {
+  transform: translateX(5px);
+}
+
+/* ========================================= */
+/* RESPONSIVE */
+/* ========================================= */
+
+@media (max-width: 992px) {
+  .fm-story-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .fm-story-content {
+    max-width: 100%;
+  }
+
+  .fm-story-image img {
+    height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .fm-story-section {
+    padding: 80px 20px;
+  }
+
+  .fm-story-grid {
+    gap: 40px;
+  }
+
+  .fm-story-image img {
+    height: 360px;
+    border-radius: 22px;
+  }
+
+  .fm-story-image::after {
+    display: none;
+  }
+
+  .fm-story-content h2 {
+    font-size: 2rem;
+  }
+
+  .fm-story-highlights {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 30px 0;
+  }
+
+  .fm-story-highlight {
+    padding: 20px;
+  }
+
+  .fm-story-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

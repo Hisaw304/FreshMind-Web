@@ -24,6 +24,7 @@ import epoxy from "../assets/Lakes-Region-Epoxy-1024x1024.webp";
 import intervale from "../assets/Intervale-Stove-Shop-1024x1024.webp";
 import grasshoppers from "../assets/Grasshoppers-1024x1024.webp";
 import concierge from "../assets/Lakes-Region-Concierge-1024x1024.webp";
+import OurStory from "../components/OurStory";
 
 const clients = [
   { name: "Belmont Firearms", logo: belmont },
@@ -52,21 +53,23 @@ export default function AboutPage() {
 
         <div className="fm-about-hero-container">
           <h2>
-            Ready to Grow With a Team That <span>Cares?</span>
+            Building Digital Experiences That <span>Drive Growth</span>
           </h2>
 
           <p>
-            We don’t just build digital experiences — we build long-term
-            partnerships. Let’s talk about how we can help your business scale
-            with confidence.
+            FreshMind Web is a web design and development agency dedicated to
+            helping businesses establish a strong online presence. We combine
+            strategy, creativity, and modern technology to build websites that
+            not only look exceptional but also generate measurable results.
           </p>
 
           <a href="/contact" className="fm-about-hero-btn">
-            Let’s Connect
+            Let's Work Together
           </a>
         </div>
       </section>
 
+      <OurStory />
       <About />
 
       <section className="fm-consulting">
