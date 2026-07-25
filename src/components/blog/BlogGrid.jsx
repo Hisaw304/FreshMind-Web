@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import BlogCard from "./BlogCard";
 import { client } from "../../lib/sanity";
 
+const POSTS_PER_PAGE = 6;
+
 const query = `*[_type == "post"] | order(publishedAt desc){
   _id,
   title,
@@ -34,6 +36,7 @@ function getReadingTime(body) {
 export default function BlogGrid({ searchTerm = "" }) {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     client
@@ -50,6 +53,10 @@ export default function BlogGrid({ searchTerm = "" }) {
       .finally(() => setLoading(false));
   }, []);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm]);
+
   const filteredArticles = useMemo(() => {
     const search = searchTerm.toLowerCase();
 
@@ -62,6 +69,13 @@ export default function BlogGrid({ searchTerm = "" }) {
       );
     });
   }, [articles, searchTerm]);
+
+  const totalPages = Math.ceil(filteredArticles.length / POSTS_PER_PAGE);
+
+  const currentArticles = filteredArticles.slice(
+    (currentPage - 1) * POSTS_PER_PAGE,
+    currentPage * POSTS_PER_PAGE
+  );
 
   return (
     <section id="latest-posts" className="fm-blog-grid-section">
@@ -85,11 +99,45 @@ export default function BlogGrid({ searchTerm = "" }) {
         ) : filteredArticles.length === 0 ? (
           <p>No articles found.</p>
         ) : (
-          <div className="fm-blog-grid">
-            {filteredArticles.map((article) => (
-              <BlogCard key={article._id} article={article} />
-            ))}
-          </div>
+          <>
+            <div className="fm-blog-grid">
+              {currentArticles.map((article) => (
+                <BlogCard key={article._id} article={article} />
+              ))}
+            </div>
+
+            {totalPages > 1 && (
+              <div className="fm-blog-pagination">
+                <button
+                  className="fm-pagination-btn"
+                  disabled={currentPage === 1}
+                  onClick={() => setCurrentPage((page) => page - 1)}
+                >
+                  Previous
+                </button>
+
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <button
+                    key={index}
+                    className={`fm-pagination-number ${
+                      currentPage === index + 1 ? "active" : ""
+                    }`}
+                    onClick={() => setCurrentPage(index + 1)}
+                  >
+                    {index + 1}
+                  </button>
+                ))}
+
+                <button
+                  className="fm-pagination-btn"
+                  disabled={currentPage === totalPages}
+                  onClick={() => setCurrentPage((page) => page + 1)}
+                >
+                  Next
+                </button>
+              </div>
+            )}
+          </>
         )}
       </div>
     </section>

@@ -1,6 +1,6 @@
 // src/pages/AboutPage.jsx
 import React from "react";
-import About from "../components/About";
+import { Helmet } from "react-helmet-async";
 import FooterCTA from "../components/FooterCTA";
 import ChatWidget from "../components/ChatWidget";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -52,6 +52,53 @@ const clients = [
 export default function AboutPage() {
   return (
     <div className="">
+      <Helmet>
+        <title>About FreshMind Web | Web Design & Development Agency</title>
+
+        <meta
+          name="description"
+          content="Learn about FreshMind Web, a modern web design and development agency helping businesses grow with high-performance websites, SEO, branding, and digital solutions."
+        />
+
+        <meta
+          name="keywords"
+          content="About FreshMind Web, web design agency, web development company, React developers, SEO agency, digital agency"
+        />
+
+        <link rel="canonical" href="https://freshmindweb.online/about" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="FreshMind Web" />
+        <meta
+          property="og:title"
+          content="About FreshMind Web | Web Design & Development Agency"
+        />
+        <meta
+          property="og:description"
+          content="Discover FreshMind Web's mission, experience, and passion for building fast, modern websites that help businesses grow."
+        />
+        <meta property="og:url" content="https://freshmindweb.online/about" />
+        <meta
+          property="og:image"
+          content="https://freshmindweb.online/images/hero-fm.jpg"
+        />
+
+        {/* Twitter / X */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="About FreshMind Web | Web Design & Development Agency"
+        />
+        <meta
+          name="twitter:description"
+          content="Meet the team behind FreshMind Web and learn how we build websites that drive business growth."
+        />
+        <meta
+          name="twitter:image"
+          content="https://freshmindweb.online/images/hero-fm.jpg"
+        />
+      </Helmet>
       <section className="fm-about-hero">
         <div className="fm-about-hero-overlay" />
 

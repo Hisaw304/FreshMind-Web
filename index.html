@@ -1,82 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- ===================================================== -->
     <!-- BASIC -->
+    <!-- ===================================================== -->
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#041f20" />
-    <meta name="author" content="FreshMind Web" />
     <meta name="robots" content="index, follow" />
+    <meta name="author" content="FreshMind Web" />
 
-    <!-- TITLE -->
-    <title>
-      FreshMind Web | Professional Web Design & Development for Businesses
-    </title>
+    <!-- ===================================================== -->
+    <!-- DEFAULT SEO (Overridden by React Helmet on each page) -->
+    <!-- ===================================================== -->
 
-    <!-- SEO -->
+    <title>FreshMind Web | Professional Web Design & Development Agency</title>
+
     <meta
       name="description"
-      content="FreshMind Web builds fast, modern, and conversion-focused websites for startups, businesses, agencies, and professionals. We specialize in responsive web design, React development, SEO optimization, and high-performance digital experiences."
+      content="FreshMind Web designs and develops fast, modern, SEO-friendly websites that help businesses generate leads, build trust, and grow online."
+    />
+
+    <meta
+      name="keywords"
+      content="web design, web development, react developer, business websites, seo, responsive websites, website agency, FreshMind Web"
     />
 
     <link rel="canonical" href="https://freshmindweb.online/" />
 
-    <!-- FAVICON -->
-    <link rel="icon" type="image/png" href="/logo1.png" />
+    <!-- ===================================================== -->
+    <!-- FAVICONS -->
+    <!-- ===================================================== -->
+
+    <link rel="icon" href="/logo1.png" type="image/png" />
     <link rel="apple-touch-icon" href="/logo1.png" />
 
+    <!-- ===================================================== -->
     <!-- OPEN GRAPH -->
+    <!-- ===================================================== -->
+
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="FreshMind Web" />
     <meta property="og:locale" content="en_US" />
+
     <meta
       property="og:title"
-      content="FreshMind Web | Professional Web Design & Development"
+      content="FreshMind Web | Professional Web Design & Development Agency"
     />
+
     <meta
       property="og:description"
-      content="We create beautiful, high-performing websites that help businesses build trust, generate leads, and grow online."
-    />
-    <meta property="og:url" content="https://freshmindweb.online/" />
-    <meta
-      property="og:image"
-      content="https://freshmindweb.online/images/hero-fm.jpg"
-    />
-    <meta
-      property="og:image:alt"
-      content="FreshMind Web - Professional Web Design Agency"
+      content="Modern, responsive websites built for speed, SEO, and conversions."
     />
 
+    <meta property="og:url" content="https://freshmindweb.online/" />
+
+    <meta property="og:image" content="https://freshmindweb.online/logo1.png" />
+
+    <meta property="og:image:alt" content="FreshMind Web" />
+
+    <!-- ===================================================== -->
     <!-- TWITTER / X -->
+    <!-- ===================================================== -->
+
     <meta name="twitter:card" content="summary_large_image" />
+
     <meta
       name="twitter:title"
-      content="FreshMind Web | Professional Web Design & Development"
+      content="FreshMind Web | Professional Web Design & Development Agency"
     />
+
     <meta
       name="twitter:description"
-      content="Modern websites built for speed, SEO, and conversions."
+      content="Modern, responsive websites built for speed, SEO, and conversions."
     />
+
     <meta
       name="twitter:image"
-      content="https://freshmindweb.online/images/hero-fm.jpg"
+      content="https://freshmindweb.online/logo1.png"
     />
-    <meta name="twitter:site" content="@FreshMindWeb" />
 
+    <!-- ===================================================== -->
     <!-- STRUCTURED DATA -->
+    <!-- ===================================================== -->
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "FreshMind Web",
         "url": "https://freshmindweb.online",
-        "image": "https://freshmindweb.online/images/hero-fm.jpg",
-        "logo": "https://freshmindweb.online/images/logo1.png",
-        "description": "FreshMind Web designs and develops modern, responsive, SEO-friendly websites for businesses, startups, and professionals.",
+        "logo": "https://freshmindweb.online/logo1.png",
+        "image": "https://freshmindweb.online/logo1.png",
+        "description": "FreshMind Web builds modern, responsive, SEO-friendly websites for startups, businesses, agencies, and professionals.",
         "email": "freshmindweb@gmail.com",
         "areaServed": "Worldwide",
-        "priceRange": "$$",
-        "sameAs": []
+        "priceRange": "$$"
       }
     </script>
 
@@ -85,18 +105,18 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "FreshMind Web",
-        "url": "https://freshmindweb.online",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://freshmindweb.online/?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+        "url": "https://freshmindweb.online"
       }
     </script>
   </head>
 
   <body>
+    <noscript>
+      You need to enable JavaScript to run this application.
+    </noscript>
+
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

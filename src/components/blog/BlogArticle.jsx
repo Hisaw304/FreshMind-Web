@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { PortableText } from "@portabletext/react";
@@ -83,15 +84,15 @@ export default function BlogArticle() {
       .finally(() => setLoading(false));
   }, [slug]);
 
-  if (loading) {
-    return (
-      <section className="fm-blog-article">
-        <div className="fm-container">
-          <p>Loading article...</p>
-        </div>
-      </section>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <section className="fm-blog-article">
+  //       <div className="fm-container">
+  //         <p>Loading article...</p>
+  //       </div>
+  //     </section>
+  //   );
+  // }
 
   if (!post) {
     return (
@@ -109,52 +110,103 @@ export default function BlogArticle() {
   }
 
   return (
-    <section className="fm-blog-article">
-      <div className="fm-container">
-        <Link to="/blog" className="fm-back-link">
-          <ArrowLeft size={18} />
-          Back to Blog
-        </Link>
+    <>
+      <Helmet>
+        <title>{post.seoTitle || `${post.title} | FreshMind Web`}</title>
 
-        <span className="fm-article-category">{post.category}</span>
+        <meta
+          name="description"
+          content={post.seoDescription || post.excerpt}
+        />
 
-        <h1 className="fm-article-title">{post.title}</h1>
+        <link
+          rel="canonical"
+          href={`https://freshmindweb.online/blog/${slug}`}
+        />
 
-        <p className="fm-article-excerpt">{post.excerpt}</p>
+        {/* Open Graph */}
+        <meta property="og:type" content="article" />
 
-        <div className="fm-article-meta">
-          <span>
-            <Calendar size={16} />
+        <meta property="og:title" content={post.seoTitle || post.title} />
 
-            {new Date(post.publishedAt).toLocaleDateString("en-US", {
-              month: "long",
-              day: "numeric",
-              year: "numeric",
-            })}
-          </span>
+        <meta
+          property="og:description"
+          content={post.seoDescription || post.excerpt}
+        />
 
-          <span>
-            <Clock size={16} />
+        <meta
+          property="og:url"
+          content={`https://freshmindweb.online/blog/${slug}`}
+        />
 
-            {post.readingTime}
-          </span>
+        <meta
+          property="og:image"
+          content={urlFor(post.featuredImage).width(1200).url()}
+        />
 
-          <span>
-            By <strong>{post.author}</strong>
-          </span>
+        <meta property="og:image:alt" content={post.title} />
+
+        {/* Twitter / X */}
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <meta name="twitter:title" content={post.seoTitle || post.title} />
+
+        <meta
+          name="twitter:description"
+          content={post.seoDescription || post.excerpt}
+        />
+
+        <meta
+          name="twitter:image"
+          content={urlFor(post.featuredImage).width(1200).url()}
+        />
+      </Helmet>
+
+      <section className="fm-blog-article">
+        <div className="fm-container">
+          <Link to="/blog" className="fm-back-link">
+            <ArrowLeft size={18} />
+            Back to Blog
+          </Link>
+
+          <span className="fm-article-category">{post.category}</span>
+
+          <h1 className="fm-article-title">{post.title}</h1>
+
+          <p className="fm-article-excerpt">{post.excerpt}</p>
+
+          <div className="fm-article-meta">
+            <span>
+              <Calendar size={16} />
+              {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </span>
+
+            <span>
+              <Clock size={16} />
+              {post.readingTime}
+            </span>
+
+            <span>
+              By <strong>{post.author}</strong>
+            </span>
+          </div>
+
+          <div className="fm-article-image">
+            <img
+              src={urlFor(post.featuredImage).width(1800).url()}
+              alt={post.title}
+            />
+          </div>
+
+          <article className="fm-article-body">
+            <PortableText value={post.body} components={portableComponents} />
+          </article>
         </div>
-
-        <div className="fm-article-image">
-          <img
-            src={urlFor(post.featuredImage).width(1800).url()}
-            alt={post.title}
-          />
-        </div>
-
-        <article className="fm-article-body">
-          <PortableText value={post.body} components={portableComponents} />
-        </article>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
