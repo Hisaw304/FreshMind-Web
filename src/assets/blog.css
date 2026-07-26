@@ -1307,17 +1307,27 @@ HEADINGS
 LISTS
 ==================================================*/
 
-.fm-article-list,
+.fm-article-list {
+  list-style: disc;
+  list-style-position: outside;
+  padding-left: 1.8rem;
+  margin: 0 0 35px;
+}
+
 .fm-article-number-list {
-  margin: 0 0 35px 28px;
+  list-style: decimal;
+  list-style-position: outside;
+  padding-left: 1.8rem;
+  margin: 0 0 35px;
 }
 
 .fm-article-list li,
 .fm-article-number-list li {
+  display: list-item;
   margin-bottom: 14px;
-
   font-size: 1.05rem;
   line-height: 1.9;
+  color: var(--fm-text);
 }
 
 /*==================================================
