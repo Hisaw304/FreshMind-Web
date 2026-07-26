@@ -3,7 +3,7 @@ import { Check, Star } from "lucide-react";
 const plans = [
   {
     name: "Starter",
-    price: "From $2,000",
+    price: "From $1,000",
     description:
       "Perfect for startups, freelancers, and small businesses looking to establish a professional online presence.",
     popular: false,
@@ -21,7 +21,7 @@ const plans = [
 
   {
     name: "Professional",
-    price: "From $3,500",
+    price: "From $2,000",
     description:
       "Our most popular package for growing businesses that need a website focused on generating leads and increasing conversions.",
     popular: true,
