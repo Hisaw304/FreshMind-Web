@@ -84,21 +84,21 @@ export default function BlogArticle() {
       .finally(() => setLoading(false));
   }, [slug]);
 
-  // if (loading) {
-  //   return (
-  //     <section className="fm-blog-article">
-  //       <div className="fm-container">
-  //         <p>Loading article...</p>
-  //       </div>
-  //     </section>
-  //   );
-  // }
+  if (loading) {
+    return (
+      <section className="fm-blog-article">
+        <div className="fm-container">
+          <p className="article-not-found">Loading article...</p>
+        </div>
+      </section>
+    );
+  }
 
   if (!post) {
     return (
       <section className="fm-blog-article">
         <div className="fm-container">
-          <h2>Article not found.</h2>
+          <h2 className="article-not-found">Article not found.</h2>
 
           <Link to="/blog" className="fm-back-link">
             <ArrowLeft size={18} />

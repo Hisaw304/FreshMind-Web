@@ -95,9 +95,9 @@ export default function BlogGrid({ searchTerm = "" }) {
         </div>
 
         {loading ? (
-          <p>Loading articles...</p>
+          <p className="article-not-found">Loading articles...</p>
         ) : filteredArticles.length === 0 ? (
-          <p>No articles found.</p>
+          <p className="article-not-found">No articles found.</p>
         ) : (
           <>
             <div className="fm-blog-grid">
