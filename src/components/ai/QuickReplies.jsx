@@ -11,7 +11,9 @@ export default function QuickReplies({ replies = [], sendMessage, setView }) {
       case "Contact Us":
         navigate("/contact");
         break;
-
+      case "Book A Call":
+        navigate("/contact");
+        break;
       case "Email":
         window.location.href = "mailto:freshmindwebagency@gmail.com";
         break;
@@ -41,6 +43,10 @@ export default function QuickReplies({ replies = [], sendMessage, setView }) {
         window.dispatchEvent(new CustomEvent("openQuoteEstimator"));
         break;
       case "Contact Support":
+        setView("lead");
+        break;
+
+      case "Project Estimate":
         setView("lead");
         break;
 

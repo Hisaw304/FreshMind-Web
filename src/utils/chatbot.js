@@ -12,7 +12,37 @@ function normalize(text = "") {
 
 function findKnowledge(message) {
   const q = normalize(message);
+  // ===========================
+  // PRICING DETAILS
+  // ===========================
 
+  if (q.includes("business website")) {
+    return knowledge.pricingDetails.businessWebsite;
+  }
+
+  if (q.includes("real estate website")) {
+    return knowledge.pricingDetails.realEstate;
+  }
+
+  if (q.includes("law firm website")) {
+    return knowledge.pricingDetails.lawFirm;
+  }
+
+  if (
+    q.includes("e-commerce") ||
+    q.includes("ecommerce") ||
+    q.includes("store")
+  ) {
+    return knowledge.pricingDetails.ecommerce;
+  }
+
+  if (q.includes("admin dashboard")) {
+    return knowledge.pricingDetails.adminDashboard;
+  }
+
+  if (q.includes("ai chatbot")) {
+    return knowledge.pricingDetails.aiChatbot;
+  }
   // ===========================
   // PRICING
   // ===========================
@@ -74,7 +104,33 @@ function findKnowledge(message) {
   ) {
     return knowledge.support;
   }
+  // ===========================
+  // AI CHATBOT DETAILS
+  // ===========================
 
+  // if (q.includes("ai chatbot pricing")) {
+  //   return knowledge.chatbotDetails.pricing;
+  // }
+
+  if (q.includes("lead capture") || q.includes("capture leads")) {
+    return knowledge.chatbotDetails.leadCapture;
+  }
+
+  if (
+    q.includes("appointment booking") ||
+    q.includes("book appointment") ||
+    q.includes("booking")
+  ) {
+    return knowledge.chatbotDetails.appointmentBooking;
+  }
+
+  if (
+    q.includes("chatbot features") ||
+    q === "features" ||
+    q.includes("features")
+  ) {
+    return knowledge.chatbotDetails.features;
+  }
   // ===========================
   // AI CHATBOT
   // ===========================

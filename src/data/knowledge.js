@@ -23,6 +23,115 @@ Every project includes:
 If you can tell me a little about your business and the type of website you're looking for, I'll recommend the best package and provide a more accurate estimate.
 `,
 
+  pricingDetails: {
+    businessWebsite: `
+A professional business website helps establish credibility, generate leads, and convert visitors into customers.
+
+Our Business Website package typically includes:
+
+• Custom responsive design
+• Up to 5–12 pages
+• Contact forms
+• Mobile-friendly development
+• Basic SEO optimization
+• Fast loading performance
+• Google Analytics integration
+• SSL security
+
+Pricing starts from $1,200.
+
+The final investment depends on the number of pages, custom functionality, and project requirements.
+`,
+
+    realEstate: `
+Our Real Estate websites are designed to showcase properties professionally while generating high-quality buyer and seller inquiries.
+
+Typical features include:
+
+• Property listings
+• Advanced property search
+• Image galleries
+• Google Maps integration
+• Agent profiles
+• Viewing request forms
+• Blog for SEO
+• Mobile optimization
+
+Pricing typically ranges from $2,000–$3,000 depending on features and integrations.
+`,
+
+    lawFirm: `
+Law firm websites focus on building trust while making it easy for potential clients to request consultations.
+
+Features often include:
+
+• Practice area pages
+• Attorney profiles
+• Consultation booking
+• Secure contact forms
+• Client testimonials
+• Local SEO optimization
+• Mobile-first design
+
+Pricing starts from $2,000 depending on the size and functionality of the website.
+`,
+
+    ecommerce: `
+Our e-commerce websites are built to help businesses sell products online securely and efficiently.
+
+Features may include:
+
+• Product catalog
+• Shopping cart
+• Secure checkout
+• Payment gateway integration
+• Inventory management
+• Customer accounts
+• Order management
+• SEO optimization
+
+Pricing starts from $2,500 and varies based on the size of your store and custom functionality.
+`,
+
+    adminDashboard: `
+Custom Admin Dashboards give you complete control over your website or web application.
+
+They can include:
+
+• Secure login
+• User management
+• Content management
+• Analytics dashboard
+• Booking management
+• Reports
+• Role-based permissions
+• API integrations
+
+Projects with custom dashboards typically range from $3,500–$6,000+, depending on complexity.
+`,
+
+    aiChatbot: `
+Our AI chatbot solutions are tailored to each business, so pricing depends on the features and integrations you need.
+
+Typical chatbot projects can include:
+
+• AI-powered conversations
+• Custom business knowledge
+• Lead capture
+• Appointment booking
+• CRM integrations
+• Live chat handoff
+• Analytics & reporting
+• Website integration
+
+Simple AI chatbots that are added to an existing website typically start from **$1,000**.
+
+More advanced AI assistants with custom workflows, CRM integrations, dashboards, or automation are quoted based on your specific requirements.
+
+Tell me about your business and I'll recommend the best AI chatbot solution for your needs.
+`,
+  },
+
   services: `
 FreshMind offers complete digital solutions for businesses.
 
@@ -91,18 +200,81 @@ These practices help improve visibility on Google and provide a better user expe
 `,
 
   chatbot: `
-We build AI-powered chatbots that can:
+We build AI-powered chatbots that can help businesses automate customer support, improve engagement, and generate more leads.
+
+Our chatbots can:
 
 • Answer customer questions 24/7
 • Capture leads
 • Book appointments
 • Qualify prospects
-• Recommend services
-• Provide instant support
+• Recommend products or services
+• Provide instant customer support
 • Reduce response times
+• Integrate seamlessly with your website
 
-Chatbots can be customized to match your business and integrated directly into your website.
+Every chatbot is customized to match your business, your brand, and your goals.
+
+Select one of the options below to learn more.
 `,
+
+  chatbotDetails: {
+    leadCapture: `
+Our AI chatbots don't just answer questions—they actively help you generate more qualified leads.
+
+They can:
+
+• Collect names, email addresses, and phone numbers
+• Ask qualifying questions automatically
+• Recommend the right services
+• Capture leads 24/7
+• Reduce abandoned inquiries
+• Send leads directly to your email or CRM
+• Filter out spam automatically
+
+Instead of losing potential customers after business hours, your chatbot continues collecting qualified leads so you never miss an opportunity.
+`,
+
+    appointmentBooking: `
+Our AI chatbots can help visitors book appointments without needing to call or wait for a response.
+
+They can:
+
+• Schedule consultations
+• Book meetings
+• Reserve appointments
+• Check availability
+• Collect customer information
+• Send booking confirmations
+• Connect with Google Calendar or other scheduling platforms
+• Reduce back-and-forth emails
+
+This creates a smoother customer experience while saving your team valuable time.
+`,
+
+    features: `
+Our AI chatbots are built specifically for your business and can include a wide range of powerful features.
+
+Available features include:
+
+• AI-powered conversations
+• Custom business knowledge
+• Instant answers to FAQs
+• Lead capture forms
+• Appointment booking
+• Service recommendations
+• File uploads
+• Contact information collection
+• Human handoff when needed
+• CRM integrations
+• Analytics and conversation reports
+• Multi-page website support
+• Mobile-friendly experience
+• Fast, secure performance
+
+Every chatbot is tailored to your business goals, ensuring it provides real value to both your customers and your team.
+`,
+  },
 
   portfolio: `
 FreshMind has completed projects across multiple industries, helping businesses improve their online presence and generate more leads.
