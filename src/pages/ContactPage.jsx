@@ -10,7 +10,7 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
-import ChatWidget from "../components/ChatWidget";
+// import ChatWidget from "../components/ChatWidget";
 
 const DefaultIcon = L.icon({
   iconUrl: markerIcon,
@@ -96,7 +96,7 @@ export default function ContactPage() {
         </section>
       </section>
       <FAQSection />
-      <ChatWidget />
+      {/* <ChatWidget /> */}
     </div>
   );
 }

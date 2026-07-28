@@ -99,7 +99,7 @@ export default function ContactForm() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "Something went wrong.");
+        throw new Error(data.message || "Something went wrong.");
       }
 
       setStatus("success");
@@ -282,6 +282,19 @@ export default function ContactForm() {
               onChange={handleChange}
               error={errors.message}
             />
+
+            {status === "success" && (
+              <div className="fm-success-message" ref={statusRef} tabIndex="-1">
+                Thank you! Your inquiry has been sent successfully. We'll review
+                your project and get back to you within 24 hours.
+              </div>
+            )}
+
+            {status === "error" && (
+              <div className="fm-error-message" ref={statusRef} tabIndex="-1">
+                Sorry, something went wrong. Please try again in a few minutes.
+              </div>
+            )}
 
             <button type="submit" disabled={loading} className="fm-submit">
               {loading ? (

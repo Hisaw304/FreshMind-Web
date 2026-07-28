@@ -12,8 +12,9 @@ export default async function handler(req, res) {
     const {
       name,
       email,
+      phone,
       company,
-      websiteType,
+      subject,
       budget,
       timeline,
       message,
@@ -27,8 +28,7 @@ export default async function handler(req, res) {
         message: "Spam detected.",
       });
     }
-
-    if (!name || !email || !websiteType || !budget || !timeline || !message) {
+    if (!name || !email || !subject || !budget || !timeline || !message) {
       return res.status(400).json({
         success: false,
         message: "Please fill in all required fields.",
@@ -47,7 +47,7 @@ export default async function handler(req, res) {
       from: `"FreshMind Web Contact Form" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
       replyTo: email,
-      subject: `New Website Inquiry - ${websiteType}`,
+      subject: `New Website Inquiry - ${subject}`,
 
       html: `
       <div style="font-family:Arial,sans-serif;max-width:700px">
@@ -71,13 +71,18 @@ export default async function handler(req, res) {
           </tr>
 
           <tr>
-            <td><strong>Website Type</strong></td>
-            <td>${websiteType}</td>
+          <td><strong>Subject</strong></td>
+            <td>${subject}</td>
           </tr>
 
           <tr>
             <td><strong>Budget</strong></td>
             <td>${budget}</td>
+          </tr>
+
+          <tr>
+            <td><strong>Phone</strong></td>
+            <td>${phone || "Not provided"}</td>
           </tr>
 
           <tr>

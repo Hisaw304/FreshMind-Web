@@ -2722,6 +2722,32 @@ body {
   font-size: 13px;
 }
 
+/* ========================================= */
+/* FORM STATUS */
+/* ========================================= */
+
+.fm-success-message,
+.fm-error-message {
+  padding: 16px 18px;
+  border-radius: 14px;
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+  outline: none;
+}
+
+.fm-success-message {
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  color: #15803d;
+}
+
+.fm-error-message {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #b91c1c;
+}
+
 /* ========================= */
 /* SUBMIT BUTTON */
 /* ========================= */

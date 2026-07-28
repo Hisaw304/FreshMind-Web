@@ -2,7 +2,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import FooterCTA from "../components/FooterCTA";
-import ChatWidget from "../components/ChatWidget";
+// import ChatWidget from "../components/ChatWidget";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 
@@ -267,7 +267,7 @@ export default function AboutPage() {
         </div>
       </section>
       <FooterCTA />
-      <ChatWidget />
+      {/* <ChatWidget /> */}
     </div>
   );
 }
