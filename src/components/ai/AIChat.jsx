@@ -109,8 +109,6 @@ export default function AIChat({ open, setOpen }) {
             estimate={estimate}
             onBack={() => setView("quote")}
             onSubmit={(data) => {
-              console.log(data);
-
               // Later we'll send this to your backend
             }}
           />
