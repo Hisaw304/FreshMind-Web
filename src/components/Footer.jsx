@@ -90,10 +90,10 @@ export default function Footer() {
 
             <Link to="/about">About Us</Link>
             <Link to="/services">Services</Link>
-            <Link to="/pricing">Pricing</Link>
             <Link to="/industries">Industries</Link>
-            <Link to="/contact">Contact</Link>
+            <Link to="/pricing">Pricing</Link>
             <Link to="/blog">Blog & Insights</Link>
+            <Link to="/contact">Contact</Link>
           </div>
 
           {/* NEWSLETTER */}
@@ -121,7 +121,6 @@ export default function Footer() {
           <div className="fm-footer-legal">
             <Link to="/privacy-policy">Privacy Policy</Link>
             <Link to="/terms">Terms & Conditions</Link>
-            <Link to="/blog">Blog</Link>
           </div>
         </div>
       </div>

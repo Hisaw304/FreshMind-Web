@@ -10,7 +10,7 @@ import ContactForm from "../components/ContactForm";
 import FAQSection from "../components/FAQSection";
 import FooterCTA from "../components/FooterCTA";
 import WhyChooseUs from "../components/WhyChooseUs";
-import ChatWidget from "../components/ChatWidget";
+// import ChatWidget from "../components/ChatWidget";
 
 const Home = () => {
   return (
@@ -26,7 +26,7 @@ const Home = () => {
       <FAQSection />
       <ContactForm />
       <FooterCTA />
-      <ChatWidget />
+      {/* <ChatWidget /> */}
     </>
   );
 };

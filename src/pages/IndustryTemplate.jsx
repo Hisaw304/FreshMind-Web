@@ -2,11 +2,11 @@ import { Navigate, useParams } from "react-router-dom";
 
 import industriesData from "../data/industriesData";
 
-import IndustryHero from "../components/IndustryHero";
-import IndustryChallenges from "../components/IndustryChallenges";
-import IndustryFeatures from "../components/IndustryFeatures";
-import IndustryCaseStudy from "../components/IndustryCaseStudy";
-import IndustryFAQ from "../components/IndustryFAQ";
+import IndustryHero from "../components/industries/IndustryHero";
+import IndustryChallenges from "../components/industries/IndustryChallenges";
+import IndustryFeatures from "../components/industries/IndustryFeatures";
+import IndustryCaseStudy from "../components/industries/IndustryCaseStudy";
+import IndustryFAQ from "../components/industries/IndustryFAQ";
 import Testimonials from "../components/Testimonials";
 import FooterCTA from "../components/FooterCTA";
 

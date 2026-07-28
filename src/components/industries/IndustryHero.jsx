@@ -30,10 +30,10 @@ export default function IndustryHero({ industry }) {
             Start Your Project
           </Link>
 
-          <Link to="/portfolio" className="fm-industry-secondary-btn">
+          {/* <Link to="/portfolio" className="fm-industry-secondary-btn">
             View Portfolio
             <ArrowRight size={18} />
-          </Link>
+          </Link> */}
         </div>
       </div>
     </section>

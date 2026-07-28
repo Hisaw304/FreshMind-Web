@@ -1,7 +1,7 @@
 import ServicesGrid from "../components/ServicesGrid";
 import WhatsIncluded from "../components/WhatsIncluded";
 import Technologies from "../components/Technologies";
-import IndustryCards from "../components/IndustryCards";
+import IndustryCards from "../components/industries/IndustryCards";
 import ProcessPreview from "../components/ProcessPreview";
 
 import WhyChooseUs from "../components/WhyChooseUs";

@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
-import IndustryCards from "../components/IndustryCards";
-import IndustryBenefits from "../components/IndustryBenefits";
-import IndustryCaseStudies from "../components/IndustryCaseStudies";
+import IndustryCards from "../components/industries/IndustryCards";
+import IndustryBenefits from "../components/industries/IndustryBenefits";
+import IndustryCaseStudies from "../components/industries/IndustryCaseStudies";
 import Testimonials from "../components/Testimonials";
 import FooterCTA from "../components/FooterCTA";
 
