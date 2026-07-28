@@ -1594,14 +1594,10 @@
   display: flex;
   align-items: flex-start;
   gap: 14px;
-
   padding: 14px 16px;
-
   background: var(--fm-body);
-
   border: 1px solid var(--fm-border);
   border-radius: 14px;
-
   transition: all 0.25s ease;
 }
 

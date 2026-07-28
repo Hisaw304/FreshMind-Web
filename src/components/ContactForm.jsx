@@ -1,108 +1,153 @@
-// src/components/ContactForm.jsx
 import React, { useEffect, useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
-
-const SERVICE_ID =
-  typeof import.meta !== "undefined" && import.meta.env?.VITE_EMAILJS_SERVICE_ID
-    ? import.meta.env.VITE_EMAILJS_SERVICE_ID
-    : "service_k6m0tid";
-const TEMPLATE_ID =
-  typeof import.meta !== "undefined" &&
-  import.meta.env?.VITE_EMAILJS_TEMPLATE_ID
-    ? import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-    : "template_94664tq";
-const PUBLIC_KEY =
-  typeof import.meta !== "undefined" && import.meta.env?.VITE_EMAILJS_PUBLIC_KEY
-    ? import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-    : "G4wx8ip9pEZ9cXPdp";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: "",
+    phone: "",
+    company: "",
+
     subject: "",
+
+    budget: "",
+    timeline: "",
+
+    message: "",
+
     website: "",
   });
 
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState(null);
   const [errors, setErrors] = useState({});
+
   const statusRef = useRef(null);
 
   useEffect(() => {
     if (!status) return;
-    if (statusRef.current) {
-      statusRef.current.focus({ preventScroll: true });
-    }
-    const t = setTimeout(() => setStatus(null), 5000);
-    return () => clearTimeout(t);
+
+    statusRef.current?.focus({ preventScroll: true });
+
+    const timer = setTimeout(() => {
+      setStatus(null);
+    }, 5000);
+
+    return () => clearTimeout(timer);
   }, [status]);
 
   function handleChange(e) {
     const { name, value } = e.target;
-    setFormData((s) => ({ ...s, [name]: value }));
-    // clear error for that field as user types
-    setErrors((prev) => ({ ...prev, [name]: undefined }));
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: undefined,
+    }));
   }
 
   function validateForm() {
     const newErrors = {};
-    if (!formData.name?.trim()) newErrors.name = "Please enter your name.";
-    if (!formData.email?.trim()) newErrors.email = "Please enter your email.";
-    else if (!/\S+@\S+\.\S+/.test(formData.email))
+
+    if (!formData.name.trim()) newErrors.name = "Please enter your name.";
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Please enter your email.";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Please enter a valid email address.";
-    if (!formData.message?.trim())
-      newErrors.message = "Message cannot be empty.";
+    }
+
+    if (!formData.subject) newErrors.subject = "Please select a project type.";
+
+    if (!formData.message.trim())
+      newErrors.message = "Please tell us about your project.";
 
     return newErrors;
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setErrors({});
-    setStatus(null);
 
-    if (formData.website && formData.website.trim().length > 0) {
-      setErrors({ website: "Spam detected." });
-      return;
-    }
+    setStatus(null);
+    setErrors({});
+
+    // Honeypot
+    if (formData.website.trim()) return;
 
     const validation = validateForm();
-    if (Object.keys(validation).length > 0) {
+
+    if (Object.keys(validation).length) {
       setErrors(validation);
       return;
     }
 
     setLoading(true);
-    try {
-      const templateParams = {
-        from_name: formData.name.trim(),
-        from_email: formData.email.trim(),
-        subject: (formData.subject || "General Inquiry").trim(),
-        message: formData.message.trim(),
-      };
 
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong.");
+      }
 
       setStatus("success");
+
       setFormData({
         name: "",
         email: "",
-        message: "",
+        phone: "",
+        company: "",
         subject: "",
+        budget: "",
+        timeline: "",
+        message: "",
         website: "",
       });
     } catch (err) {
-      console.error("EmailJS send error:", err);
+      console.error(err);
       setStatus("error");
     } finally {
       setLoading(false);
     }
   }
 
-  const subjects = ["Project Estimate", "Collaboration", "General Inquiry"];
+  const subjects = [
+    "New Website",
+    "Website Redesign",
+    "E-commerce Website",
+    "Custom Web Application",
+    "SEO & Digital Marketing",
+    "General Inquiry",
+  ];
+
+  const budgetOptions = [
+    "Under $1,000",
+    "$1,000 - $2,000",
+    "$2,000 - $3,500",
+    "$3,500 - $6,000",
+    "$6,000+",
+    "Not Sure",
+  ];
+
+  const timelineOptions = [
+    "ASAP",
+    "2-4 Weeks",
+    "1-2 Months",
+    "3+ Months",
+    "Flexible",
+  ];
 
   return (
     <section id="contact" className="fm-contact">
@@ -122,25 +167,12 @@ export default function ContactForm() {
         <div className="fm-contact-grid">
           {/* LEFT - FORM */}
           <form onSubmit={handleSubmit} className="fm-contact-form" noValidate>
-            <h3>Send Us a Message</h3>
+            <h3>Tell Us About Your Project</h3>
 
-            <div className="fm-subjects">
-              {subjects.map((subj) => {
-                const isActive = formData.subject === subj;
-                return (
-                  <button
-                    key={subj}
-                    type="button"
-                    onClick={() =>
-                      setFormData((s) => ({ ...s, subject: subj }))
-                    }
-                    className={`fm-subject-btn ${isActive ? "active" : ""}`}
-                  >
-                    {subj}
-                  </button>
-                );
-              })}
-            </div>
+            <p>
+              Complete the form below and we'll get back to you within one
+              business day.
+            </p>
 
             <input
               name="website"
@@ -149,25 +181,103 @@ export default function ContactForm() {
               style={{ display: "none" }}
             />
 
+            <div className="fm-subjects">
+              {subjects.map((subj) => (
+                <button
+                  key={subj}
+                  type="button"
+                  onClick={() =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      subject: subj,
+                    }))
+                  }
+                  className={`fm-subject-btn ${
+                    formData.subject === subj ? "active" : ""
+                  }`}
+                >
+                  {subj}
+                </button>
+              ))}
+            </div>
+
+            {errors.subject && (
+              <span className="fm-error">{errors.subject}</span>
+            )}
+
             <Field
-              label="Name"
+              label="Full Name"
               name="name"
               value={formData.name}
               onChange={handleChange}
               error={errors.name}
             />
+
             <Field
-              label="Email"
+              label="Email Address"
               name="email"
+              type="email"
               value={formData.email}
               onChange={handleChange}
               error={errors.email}
             />
+
             <Field
-              label="Message"
+              label="Phone Number"
+              name="phone"
+              type="tel"
+              value={formData.phone}
+              onChange={handleChange}
+            />
+
+            <Field
+              label="Company Name"
+              name="company"
+              value={formData.company}
+              onChange={handleChange}
+            />
+
+            <div className="fm-field">
+              <label>Estimated Budget</label>
+
+              <select
+                name="budget"
+                value={formData.budget}
+                onChange={handleChange}
+              >
+                <option value="">Select Budget</option>
+
+                {budgetOptions.map((budget) => (
+                  <option key={budget} value={budget}>
+                    {budget}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="fm-field">
+              <label>Project Timeline</label>
+
+              <select
+                name="timeline"
+                value={formData.timeline}
+                onChange={handleChange}
+              >
+                <option value="">Select Timeline</option>
+
+                {timelineOptions.map((timeline) => (
+                  <option key={timeline} value={timeline}>
+                    {timeline}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <Field
+              label="Project Details"
               name="message"
               as="textarea"
-              rows={5}
+              rows={6}
               value={formData.message}
               onChange={handleChange}
               error={errors.message}
@@ -177,35 +287,38 @@ export default function ContactForm() {
               {loading ? (
                 <Loader2 className="spin" size={18} />
               ) : (
-                "Send Message"
+                "Request Free Proposal"
               )}
             </button>
           </form>
 
           {/* RIGHT - IMAGE */}
-          <div className="fm-contact-visual">
-            <img src="/images/office5.jpg" alt="Office" />
 
-            <div className="fm-contact-card">
-              <div className="fm-contact-item">
-                <div className="fm-icon-wrap">
-                  <Phone size={16} />
-                </div>
-                <span>+1 (860) 821-3853</span>
-              </div>
+          <div className="fm-contact-right">
+            <div className="fm-contact-visual">
+              <img src="/images/office5.jpg" alt="Office" />
 
-              <div className="fm-contact-item">
-                <div className="fm-icon-wrap">
-                  <Mail size={16} />
+              <div className="fm-contact-card">
+                <div className="fm-contact-item">
+                  <div className="fm-icon-wrap">
+                    <Phone size={16} />
+                  </div>
+                  <span>+1 (860) 821-3853</span>
                 </div>
-                <span>freshmindwebagency@gmail.com</span>
-              </div>
 
-              <div className="fm-contact-item">
-                <div className="fm-icon-wrap">
-                  <MapPin size={16} />
+                <div className="fm-contact-item">
+                  <div className="fm-icon-wrap">
+                    <Mail size={16} />
+                  </div>
+                  <span>freshmindwebagency@gmail.com</span>
                 </div>
-                <span>123 Main Street, Laconia, NH</span>
+
+                <div className="fm-contact-item">
+                  <div className="fm-icon-wrap">
+                    <MapPin size={16} />
+                  </div>
+                  <span>123 Main Street, Laconia, NH</span>
+                </div>
               </div>
             </div>
           </div>

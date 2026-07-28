@@ -2567,10 +2567,9 @@ body {
 /* ========================= */
 
 .fm-contact-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 64px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
 /* ========================= */
@@ -2620,6 +2619,12 @@ body {
   color: var(--fm-text);
   margin-bottom: 28px;
 }
+.fm-contact-form p {
+  color: var(--fm-text-muted);
+  line-height: 1.8;
+  margin-bottom: 30px;
+  font-size: 0.96rem;
+}
 
 /* ========================= */
 /* SUBJECT BUTTONS */
@@ -2657,9 +2662,9 @@ body {
   border-color: var(--fm-primary);
 }
 
-/* ========================= */
-/* INPUT FIELDS */
-/* ========================= */
+/* =========================
+   FIELDS
+========================= */
 
 .fm-field {
   margin-bottom: 20px;
@@ -2667,28 +2672,54 @@ body {
 
 .fm-field label {
   display: block;
-  font-size: 13px;
+  margin-bottom: 8px;
+  font-size: 14px;
   color: var(--fm-text-muted);
-  margin-bottom: 6px;
+  font-weight: 500;
 }
 
 .fm-field input,
-.fm-field textarea {
+.fm-field textarea,
+.fm-field select {
   width: 100%;
-  padding: 14px 16px;
+  padding: 15px 16px;
   border-radius: 12px;
-  border: 1px solid var(--fm-primary);
+  border: 1px solid var(--fm-border);
   background: var(--fm-body);
   color: var(--fm-text);
-
+  font-size: 15px;
   outline: none;
-  transition: 0.25s ease;
+  transition: 0.25s;
+}
+
+.fm-field textarea {
+  resize: vertical;
+  min-height: 150px;
 }
 
 .fm-field input:focus,
-.fm-field textarea:focus {
+.fm-field textarea:focus,
+.fm-field select:focus {
   border-color: var(--fm-primary);
   box-shadow: 0 0 0 1px var(--fm-primary);
+}
+
+.fm-field select {
+  cursor: pointer;
+  appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 50px;
+}
+
+.fm-error {
+  display: block;
+  margin-top: 8px;
+  color: #ef4444;
+  font-size: 13px;
 }
 
 /* ========================= */
@@ -2730,7 +2761,7 @@ body {
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-
+  height: 50%;
   background: #0b1220;
   border: 1px solid rgba(255, 255, 255, 0.06);
 
@@ -2739,7 +2770,7 @@ body {
 
 .fm-contact-visual img {
   width: 100%;
-  height: 100%;
+  height: 450px;
   object-fit: cover;
 
   filter: brightness(0.7) contrast(1.05);
@@ -2867,10 +2898,12 @@ body {
   .fm-contact-visual {
     min-height: 300px;
   }
+  .fm-contact-visual img {
+    height: 300px;
+  }
 
   .fm-contact-card {
     left: 12px;
-    /* transform: translateX(-50%); */
   }
 }
 
