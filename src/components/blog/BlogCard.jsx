@@ -1,65 +1,50 @@
 import { Link } from "react-router-dom";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { urlFor } from "../../lib/sanity";
+
 export default function BlogCard({ article }) {
   return (
-    <article className="fm-blog-card">
-      {/* IMAGE */}
-      <div className="fm-blog-card-image">
-        <Link to={`/blog/${article.slug.current}`}>
-          <img
-            src={urlFor(article.featuredImage).width(800).url()}
-            alt={article.title}
-          />
-        </Link>
+    <Link to={`/blog/${article.slug.current}`} className="fm-blog-card">
+      <img
+        src={urlFor(article.featuredImage).width(900).url()}
+        alt={article.title}
+        className="fm-blog-image"
+      />
 
-        <span className="fm-blog-category-badge">{article.category}</span>
-      </div>
+      <div className="fm-blog-overlay" />
 
-      {/* CONTENT */}
-      <div className="fm-blog-card-content">
-        {/* META */}
-        <div className="fm-blog-card-meta">
+      <span className="fm-blog-category">{article.category}</span>
+
+      <div className="fm-blog-content">
+        <h3>{article.title}</h3>
+
+        {/* <p>{article.excerpt}</p> */}
+
+        <div className="fm-blog-meta">
           <span>
-            <Calendar size={15} />
+            By <strong>{article.author}</strong>
+          </span>
+
+          <span>
+            <Calendar size={14} />
             {new Date(article.publishedAt).toLocaleDateString("en-US", {
               month: "short",
               day: "numeric",
               year: "numeric",
             })}
           </span>
-
-          <span>
-            <Clock size={15} />
-            {article.readingTime}
-          </span>
         </div>
 
-        {/* TITLE */}
-        <h3>
-          <h3>
-            <Link to={`/blog/${article.slug.current}`}>{article.title}</Link>
-          </h3>
-        </h3>
+        <div className="fm-blog-reading">
+          <Clock size={14} />
+          <span>{article.readingTime}</span>
+        </div>
 
-        {/* EXCERPT */}
-        <p>{article.excerpt}</p>
-
-        {/* FOOTER */}
-        <div className="fm-blog-card-footer">
-          <span className="fm-blog-author">
-            By <strong>{article.author}</strong>
-          </span>
-
-          <Link
-            to={`/blog/${article.slug.current}`}
-            className="fm-blog-read-more"
-          >
-            Read More
-            <ArrowRight size={17} />
-          </Link>
+        <div className="fm-blog-readmore">
+          Read Article
+          <ArrowRight size={16} />
         </div>
       </div>
-    </article>
+    </Link>
   );
 }

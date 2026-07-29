@@ -8,7 +8,7 @@ const query = `*[_type == "category"] | order(title asc){
   "count": count(*[_type == "post" && references(^._id)])
 }`;
 
-export default function BlogCategories() {
+export default function BlogCategories({ selectedCategory, onCategoryChange }) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -48,7 +48,20 @@ export default function BlogCategories() {
 
         <div className="fm-blog-categories-grid">
           {categories.map((category) => (
-            <button key={category._id} className="fm-blog-category-card">
+            <button
+              key={category._id}
+              onClick={() => {
+                onCategoryChange(
+                  category._id === "all" ? "all" : category.title
+                );
+              }}
+              className={`fm-blog-category-card ${
+                selectedCategory ===
+                (category._id === "all" ? "all" : category.title)
+                  ? "active"
+                  : ""
+              }`}
+            >
               <div className="fm-blog-category-icon">
                 <Layers size={22} />
               </div>

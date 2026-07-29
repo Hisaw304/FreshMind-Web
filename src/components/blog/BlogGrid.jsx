@@ -33,7 +33,10 @@ function getReadingTime(body) {
   return `${minutes} min read`;
 }
 
-export default function BlogGrid({ searchTerm = "" }) {
+export default function BlogGrid({
+  searchTerm = "",
+  selectedCategory = "all",
+}) {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -55,20 +58,24 @@ export default function BlogGrid({ searchTerm = "" }) {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchTerm]);
+  }, [searchTerm, selectedCategory]);
 
   const filteredArticles = useMemo(() => {
-    const search = searchTerm.toLowerCase();
+    const search = (searchTerm || "").toLowerCase();
 
     return articles.filter((article) => {
-      return (
+      const matchesSearch =
         article.title?.toLowerCase().includes(search) ||
         article.excerpt?.toLowerCase().includes(search) ||
         article.category?.toLowerCase().includes(search) ||
-        article.author?.toLowerCase().includes(search)
-      );
+        article.author?.toLowerCase().includes(search);
+
+      const matchesCategory =
+        selectedCategory === "all" || article.category === selectedCategory;
+
+      return matchesSearch && matchesCategory;
     });
-  }, [articles, searchTerm]);
+  }, [articles, searchTerm, selectedCategory]);
 
   const totalPages = Math.ceil(filteredArticles.length / POSTS_PER_PAGE);
 

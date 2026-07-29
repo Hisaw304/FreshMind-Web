@@ -9,7 +9,7 @@ import FooterCTA from "../components/FooterCTA";
 
 export default function BlogPage() {
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [selectedCategory, setSelectedCategory] = useState("all");
   return (
     <div className="fm-blog-page">
       <Helmet>
@@ -67,9 +67,12 @@ export default function BlogPage() {
 
       <BlogSearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-      <BlogCategories />
+      <BlogCategories
+        selectedCategory={selectedCategory}
+        onCategoryChange={setSelectedCategory}
+      />
 
-      <BlogGrid searchTerm={searchTerm} />
+      <BlogGrid searchTerm={searchTerm} selectedCategory={selectedCategory} />
 
       <FooterCTA />
     </div>

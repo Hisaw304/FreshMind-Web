@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
+import blogHero from "../../assets/blog.avif";
 
 export default function BlogHero() {
   return (
-    <section className="fm-blog-hero">
+    <section
+      className="fm-blog-hero"
+      style={{
+        backgroundImage: `url(${blogHero})`,
+      }}
+    >
       <div className="fm-blog-hero-overlay" />
 
       <div className="fm-container">
@@ -30,7 +36,7 @@ export default function BlogHero() {
             </a>
           </div>
 
-          <div className="fm-blog-stats">
+          {/* <div className="fm-blog-stats">
             <div className="fm-blog-stat">
               <h3>100+</h3>
               <span>Expert Articles</span>
@@ -45,7 +51,7 @@ export default function BlogHero() {
               <h3>Weekly</h3>
               <span>Fresh Content</span>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
