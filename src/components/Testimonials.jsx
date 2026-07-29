@@ -91,7 +91,7 @@ const testimonials = [
       "From planning to launch, the entire experience was smooth and professional. They delivered on time and kept us informed throughout the project.",
     name: "Michael Brown",
     role: "Owner, Laconia Refrigeration",
-    image: "/images/clients/michael.jpg",
+    image: "/michael-m.jpg",
   },
   {
     quote:
