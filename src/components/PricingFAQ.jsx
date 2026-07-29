@@ -5,7 +5,7 @@ const faqs = [
   {
     question: "How much does a custom website cost?",
     answer:
-      "The cost depends on the size and complexity of your project. Our Starter package begins at $2,000, while larger websites and custom web applications are quoted based on your specific requirements.",
+      "The cost depends on the size and complexity of your project. Our Starter package begins at $1,000, while larger websites and custom web applications are quoted based on your specific requirements.",
   },
   {
     question: "Do you require a deposit before starting?",

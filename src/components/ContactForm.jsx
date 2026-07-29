@@ -204,73 +204,74 @@ export default function ContactForm() {
             {errors.subject && (
               <span className="fm-error">{errors.subject}</span>
             )}
-
-            <Field
-              label="Full Name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              error={errors.name}
-            />
-
-            <Field
-              label="Email Address"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              error={errors.email}
-            />
-
-            <Field
-              label="Phone Number"
-              name="phone"
-              type="tel"
-              value={formData.phone}
-              onChange={handleChange}
-            />
-
-            <Field
-              label="Company Name"
-              name="company"
-              value={formData.company}
-              onChange={handleChange}
-            />
-
-            <div className="fm-field">
-              <label>Estimated Budget</label>
-
-              <select
-                name="budget"
-                value={formData.budget}
+            <div className="fm-form-grid">
+              <Field
+                label="Full Name"
+                name="name"
+                value={formData.name}
                 onChange={handleChange}
-              >
-                <option value="">Select Budget</option>
+                error={errors.name}
+              />
 
-                {budgetOptions.map((budget) => (
-                  <option key={budget} value={budget}>
-                    {budget}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="fm-field">
-              <label>Project Timeline</label>
-
-              <select
-                name="timeline"
-                value={formData.timeline}
+              <Field
+                label="Email Address"
+                name="email"
+                type="email"
+                value={formData.email}
                 onChange={handleChange}
-              >
-                <option value="">Select Timeline</option>
+                error={errors.email}
+              />
 
-                {timelineOptions.map((timeline) => (
-                  <option key={timeline} value={timeline}>
-                    {timeline}
-                  </option>
-                ))}
-              </select>
+              <Field
+                label="Phone Number"
+                name="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={handleChange}
+              />
+
+              <Field
+                label="Company Name"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+              />
+
+              <div className="fm-field">
+                <label>Estimated Budget</label>
+
+                <select
+                  name="budget"
+                  value={formData.budget}
+                  onChange={handleChange}
+                >
+                  <option value="">Select Budget</option>
+
+                  {budgetOptions.map((budget) => (
+                    <option key={budget} value={budget}>
+                      {budget}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="fm-field">
+                <label>Project Timeline</label>
+
+                <select
+                  name="timeline"
+                  value={formData.timeline}
+                  onChange={handleChange}
+                >
+                  <option value="">Select Timeline</option>
+
+                  {timelineOptions.map((timeline) => (
+                    <option key={timeline} value={timeline}>
+                      {timeline}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
 
             <Field

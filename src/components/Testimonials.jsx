@@ -1,5 +1,5 @@
 // src/sections/Testimonials.jsx
-import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
 
 const testimonials = [
   {
@@ -118,6 +118,37 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const sliderRef = useRef(null);
+  const [active, setActive] = useState(0);
+
+  const scrollToCard = (index) => {
+    const card = sliderRef.current.children[index];
+
+    card.scrollIntoView({
+      behavior: "smooth",
+      inline: "start",
+    });
+
+    setActive(index);
+  };
+
+  const next = () => {
+    scrollToCard((active + 1) % testimonials.length);
+  };
+
+  const prev = () => {
+    scrollToCard((active - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const resize = () => setIsMobile(window.innerWidth <= 768);
+
+    window.addEventListener("resize", resize);
+
+    return () => window.removeEventListener("resize", resize);
+  }, []);
   return (
     <section id="testimonials" className="fm-testimonials">
       <div className="fm-testimonials-container">
@@ -126,42 +157,72 @@ export default function Testimonials() {
           <h2>
             What Clients Say About <span>FreshMind</span>
           </h2>
+
           <p>
-            We don’t just build websites — we build relationships. Here’s what
-            business owners say about working with FreshMind Web Agency and the
-            results we’ve helped them achieve.
+            We don't just build websites—we build long-term partnerships. Here's
+            what our clients have to say about working with FreshMind.
           </p>
         </div>
 
-        {/* SCROLL WRAPPER */}
-        <div className="fm-testimonials-wrapper">
-          <div className="fm-testimonials-track">
-            {[...testimonials, ...testimonials].map((t, i) => (
-              <div key={i} className="fm-testimonial-card">
-                <div className="fm-testimonial-top">
-                  <div className="fm-stars">
-                    <span className="fm-star" />
-                    <span className="fm-star" />
-                    <span className="fm-star" />
-                    <span className="fm-star" />
-                    <span className="fm-star" />
-                  </div>
-
-                  <div className="fm-quote-icon">“</div>
-                </div>
-
-                <p className="fm-quote">{t.quote}</p>
-
-                <div className="fm-user">
+        {/* HORIZONTAL SLIDER */}
+        <div className="fm-testimonials-slider">
+          <div className="fm-testimonials-track" ref={sliderRef}>
+            {testimonials.map((t, i) => (
+              <article key={i} className="fm-testimonial-card">
+                {/* Background Image */}
+                <div className="fm-testimonial-image">
                   <img src={t.image} alt={t.name} />
-                  <div>
-                    <h4>{t.name}</h4>
-                    <span>{t.role}</span>
+
+                  <div className="fm-testimonial-overlay"></div>
+
+                  {/* Review over image */}
+                  <div className="fm-review-overlay">
+                    <p>"{t.quote}"</p>
                   </div>
                 </div>
-              </div>
+
+                {/* Bottom Content */}
+                <div className="fm-testimonial-content">
+                  <div className="fm-stars">
+                    <span className="fm-star">★</span>
+                    <span className="fm-star">★</span>
+                    <span className="fm-star">★</span>
+                    <span className="fm-star">★</span>
+                    <span className="fm-star">★</span>
+                  </div>
+
+                  <h3>{t.name}</h3>
+
+                  <span className="fm-role">{t.role}</span>
+                </div>
+              </article>
             ))}
           </div>
+        </div>
+        {/* CONTROLS */}
+
+        <div className="fm-testimonial-controls">
+          <button className="fm-arrow-btn" onClick={prev}>
+            ←
+          </button>
+
+          <div className="fm-testimonial-dots">
+            {(isMobile ? testimonials.slice(0, 5) : testimonials).map(
+              (_, index) => (
+                <button
+                  key={index}
+                  className={`fm-dot ${
+                    index === (isMobile ? active % 5 : active) ? "active" : ""
+                  }`}
+                  onClick={() => scrollToCard(index)}
+                />
+              )
+            )}
+          </div>
+
+          <button className="fm-arrow-btn" onClick={next}>
+            →
+          </button>
         </div>
       </div>
     </section>
