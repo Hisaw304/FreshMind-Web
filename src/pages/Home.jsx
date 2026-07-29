@@ -10,22 +10,37 @@ import ContactForm from "../components/ContactForm";
 import FAQSection from "../components/FAQSection";
 import FooterCTA from "../components/FooterCTA";
 import WhyChooseUs from "../components/WhyChooseUs";
+import BlogHomeGrid from "../components/BlogHomeGrid";
+// import BlogGrid from "../components/blog/BlogGrid";
 // import ChatWidget from "../components/ChatWidget";
 
 const Home = () => {
   return (
     <>
       <Hero />
+
       <ClientsCarousel />
+
       <About />
+
       <Stats />
-      <WhyChooseUs />
-      <LocalMarketing />
+
       <Services />
+
+      <WhyChooseUs />
+
+      <LocalMarketing />
+
       <Testimonials />
+
+      <BlogHomeGrid />
+
       <FAQSection />
+
       <ContactForm />
+
       <FooterCTA />
+
       {/* <ChatWidget /> */}
     </>
   );

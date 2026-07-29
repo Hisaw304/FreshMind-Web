@@ -4,114 +4,113 @@ import { useState, useRef, useEffect } from "react";
 const testimonials = [
   {
     quote:
-      "From start to finish, the process was smooth. They listened to my ideas, gave great suggestions, and delivered exactly what I needed.",
+      "FreshMind transformed our outdated website into a modern, fast, and mobile-friendly platform. Within weeks, we noticed more inquiries and better engagement from visitors.",
     name: "Hannah Walker",
     role: "Owner, Walker Photography",
     image: "/images/clients/hannah.jpg",
   },
   {
     quote:
-      "I was skeptical about digital marketing, but after working with them, I can’t believe the difference it has made. Our sales are up significantly.",
+      "The team built us a professional website that perfectly represents our brand. Communication was excellent, deadlines were met, and the final result exceeded our expectations.",
     name: "David Green",
-    role: "Manager, Green Landscaping",
+    role: "Owner, Green Landscaping",
     image: "/images/clients/david.jpg",
   },
   {
     quote:
-      "Finally, a team that explains things in plain English! They made the tech side simple and easy to understand.",
+      "Our new website is beautiful, easy to navigate, and optimized for search engines. Clients constantly compliment how professional everything looks.",
     name: "Laura Peterson",
     role: "Founder, Lakeside Yoga",
     image: "/images/clients/laura.jpg",
   },
   {
     quote:
-      "They were proactive, responsive, and truly invested in my business. It felt like having a dedicated in-house marketing team.",
-    name: "Anthony Roberts",
-    role: "CEO, Roberts Marine Services",
+      "FreshMind developed a custom dashboard that streamlined our daily operations. What used to take hours now takes just minutes.",
+    name: "Charnay Roberts",
+    role: "CEO, Charnay Marine Services",
     image: "/images/clients/anthony.jpg",
   },
   {
     quote:
-      "Our social media has gone from silent to buzzing with activity. Customers are engaging more than ever before.",
+      "The AI chatbot they integrated answers customer questions around the clock and captures leads automatically. It's like having an extra employee working 24/7.",
     name: "Rachel Adams",
     role: "Owner, Sweet Treats Bakery",
     image: "/images/clients/rachel.jpg",
   },
   {
     quote:
-      "Professional, creative, and reliable. I recommend them to every small business owner I know.",
+      "Professional, creative, and incredibly easy to work with. They delivered a website that not only looks amazing but also performs exceptionally well.",
     name: "Mark Lewis",
     role: "Director, Granite Builders",
     image: "/images/clients/mark.jpg",
   },
   {
     quote:
-      "Their hosting service has been flawless. My website loads fast, stays online, and I don’t have to worry about downtime anymore.",
+      "Since launching our new website, our Google rankings have improved and we're receiving more qualified leads than ever before.",
     name: "Karen Mitchell",
     role: "Owner, Mitchell Consulting",
     image: "/images/clients/karen.jpg",
   },
   {
     quote:
-      "It’s rare to find a company that combines technical skills with real customer care. They truly value relationships.",
+      "Their website maintenance service gives us complete peace of mind. Updates, backups, and security are all handled without us having to worry.",
     name: "Ethan Cooper",
     role: "Founder, Cooper Fitness",
     image: "/images/clients/ethan.jpg",
   },
-
   {
     quote:
-      "Amazing service!! Absolutely the best to deal with. I know nothing about getting a website started, but he makes it easy and guides you throughout the whole start-up experience.",
+      "I had no experience with websites, but FreshMind guided me through every step. They explained everything clearly and delivered exactly what my business needed.",
     name: "Christopher West",
     role: "CEO, Fair Spares New England",
     image: "/images/clients/christopher.jpg",
   },
   {
     quote:
-      "Working with this team has been a game changer for our business. Professional, responsive, and results-driven. They genuinely care about helping small businesses succeed.",
+      "Our website loads incredibly fast, looks fantastic on every device, and has already helped us attract new customers. Worth every penny.",
     name: "Emily Johnson",
     role: "Owner, Belmont Firearms",
     image: "/images/clients/emily.jpg",
   },
   {
     quote:
-      "Our website not only looks fantastic but also performs better than ever. We’ve seen a noticeable increase in online inquiries since launching. Highly recommend!",
+      "The redesign completely changed how customers view our business. We finally have a website that reflects the quality of the services we provide.",
     name: "Daniel Carter",
     role: "Founder, Bigfoot HVAC",
     image: "/images/clients/daniel.jpg",
   },
   {
     quote:
-      "The SEO strategies they implemented put our business on the map—literally. We’re ranking higher than competitors and attracting more local customers every week.",
+      "Their SEO expertise helped us climb Google's search results and generate consistent organic traffic. We couldn't be happier with the results.",
     name: "Sophia Lee",
     role: "Marketing Manager, Create Escapes",
     image: "/images/clients/sophia.jpg",
   },
   {
     quote:
-      "They redesigned our old, clunky site into something clean, modern, and easy for customers to navigate. The difference is night and day!",
+      "From planning to launch, the entire experience was smooth and professional. They delivered on time and kept us informed throughout the project.",
     name: "Michael Brown",
     role: "Owner, Laconia Refrigeration",
     image: "/images/clients/michael.jpg",
   },
   {
     quote:
-      "What impressed me most was how quickly they understood our business needs and came up with solutions tailored just for us. Fantastic team!",
+      "FreshMind understood our business from day one and built a custom solution that fits our workflow perfectly. It's made a huge difference to our team.",
     name: "Olivia Smith",
     role: "Director, LaChance Water",
     image: "/images/clients/olivia.jpg",
   },
   {
     quote:
-      "I had no technical knowledge but needed a website for my business. They took care of everything from start to finish and continued supporting me even after launch. It was a smooth, stress-free experience.",
+      "Even after our website launched, they continued supporting us with updates, improvements, and technical advice. Their customer service is outstanding.",
     name: "Karen Mitchell",
     role: "Owner, Mitchell Consulting",
     image: "/images/clients/karen.jpg",
   },
   {
     quote:
-      "Social media used to overwhelm me, but they’ve taken it off my plate and turned it into a steady source of new customers. Couldn’t be happier.",
-    name: "Sophia Martinez",
+      "Working with FreshMind was one of the best investments we've made. They built a professional website, improved our online visibility, and helped us generate more business.",
+    name: "Sophia Maureen",
     role: "Founder, NH Floral Co.",
     image: "/images/clients/sophia-m.jpg",
   },
