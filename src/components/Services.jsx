@@ -1,5 +1,7 @@
-// src/sections/Services.jsx
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   Code2,
   BarChart3,
@@ -15,7 +17,7 @@ import serviceMarketing from "../assets/marketing.jpg";
 import serviceDevelopment from "../assets/service-development.jpg";
 import serviceMobile from "../assets/service-mobile.jpg";
 import serviceGlobal from "../assets/service-global.jpg";
-
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 const services = [
   {
     title: "Website Design",
@@ -67,15 +69,110 @@ const services = [
 ];
 
 export default function Services() {
+  const servicesRef = useRef(null);
+  const serviceCardsRef = useRef([]);
+
+  useGSAP(
+    () => {
+      // ==========================
+      // HEADER
+      // ==========================
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: servicesRef.current,
+          start: "top 72%",
+          once: true,
+        },
+        defaults: {
+          ease: "power3.out",
+        },
+      });
+
+      tl.from(".fm-service-header h2", {
+        y: 60,
+        autoAlpha: 0,
+        filter: "blur(8px)",
+        duration: 0.8,
+      }).from(
+        ".fm-service-header p",
+        {
+          y: 30,
+          autoAlpha: 0,
+          duration: 0.7,
+        },
+        "-=0.4"
+      );
+
+      // ==========================
+      // SERVICE CARDS
+      // ==========================
+      serviceCardsRef.current.forEach((card, index) => {
+        if (!card) return;
+
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: "top 88%",
+            once: true,
+          },
+          y: 60,
+          opacity: 0,
+          scale: 0.92,
+          duration: 0.8,
+          delay: index * 0.08,
+          ease: "back.out(1.4)",
+        });
+
+        // Hover effect
+        const enter = () => {
+          gsap.to(card, {
+            y: -10,
+            scale: 1.02,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        };
+
+        const leave = () => {
+          gsap.to(card, {
+            y: 0,
+            scale: 1,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        };
+
+        card.addEventListener("mouseenter", enter);
+        card.addEventListener("mouseleave", leave);
+      });
+
+      // ==========================
+      // CTA BUTTON
+      // ==========================
+      gsap.from(".fm-services-btn", {
+        scrollTrigger: {
+          trigger: ".fm-services-btn",
+          start: "top 90%",
+          once: true,
+        },
+        y: 30,
+        autoAlpha: 0,
+        duration: 0.7,
+      });
+    },
+    { scope: servicesRef }
+  );
   return (
-    <section id="services" className="fm-services">
+    <section id="services" className="fm-services" ref={servicesRef}>
       <div className="fm-why-grid-bg" />
+
       <div className="fm-services-container">
         {/* HEADER */}
         <div className="fm-service-header">
           <h2>
             Solutions We <span>Provide</span>
           </h2>
+
           <p>
             Our services are designed to build your online presence, connect you
             with the right audience, and grow your business effectively.
@@ -88,13 +185,10 @@ export default function Services() {
             const Icon = svc.icon;
 
             return (
-              <motion.div
-                key={idx}
+              <div
+                key={svc.title}
+                ref={(el) => (serviceCardsRef.current[idx] = el)}
                 className="fm-service-card"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.08 }}
-                viewport={{ once: true }}
               >
                 {/* IMAGE */}
                 <div className="fm-service-image">
@@ -105,7 +199,6 @@ export default function Services() {
 
                 {/* CONTENT */}
                 <div className="fm-service-content">
-                  {/* TOP */}
                   <div className="fm-service-top">
                     <div className="fm-icon">
                       <Icon size={18} />
@@ -113,19 +206,20 @@ export default function Services() {
 
                     <div>
                       <h3>{svc.title}</h3>
+
                       <span className="fm-service-intro">{svc.intro}</span>
                     </div>
                   </div>
 
                   <div className="fm-service-divider" />
 
-                  {/* DESC */}
                   <p className="fm-service-desc">{svc.desc}</p>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
+
         <div className="fm-services-btn">
           <a href="/services" className="fm-primary-btn">
             Explore All Services

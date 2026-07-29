@@ -264,11 +264,11 @@ export default function About() {
             Our <span>Approach</span>
           </h2>
           <div className="fm-steps-grid">
-            {steps.map((step, i) => {
+            {steps.map((step) => {
               const Icon = step.icon;
 
               return (
-                <div className="fm-step-card">
+                <div key={step.id} className="fm-step-card">
                   <div className="fm-step-image">
                     <img src={step.image} alt={step.title} />
                   </div>

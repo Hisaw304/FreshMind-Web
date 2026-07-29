@@ -1397,11 +1397,11 @@ body {
   background: var(--fm-body);
   border-radius: 16px;
   padding: 22px;
-  transition: all 0.3s ease;
+  /* transition: all 0.3s ease; */
 }
 
 .fm-stat-card:hover {
-  transform: translateY(-4px);
+  /* transform: translateY(-4px); */
   border-color: var(--fm-primary);
 }
 
@@ -3872,7 +3872,7 @@ body {
   background: var(--fm-surface);
   border: 1px solid var(--fm-border);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-  transition: 0.4s ease;
+  /* transition: 0.4s ease; */
 }
 
 /* image inside */
@@ -3887,7 +3887,7 @@ body {
   left: 0;
   transform: rotate(-6deg) scale(0.95);
   z-index: 3;
-  opacity: 0.9;
+  /* opacity: 0.9; */
 }
 
 /* front image (right tilt) */
@@ -3895,15 +3895,6 @@ body {
   right: 0;
   transform: rotate(6deg);
   z-index: 2;
-}
-
-/* hover interaction (optional premium feel) */
-.fm-why-images:hover .img-back {
-  transform: rotate(-4deg) scale(0.97) translateY(-6px);
-}
-
-.fm-why-images:hover .img-front {
-  transform: rotate(4deg) translateY(-10px);
 }
 
 /* ========================= */

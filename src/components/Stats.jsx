@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 // Images - public/images/...
 const images = [
   "/images/office1.jpg",
@@ -8,6 +9,8 @@ const images = [
   "/images/office3.jpg",
   "/images/office4.jpg",
 ];
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Stats() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -105,9 +108,138 @@ export default function Stats() {
       setCurrentIndex((i) => (i - 1 + images.length) % images.length);
     if (e.key === "ArrowRight") setCurrentIndex((i) => (i + 1) % images.length);
   }
+  const resultsRef = useRef(null);
+  const statCardsRef = useRef([]);
 
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: resultsRef.current,
+          start: "top 72%",
+          once: true,
+        },
+        defaults: {
+          ease: "power3.out",
+        },
+      });
+
+      // ==========================
+      // HEADER
+      // ==========================
+      tl.from(".fm-results-header h2", {
+        y: 60,
+        autoAlpha: 0,
+        filter: "blur(8px)",
+        duration: 0.9,
+      })
+
+        // ==========================
+        // LEFT TEXT
+        // ==========================
+        .from(
+          ".fm-results-text",
+          {
+            y: 35,
+            autoAlpha: 0,
+            duration: 0.7,
+          },
+          "-=0.45"
+        )
+
+        // ==========================
+        // RIGHT IMAGE
+        // ==========================
+        .from(
+          ".fm-results-right",
+          {
+            x: 100,
+            autoAlpha: 0,
+            scale: 0.95,
+            duration: 1,
+            ease: "power4.out",
+          },
+          "-=0.4"
+        );
+
+      // ==========================
+      // STATS
+      // ==========================
+      gsap.from(".fm-stat-card", {
+        scrollTrigger: {
+          trigger: ".fm-stats-grid",
+          start: "top 85%",
+          once: true,
+        },
+        y: 50,
+        opacity: 0,
+        scale: 0.9,
+        stagger: 0.12,
+        duration: 0.7,
+        ease: "back.out(1.5)",
+      });
+
+      // ==========================
+      // HOVER
+      // ==========================
+      gsap.utils.toArray(".fm-stat-card").forEach((card) => {
+        const enter = () => {
+          gsap.to(card, {
+            y: -8,
+            scale: 1.03,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        };
+
+        const leave = () => {
+          gsap.to(card, {
+            y: 0,
+            scale: 1,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        };
+
+        card.addEventListener("mouseenter", enter);
+        card.addEventListener("mouseleave", leave);
+      });
+
+      // ==========================
+      // CAROUSEL PARALLAX
+      // ==========================
+      const carousel = document.querySelector(".fm-carousel");
+
+      if (carousel) {
+        carousel.addEventListener("mousemove", (e) => {
+          const rect = carousel.getBoundingClientRect();
+
+          const x = ((e.clientX - rect.left) / rect.width - 0.5) * 14;
+          const y = ((e.clientY - rect.top) / rect.height - 0.5) * -14;
+
+          gsap.to(carousel, {
+            rotateY: x,
+            rotateX: y,
+            duration: 0.4,
+            ease: "power2.out",
+            transformPerspective: 1200,
+          });
+        });
+
+        carousel.addEventListener("mouseleave", () => {
+          gsap.to(carousel, {
+            rotateX: 0,
+            rotateY: 0,
+            duration: 0.8,
+            ease: "power3.out",
+          });
+        });
+      }
+    },
+    { scope: resultsRef }
+  );
   return (
-    <section className="fm-results">
+    <section className="fm-results" ref={resultsRef}>
       <div className="fm-results-wrapper">
         {/* HEADER */}
         <div className="fm-results-header">
@@ -119,18 +251,12 @@ export default function Stats() {
         {/* GRID */}
         <div
           ref={containerRef}
+          className="fm-results-container"
           tabIndex={-1}
           onKeyDown={onKeyDown}
-          className="fm-results-container"
         >
           {/* LEFT */}
-          <motion.div
-            className="fm-results-left"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <div className="fm-results-left">
             <p className="fm-results-text">
               Our experience and proven track record help businesses grow with
               measurable results. From local startups to established brands, we
@@ -139,12 +265,12 @@ export default function Stats() {
 
             <dl className="fm-stats-grid">
               {targets.map((_, i) => (
-                <motion.div
-                  key={i}
+                <div
+                  key={labels[i]}
                   className="fm-stat-card"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  ref={(el) => {
+                    statCardsRef.current[i] = el;
+                  }}
                 >
                   <dt className="fm-stat-value">
                     {i === 0
@@ -153,25 +279,21 @@ export default function Stats() {
                       ? `${counts[i]}%`
                       : counts[i]}
                   </dt>
+
                   <dd className="fm-stat-label">{labels[i]}</dd>
-                </motion.div>
+                </div>
               ))}
             </dl>
-          </motion.div>
+          </div>
 
           {/* RIGHT */}
-          <motion.div
-            className="fm-results-right"
-            initial={{ opacity: 0, x: 60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-          >
+          <div className="fm-results-right">
             <div className="fm-carousel">
               {images.map((src, idx) => (
                 <img
                   key={src}
                   src={src}
+                  alt={`Result ${idx + 1}`}
                   className={`fm-carousel-img ${
                     idx === currentIndex ? "active" : ""
                   }`}
@@ -180,6 +302,7 @@ export default function Stats() {
 
               <div className="fm-carousel-controls">
                 <button
+                  type="button"
                   onClick={() =>
                     setCurrentIndex(
                       (i) => (i - 1 + images.length) % images.length
@@ -193,6 +316,7 @@ export default function Stats() {
                   {images.map((_, idx) => (
                     <button
                       key={idx}
+                      type="button"
                       onClick={() => setCurrentIndex(idx)}
                       className={idx === currentIndex ? "active" : ""}
                     />
@@ -200,6 +324,7 @@ export default function Stats() {
                 </div>
 
                 <button
+                  type="button"
                   onClick={() =>
                     setCurrentIndex((i) => (i + 1) % images.length)
                   }
@@ -208,7 +333,7 @@ export default function Stats() {
                 </button>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
