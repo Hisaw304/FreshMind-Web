@@ -296,14 +296,15 @@ export default function ContactForm() {
                 Sorry, something went wrong. Please try again in a few minutes.
               </div>
             )}
-
-            <button type="submit" disabled={loading} className="fm-submit">
-              {loading ? (
-                <Loader2 className="spin" size={18} />
-              ) : (
-                "Request Free Proposal"
-              )}
-            </button>
+            <div className="fm-blog-home-footer">
+              <button type="submit" disabled={loading} className="fm-submit">
+                {loading ? (
+                  <Loader2 className="spin" size={18} />
+                ) : (
+                  "Request Free Proposal"
+                )}
+              </button>
+            </div>
           </form>
 
           {/* RIGHT - IMAGE */}

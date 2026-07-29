@@ -15,8 +15,8 @@ const faqs = [
     a: "Absolutely. Every website we build is fully responsive and designed to work seamlessly across all devices—mobile, tablet, and desktop. We prioritize mobile performance because most users will visit your site from their phones. This means fast loading times, clean layouts, and an intuitive experience that keeps visitors engaged no matter what device they’re using.",
   },
   {
-    q: "Can you help with SEO and marketing?",
-    a: "Yes, we build every website with SEO best practices from the ground up. This includes proper structure, fast performance, optimized content, and clean code that search engines can easily understand. Beyond that, we can guide you on marketing strategies such as content creation, local SEO, and conversion optimization to help you attract the right audience and turn visitors into customers.",
+    q: "Can you help with SEO?",
+    a: "Yes. Every website we build is developed with SEO best practices from the ground up. This includes fast loading speeds, clean and semantic code, mobile responsiveness, proper page structure, optimized metadata, and technical SEO foundations that help search engines understand and index your website. We also ensure your site is built for long-term performance, giving your business the best possible foundation to improve its visibility on Google and AI-powered search platforms.",
   },
   {
     q: "Do I need to provide content?",

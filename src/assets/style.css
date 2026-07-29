@@ -2850,8 +2850,10 @@ body {
 /* ========================= */
 
 .fm-submit {
+  display: inline-flex;
+  align-items: center;
   margin-top: 10px;
-  width: 100%;
+  width: fit-content;
   padding: 14px;
 
   border-radius: 12px;
@@ -3024,6 +3026,10 @@ body {
 @media (max-width: 768px) {
   .fm-form-grid {
     grid-template-columns: 1fr;
+  }
+  .fm-submit {
+    justify-content: center;
+    width: fit-content;
   }
 }
 /* ========================= */
