@@ -1,4 +1,7 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import { useEffect, useState } from "react";
 import { cities } from "../data/cities";
 import {
@@ -76,17 +79,147 @@ export default function About() {
     setRandomCities(shuffled.slice(0, 3));
   }, []);
 
+  const aboutRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: aboutRef.current,
+          start: "top 72%",
+          toggleActions: "play none none none",
+        },
+        defaults: {
+          ease: "power3.out",
+        },
+      });
+
+      // ========================
+      // HEADER
+      // ========================
+      tl.from(".fm-trusted-header h2", {
+        y: 60,
+        autoAlpha: 0,
+        filter: "blur(8px)",
+        duration: 0.9,
+      })
+
+        .from(
+          ".fm-trusted-header p",
+          {
+            y: 30,
+            autoAlpha: 0,
+            stagger: 0.18,
+            duration: 0.7,
+          },
+          "-=0.5"
+        )
+
+        .from(
+          ".fm-ready-btn",
+          {
+            y: 20,
+            autoAlpha: 0,
+            scale: 0.9,
+            duration: 0.6,
+            ease: "back.out(1.6)",
+          },
+          "-=0.3"
+        )
+
+        // ========================
+        // APPROACH TITLE
+        // ========================
+        .from(
+          ".fm-trusted-approach h2",
+          {
+            y: 60,
+            autoAlpha: 0,
+            duration: 0.8,
+          },
+          "-=0.2"
+        )
+
+        // ========================
+        // MISSION
+        // ========================
+        .from(
+          ".fm-trusted-mission h2",
+          {
+            y: 50,
+            autoAlpha: 0,
+            duration: 0.7,
+          },
+          "-=0.2"
+        )
+
+        .from(
+          ".fm-trusted-mission p",
+          {
+            y: 30,
+            autoAlpha: 0,
+            duration: 0.7,
+          },
+          "-=0.4"
+        );
+
+      // ========================
+      // STEP CARDS
+      // ========================
+      // ========================
+      // STEP CARDS
+      // ========================
+      gsap.utils.toArray(".fm-step-card").forEach((card, index) => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            once: true,
+          },
+          y: 70,
+          opacity: 0,
+          scale: 0.92,
+          duration: 0.8,
+          delay: index * 0.08,
+          ease: "back.out(1.4)",
+        });
+      });
+
+      // ========================
+      // CARD HOVER EFFECT
+      // ========================
+      gsap.utils.toArray(".fm-step-card").forEach((card) => {
+        const enter = () => {
+          gsap.to(card, {
+            y: -12,
+            scale: 1.03,
+            duration: 0.35,
+            ease: "power2.out",
+          });
+        };
+
+        const leave = () => {
+          gsap.to(card, {
+            y: 0,
+            scale: 1,
+            duration: 0.35,
+            ease: "power2.out",
+          });
+        };
+
+        card.addEventListener("mouseenter", enter);
+        card.addEventListener("mouseleave", leave);
+      });
+    },
+    { scope: aboutRef }
+  );
+
   return (
-    <section className="fm-trusted">
+    <section className="fm-trusted" ref={aboutRef}>
       <div className="fm-why-grid-bg" />
       <div className="fm-trusted-container">
         {/* HEADER */}
-        <motion.div
-          className="fm-trusted-header"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <div className="fm-trusted-header">
           <h2>
             Trusted by <span>Ambitious Businesses</span>
           </h2>
@@ -123,38 +256,22 @@ export default function About() {
               Ready to grow your business? Let’s talk
             </a>
           </div>
-        </motion.div>
+        </div>
 
         {/* APPROACH */}
-        <motion.div
-          className="fm-trusted-approach"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          viewport={{ once: true }}
-        >
+        <div className="fm-trusted-approach">
           <h2>
             Our <span>Approach</span>
           </h2>
-
           <div className="fm-steps-grid">
             {steps.map((step, i) => {
               const Icon = step.icon;
 
               return (
-                <motion.div
-                  key={step.id}
-                  className="fm-step-card"
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.08 }}
-                  viewport={{ once: true }}
-                >
-                  {/* IMAGE */}
+                <div className="fm-step-card">
                   <div className="fm-step-image">
                     <img src={step.image} alt={step.title} />
                   </div>
-
                   {/* CONTENT */}
                   <div className="fm-step-content">
                     {/* TOP */}
@@ -170,30 +287,23 @@ export default function About() {
                     <h3>{step.title}</h3>
                     <p>{step.description}</p>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>
-        </motion.div>
+        </div>
 
         {/* MISSION */}
-        <motion.div
-          className="fm-trusted-mission"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          viewport={{ once: true }}
-        >
+        <div className="fm-trusted-mission">
           <h2>
             Our <span>Mission</span>
           </h2>
-
           <p>
             To empower small businesses and entrepreneurs with the same level of
             design, strategy, and digital tools used by leading brands — helping
             them grow, compete, and succeed in today’s online world.
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

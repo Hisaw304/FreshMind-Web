@@ -1,7 +1,10 @@
-import { motion } from "framer-motion";
-// import { Phone } from "lucide-react";
-import dashboardImg from "../assets/hero-fm.jpg";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { ReactTyped } from "react-typed";
+import dashboardImg from "../assets/hero-fm.jpg";
+
+gsap.registerPlugin(useGSAP);
 
 const services = [
   "Custom Websites",
@@ -15,9 +18,138 @@ const services = [
   "Website Hosting",
   "Performance Optimization",
 ];
+
 export default function Hero() {
+  const heroRef = useRef(null);
+  const dashboardRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        defaults: {
+          ease: "power3.out",
+        },
+      });
+
+      // ========================
+      // TEXT
+      // ========================
+      tl.from(".fm-hero-typed", {
+        y: 25,
+        autoAlpha: 0,
+        duration: 0.5,
+      })
+        .from(
+          ".fm-hero-card",
+          {
+            y: 80,
+            autoAlpha: 0,
+            stagger: 0.18,
+            duration: 0.9,
+            ease: "power4.out",
+          },
+          "-=0.2"
+        )
+        .from(
+          ".fm-hero-text",
+          {
+            y: 30,
+            autoAlpha: 0,
+            duration: 0.6,
+          },
+          "-=0.5"
+        )
+        .from(
+          ".fm-hero-actions",
+          {
+            y: 25,
+            autoAlpha: 0,
+            duration: 0.6,
+          },
+          "-=0.45"
+        )
+
+        // ========================
+        // DASHBOARD ENTRANCE
+        // ========================
+        .fromTo(
+          dashboardRef.current,
+          {
+            autoAlpha: 0,
+            x: 180,
+            y: 50,
+            rotation: 8,
+            scale: 0.82,
+            transformOrigin: "center center",
+          },
+          {
+            autoAlpha: 1,
+            x: 0,
+            y: 0,
+            rotation: 0,
+            scale: 1,
+            duration: 1.5,
+            ease: "back.out(1.8)",
+          },
+          "-=0.9"
+        );
+
+      // ========================
+      // FLOATING
+      // ========================
+      gsap.to(dashboardRef.current, {
+        y: -18,
+        rotation: 1,
+        duration: 3.2,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+        delay: 1.5,
+      });
+
+      // ========================
+      // 3D MOUSE TILT
+      // ========================
+      const card = dashboardRef.current;
+
+      const move = (e) => {
+        const rect = card.getBoundingClientRect();
+
+        const rotateY = ((e.clientX - rect.left) / rect.width - 0.5) * 18;
+
+        const rotateX = ((e.clientY - rect.top) / rect.height - 0.5) * -18;
+
+        gsap.to(card, {
+          rotateY,
+          rotateX,
+          duration: 0.45,
+          ease: "power2.out",
+          transformPerspective: 1200,
+          transformOrigin: "center center",
+        });
+      };
+
+      const leave = () => {
+        gsap.to(card, {
+          rotateX: 0,
+          rotateY: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        });
+      };
+
+      card.addEventListener("mousemove", move);
+      card.addEventListener("mouseleave", leave);
+
+      return () => {
+        card.removeEventListener("mousemove", move);
+        card.removeEventListener("mouseleave", leave);
+      };
+    },
+    { scope: heroRef }
+  );
   return (
-    <section className="fm-hero">
+    <section className="fm-hero" ref={heroRef}>
       {/* GRID BG */}
       <div className="fm-hero-grid-bg" />
 
@@ -25,12 +157,7 @@ export default function Hero() {
         {/* MAIN GRID */}
         <div className="fm-hero-main">
           {/* LEFT */}
-          <motion.div
-            className="fm-hero-content"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="fm-hero-content">
             <div className="fm-hero-typed">
               <ReactTyped
                 strings={[
@@ -44,6 +171,7 @@ export default function Hero() {
                 loop
               />
             </div>
+
             <div className="fm-hero-headlines">
               <div className="fm-hero-card">
                 <h1>
@@ -67,26 +195,18 @@ export default function Hero() {
               <a href="#contact" className="fm-btn-primary">
                 Let's Get To Work
               </a>
-
-              {/* <a href="tel:+1234567890" className="fm-btn-secondary">
-                <Phone size={16} /> +1 (860) 821-3853
-              </a> */}
             </div>
-          </motion.div>
+          </div>
 
           {/* RIGHT */}
-          <motion.div
-            className="fm-hero-visual"
-            initial={{ opacity: 0, x: 60, scale: 0.95 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="fm-dashboard">
+          <div className="fm-hero-visual">
+            <div className="fm-dashboard" ref={dashboardRef}>
               <img src={dashboardImg} alt="Dashboard preview" />
             </div>
-          </motion.div>
+          </div>
         </div>
-        {/* ADD THIS AT THE VERY BOTTOM OF HERO SECTION */}
+
+        {/* MARQUEE */}
         <div className="fm-hero-marquee">
           <div className="fm-hero-marquee-track">
             {[...services, ...services].map((item, i) => (

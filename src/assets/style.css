@@ -706,29 +706,24 @@ body {
   z-index: 1;
   border-radius: 20px;
   overflow: hidden;
-  transition: 0.4s ease;
-  animation: fm-bounce 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+  will-change: transform;
+  cursor: pointer;
+  /* transition: 0.4s ease; */
+  /* animation: fm-bounce 6s ease-in-out infinite; */
 }
 
 /* image */
 .fm-dashboard img {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
+  backface-visibility: hidden;
 }
 
 /* hover (subtle) */
 .fm-dashboard:hover {
-  transform: translateY(-8px) scale(1.01);
-}
-@keyframes fm-bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
+  /* transform: translateY(-8px) scale(1.01); */
 }
 
 /* ========================= */
@@ -984,7 +979,12 @@ body {
   width: 22px;
   border-radius: 999px;
 }
-
+.fm-client-slide,
+.fm-clients-heading h2,
+.fm-clients-text p,
+.fm-clients-slider {
+  will-change: transform, opacity;
+}
 /* ========================= */
 /* IMAGE CARD */
 /* ========================= */

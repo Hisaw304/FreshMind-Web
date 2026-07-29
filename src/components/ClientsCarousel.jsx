@@ -1,12 +1,13 @@
 // src/sections/Clients.jsx
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
-
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "swiper/css";
 import "swiper/css/pagination";
-
 import belmont from "../assets/belmont.png";
 import bigfoot from "../assets/bigfoot.png";
 import createescapes from "../assets/createescapes.png";
@@ -24,6 +25,7 @@ import intervale from "../assets/Intervale-Stove-Shop-1024x1024.webp";
 import grasshoppers from "../assets/Grasshoppers-1024x1024.webp";
 import concierge from "../assets/Lakes-Region-Concierge-1024x1024.webp";
 
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 const clients = [
   { name: "Belmont Firearms", logo: belmont },
   { name: "Bigfoot HVAC", logo: bigfoot },
@@ -44,28 +46,75 @@ const clients = [
 ];
 
 export default function Clients() {
+  const clientsRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: clientsRef.current,
+          start: "top 75%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      tl.from(".fm-clients-heading h2", {
+        y: 60,
+        opacity: 0,
+        filter: "blur(10px)",
+        duration: 0.9,
+        ease: "power3.out",
+      })
+
+        .from(
+          ".fm-clients-text p",
+          {
+            y: 40,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 0.8,
+            ease: "power3.out",
+          },
+          "-=0.45"
+        )
+
+        .from(
+          ".fm-clients-slider",
+          {
+            y: 70,
+            opacity: 0,
+            duration: 1,
+            ease: "power4.out",
+          },
+          "-=0.35"
+        )
+
+        .from(
+          ".fm-client-slide",
+          {
+            scale: 0.85,
+            opacity: 0,
+            stagger: 0.08,
+            duration: 0.6,
+            ease: "back.out(1.5)",
+          },
+          "-=0.6"
+        );
+    },
+    { scope: clientsRef }
+  );
+
   return (
-    <section className="fm-clients">
+    <section className="fm-clients" ref={clientsRef}>
       <div className="fm-why-grid-bg" />
 
       <div className="fm-clients-container">
-        {/* TOP */}
         <div className="fm-clients-heading">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <h2>
             Companies We've <span>Worked With</span>
-          </motion.h2>
+          </h2>
 
-          <motion.div
-            className="fm-clients-text"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            viewport={{ once: true }}
-          >
+          <div className="fm-clients-text">
             <p>
               Over the years, we've partnered with companies—from small
               family-owned businesses to established regional brands. Each
@@ -78,15 +127,14 @@ export default function Clients() {
               experiences that genuinely help businesses grow, build trust, and
               stand out online.
             </p>
-          </motion.div>
+          </div>
         </div>
 
-        {/* SWIPER */}
         <div className="fm-clients-slider">
           <Swiper
             modules={[Autoplay, Pagination]}
             spaceBetween={24}
-            loop={true}
+            loop
             speed={900}
             autoplay={{
               delay: 2500,
