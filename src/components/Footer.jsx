@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
-
+import { Facebook, Twitter, Instagram } from "lucide-react";
+// import { FaTiktok } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="fm-footer">
@@ -23,7 +23,7 @@ export default function Footer() {
 
             <div className="fm-socials">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/profile.php?id=61592377295673"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -32,7 +32,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://twitter.com"
+                href="https://x.com/freshmindweb?s=11"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter"
@@ -41,7 +41,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/freshmindweb?igsh=NWo5NWR5ZmI3OHp5&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -49,14 +49,14 @@ export default function Footer() {
                 <Instagram size={18} />
               </a>
 
-              <a
+              {/* <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
               >
-                <Linkedin size={18} />
-              </a>
+                <FaTiktok size={18} />
+              </a> */}
             </div>
           </div>
 

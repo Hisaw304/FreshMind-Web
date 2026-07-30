@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Twitter, Instagram } from "lucide-react";
 import ContactForm from "../components/ContactForm";
 import FAQSection from "../components/FAQSection";
 
@@ -80,14 +80,31 @@ export default function ContactPage() {
               <h3>Connect With Us</h3>
 
               <div className="fm-contact-social-links">
-                <a href="#">
-                  <Facebook size={26} />
+                <a
+                  href="https://www.facebook.com/profile.php?id=61592377295673"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                >
+                  <Facebook size={18} />
                 </a>
-                <a href="#">
-                  <Instagram size={26} />
+
+                <a
+                  href="https://x.com/freshmindweb?s=11"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitter"
+                >
+                  <Twitter size={18} />
                 </a>
-                <a href="#">
-                  <Linkedin size={26} />
+
+                <a
+                  href="https://www.instagram.com/freshmindweb?igsh=NWo5NWR5ZmI3OHp5&utm_source=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={18} />
                 </a>
               </div>
             </div>
