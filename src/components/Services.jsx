@@ -169,6 +169,7 @@ export default function Services() {
       <div className="fm-services-container">
         {/* HEADER */}
         <div className="fm-service-header">
+          <span className="fm-section-tag">Services</span>
           <h2>
             Solutions We <span>Provide</span>
           </h2>
