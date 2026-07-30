@@ -32,7 +32,7 @@ const industries = [
   },
   {
     title: "Restaurants",
-    slug: "restaurants",
+    slug: "restaurant",
     icon: UtensilsCrossed,
     description: "Online Menu • Reservations • Local SEO",
   },

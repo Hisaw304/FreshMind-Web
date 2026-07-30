@@ -166,9 +166,6 @@ export default function About() {
       // ========================
       // STEP CARDS
       // ========================
-      // ========================
-      // STEP CARDS
-      // ========================
       gsap.utils.toArray(".fm-step-card").forEach((card, index) => {
         gsap.from(card, {
           scrollTrigger: {

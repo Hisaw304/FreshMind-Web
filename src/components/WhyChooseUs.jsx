@@ -6,6 +6,7 @@ import {
   Code,
   Rocket,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -220,6 +221,11 @@ export default function WhyChooseUs() {
               </div>
             ))}
           </div>
+        </div>
+        <div className="fm-blog-home-footer">
+          <Link to="/about" className="fm-blog-home-viewall">
+            Learn More About Us
+          </Link>
         </div>
       </div>
     </section>

@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/pagination";
 import belmont from "../assets/belmont.png";
@@ -100,6 +101,15 @@ export default function Clients() {
           },
           "-=0.6"
         );
+      // .from(
+      //   ".fm-blog-home-footer",
+      //   {
+      //     y: 25,
+      //     autoAlpha: 0,
+      //     duration: 0.6,
+      //   },
+      //   "-=0.45"
+      // );
     },
     { scope: clientsRef }
   );
@@ -167,6 +177,12 @@ export default function Clients() {
               </SwiperSlide>
             ))}
           </Swiper>
+        </div>
+
+        <div className="fm-blog-home-footer">
+          <Link to="/industries" className="fm-blog-home-viewall">
+            Explore Industries
+          </Link>
         </div>
       </div>
     </section>

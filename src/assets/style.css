@@ -1899,8 +1899,7 @@ body {
   border-radius: 20px;
   overflow: hidden;
 
-  background: url("https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg")
-    center/cover no-repeat;
+  background: url("/map.jpg") center/cover no-repeat;
   border: 1px solid var(--fm-border);
 }
 

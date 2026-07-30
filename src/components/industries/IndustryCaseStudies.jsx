@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const caseStudies = [
   {
+    slug: "real-estate",
     industry: "Real Estate",
     title: "Helping a Real Estate Agency Generate More Qualified Leads",
     description:
@@ -14,6 +15,7 @@ const caseStudies = [
     ],
   },
   {
+    slug: "law-firms",
     industry: "Law Firm",
     title: "Building a Professional Website That Inspires Client Confidence",
     description:
@@ -25,6 +27,7 @@ const caseStudies = [
     ],
   },
   {
+    slug: "restaurant",
     industry: "Restaurant",
     title: "Helping a Restaurant Increase Online Reservations",
     description:
@@ -63,8 +66,7 @@ export default function IndustryCaseStudies() {
                   <li key={result}>{result}</li>
                 ))}
               </ul>
-
-              <Link to="/portfolio" className="fm-case-link">
+              <Link to={`/industries/${study.slug}`} className="fm-case-link">
                 View Portfolio
                 <ArrowRight size={18} />
               </Link>
