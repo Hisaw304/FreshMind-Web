@@ -248,11 +248,6 @@ export default function About() {
               </>
             )}
           </p>
-          <div className=" fm-ready-btn">
-            <a href="/contact" className="fm-btn-primary">
-              Ready to grow your business? Let’s talk
-            </a>
-          </div>
         </div>
 
         {/* APPROACH */}
@@ -300,6 +295,11 @@ export default function About() {
             design, strategy, and digital tools used by leading brands — helping
             them grow, compete, and succeed in today’s online world.
           </p>
+        </div>
+        <div className=" fm-ready-btn">
+          <a href="/contact" className="fm-btn-primary">
+            Ready to grow your business? Let’s talk
+          </a>
         </div>
       </div>
     </section>
