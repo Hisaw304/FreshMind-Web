@@ -33,6 +33,11 @@ body {
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--fm-body);
+  background-image: url("/marketing.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   overflow-x: hidden;
 }
 /* ========================= */
@@ -305,6 +310,7 @@ body {
 .fm-footer {
   position: relative;
   border-top: 1px solid var(--fm-border);
+  background: var(--fm-body);
 }
 
 .fm-footer::before {
@@ -544,6 +550,7 @@ body {
   align-items: flex-start;
   padding: 120px 20px 80px;
   overflow: hidden;
+  background: var(--fm-body);
 }
 
 /* Better mobile viewport handling */
@@ -690,12 +697,12 @@ body {
   height: 700px;
   top: 50%;
   right: -120px;
-  background: radial-gradient(
+  /* background: radial-gradient(
     circle,
     rgba(59, 130, 246, 0.25),
     transparent 70%
   );
-  filter: blur(60px);
+  filter: blur(60px); */
   z-index: 0;
 }
 
@@ -778,7 +785,7 @@ body {
   border-bottom: 1px solid var(--fm-border);
 
   /* upgraded background */
-  background: radial-gradient(
+  /* background: radial-gradient(
       circle at center,
       rgba(59, 130, 246, 0.12),
       transparent 65%
@@ -787,7 +794,7 @@ body {
       180deg,
       rgba(255, 255, 255, 0.02),
       rgba(255, 255, 255, 0.01)
-    );
+    ); */
 
   backdrop-filter: blur(10px);
 }
@@ -803,12 +810,12 @@ body {
   width: 100%;
   height: 1px;
 
-  background: linear-gradient(
+  /* background: linear-gradient(
     to right,
     transparent,
     rgba(59, 130, 246, 0.5),
     transparent
-  );
+  ); */
 }
 
 /* fade edges */
@@ -1056,6 +1063,7 @@ body {
 .fm-trusted {
   position: relative;
   padding: 120px 20px;
+  background: var(--fm-body);
 }
 
 .fm-trusted-container {
@@ -1796,6 +1804,7 @@ body {
 
 .fm-local {
   padding: 120px 20px;
+  background: var(--fm-body);
 }
 
 .fm-local-container {
@@ -2044,6 +2053,7 @@ body {
 
 .fm-testimonials {
   padding: 120px 20px;
+  background: var(--fm-body);
 }
 
 .fm-testimonials-container {
@@ -2633,6 +2643,7 @@ body {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.03);
   transition: 0.3s ease;
+  background: var(--fm-surface);
 }
 
 .fm-contact-form:hover {
@@ -3073,9 +3084,10 @@ body {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to bottom,
-    rgba(4, 31, 32, 0.82),
-    rgba(9, 55, 56, 0.94)
+    to right,
+    rgba(4, 31, 32, 0.88),
+    rgba(4, 31, 32, 0.72),
+    rgba(4, 31, 32, 0.82)
   );
   backdrop-filter: blur(2px);
 }
@@ -3106,7 +3118,7 @@ body {
   margin-top: 16px;
   font-size: 16px;
   line-height: 1.7;
-  color: var(--fm-text-muted);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* BUTTON */
@@ -3298,7 +3310,7 @@ body {
   position: relative;
   padding: 140px 20px;
   overflow: hidden;
-  background: url("/images/about-hero-fm.jpg") center/cover no-repeat;
+  background: url("/ourstory.png") center/cover no-repeat;
 }
 
 /* DARK OVERLAY (for readability) */
@@ -3306,9 +3318,10 @@ body {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to bottom,
-    rgba(4, 31, 32, 0.82),
-    rgba(9, 55, 56, 0.94)
+    to right,
+    rgba(4, 31, 32, 0.88),
+    rgba(4, 31, 32, 0.72),
+    rgba(4, 31, 32, 0.82)
   );
   backdrop-filter: blur(2px);
 }
@@ -3388,7 +3401,7 @@ body {
 
 .fm-contact-map {
   padding: 80px 20px;
-  background: var(--fm-bg);
+  background: var(--fm-body);
 }
 
 .fm-contact-map-container {
@@ -3780,6 +3793,7 @@ body {
 .fm-why {
   padding: 120px 20px;
   overflow: visible;
+  background: var(--fm-body);
 }
 .fm-why-grid-bg {
   position: absolute;

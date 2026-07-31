@@ -4,6 +4,7 @@
 
 .fm-industries-section {
   padding: 120px 20px;
+  background: var(--fm-body);
 }
 
 .fm-container {
@@ -237,6 +238,7 @@
 
 .fm-industry-benefits {
   padding: 120px 20px;
+  background: var(--fm-body);
 }
 
 .fm-industry-benefits-heading {
@@ -409,6 +411,7 @@
 
 .fm-case-studies {
   padding: 120px 20px;
+  background: var(--fm-body);
 }
 
 .fm-case-heading {
@@ -777,6 +780,7 @@
 
 .fm-industry-challenges {
   padding: 120px 20px;
+  background: var(--fm-body);
 }
 
 .fm-industry-challenges-grid {
@@ -992,6 +996,7 @@
 
 .fm-industry-features {
   padding: 120px 20px;
+  background: var(--fm-body);
 }
 
 .fm-industry-features-heading {
@@ -1174,6 +1179,7 @@
 
 .fm-industry-case-study {
   padding: 120px 20px;
+  background: var(--fm-body);
 }
 
 .fm-case-study-wrapper {
@@ -1485,6 +1491,7 @@
 
 .fm-industry-faq {
   padding: 120px 20px;
+  background: var(--fm-body);
 }
 
 .fm-industry-faq-heading {
@@ -1656,6 +1663,7 @@
 
 .fm-pricing-section {
   padding: 120px 20px;
+  background: var(--fm-body);
 }
 
 .fm-pricing-heading {
@@ -1882,6 +1890,7 @@
 
 .fm-feature-comparison {
   padding: 120px 20px;
+  background: var(--fm-body);
 }
 
 .fm-feature-heading {
@@ -2052,6 +2061,7 @@
 
 .fm-pricing-addons {
   padding: 120px 20px;
+  background: var(--fm-body);
 }
 
 .fm-pricing-addons-heading {
@@ -2257,6 +2267,7 @@
 
 .fm-pricing-faq {
   padding: 120px 20px;
+  background: var(--fm-body);
 }
 
 .fm-pricing-faq-heading {
@@ -2627,6 +2638,7 @@
 
 .fm-services-grid-section {
   padding: 120px 20px;
+  background: var(--fm-body);
 }
 
 .fm-services-grid-heading {
@@ -2897,6 +2909,7 @@
 .fm-whats-included {
   padding: 120px 20px;
   position: relative;
+  background: var(--fm-body);
 }
 
 .fm-whats-heading {
@@ -3082,6 +3095,7 @@
 .fm-technologies {
   padding: 120px 20px;
   position: relative;
+  background: var(--fm-body);
 }
 
 .fm-technologies-heading {
@@ -3267,6 +3281,7 @@
 .fm-process-preview {
   padding: 120px 20px;
   position: relative;
+  background: var(--fm-body);
 }
 
 .fm-process-heading {

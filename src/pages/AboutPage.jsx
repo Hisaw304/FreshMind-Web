@@ -29,6 +29,7 @@ import MissionVision from "../components/MissionVision";
 import CompanyValues from "../components/CompanyValues";
 import ProcessPreview from "../components/ProcessPreview";
 import StatsAbout from "../components/StatsAbout";
+// import Timeline from "../components/Timeline";
 
 const clients = [
   { name: "Belmont Firearms", logo: belmont },
@@ -266,6 +267,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      {/* <Timeline /> */}
       <FooterCTA />
       {/* <ChatWidget /> */}
     </div>
