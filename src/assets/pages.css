@@ -4429,3 +4429,401 @@
     display: none;
   }
 }
+/* =========================================
+   TIMELINE
+========================================= */
+
+.fm-timeline {
+  position: relative;
+  padding: 120px 20px;
+  background: var(--fm-body);
+}
+
+.fm-timeline-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.fm-timeline-header {
+  max-width: 760px;
+  margin: 0 auto 90px;
+  text-align: center;
+}
+
+.fm-timeline-header h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--fm-text);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.fm-timeline-header span {
+  color: var(--fm-primary);
+}
+
+.fm-timeline-header p {
+  margin-top: 18px;
+  color: var(--fm-text-muted);
+  line-height: 1.8;
+}
+
+/* =========================================
+   WRAPPER
+========================================= */
+
+.fm-timeline-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* =========================================
+   CENTER LINE
+========================================= */
+
+.fm-timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 6px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    var(--fm-primary),
+    rgba(0, 206, 209, 0.25)
+  );
+  border-radius: 999px;
+  z-index: 1;
+}
+
+/* =========================================
+   ROW
+========================================= */
+
+.fm-timeline-row {
+  position: relative;
+  display: flex;
+  margin-bottom: 90px;
+}
+
+.fm-timeline-row.left {
+  justify-content: flex-start;
+}
+
+.fm-timeline-row.right {
+  justify-content: flex-end;
+}
+
+/* =========================================
+   CARD
+========================================= */
+
+.fm-timeline-card {
+  position: relative;
+  width: 49.5%;
+
+  padding: 22px;
+
+  border-radius: 22px;
+
+  background: var(--fm-surface);
+
+  border: 1px solid var(--fm-border);
+
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+
+  transition: 0.35s ease;
+
+  z-index: 3;
+}
+
+.fm-timeline-card:hover {
+  transform: translateY(-8px);
+}
+
+.left .fm-timeline-card {
+  margin-right: 40px;
+}
+
+.right .fm-timeline-card {
+  margin-left: 40px;
+}
+
+/* =========================================
+   CARD HOLE
+========================================= */
+
+.fm-timeline-hole {
+  position: absolute;
+
+  top: 42px;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  background: var(--fm-body);
+
+  border: 7px solid #171717;
+
+  z-index: 5;
+}
+
+.left .fm-timeline-hole {
+  right: -17px;
+}
+
+.right .fm-timeline-hole {
+  left: -17px;
+}
+
+/* Metallic Ring */
+
+.fm-timeline-ring {
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: inherit;
+
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.06),
+    0 0 16px rgba(0, 206, 209, 0.18);
+}
+
+/* =========================================
+   TEXT
+========================================= */
+
+.fm-timeline-year {
+  display: inline-flex;
+  margin-bottom: 16px;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  color: var(--fm-primary);
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.fm-timeline-card h3 {
+  font-size: 2rem;
+
+  line-height: 1.2;
+
+  color: var(--fm-text);
+
+  margin-bottom: 18px;
+}
+
+.fm-timeline-card p {
+  color: var(--fm-text-muted);
+
+  line-height: 1.8;
+}
+
+/* =========================================
+   FINAL CARD
+========================================= */
+
+.fm-timeline-end {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  margin: 40px auto 0;
+
+  padding-top: 40px;
+}
+
+.fm-timeline-end-hole {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  background: var(--fm-body);
+
+  border: 7px solid #171717;
+
+  z-index: 5;
+}
+
+.fm-timeline-end-card {
+  width: min(720px, 100%);
+
+  padding: 45px;
+
+  border-radius: 22px;
+
+  background: var(--fm-surface);
+
+  outline: 50px solid var(--fm-primary);
+
+  text-align: center;
+
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+
+  transition: 0.35s ease;
+
+  position: relative;
+
+  z-index: 3;
+}
+
+.fm-timeline-end-card:hover {
+  transform: translateY(-8px);
+}
+
+.fm-timeline-end-card h3 {
+  font-size: 2.2rem;
+
+  color: var(--fm-text);
+
+  margin: 18px 0;
+}
+
+.fm-timeline-end-card p {
+  color: var(--fm-text-muted);
+
+  line-height: 1.8;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+  .fm-timeline-line {
+    left: 50%;
+  }
+
+  .fm-timeline-row {
+    margin-bottom: 60px;
+  }
+
+  .fm-timeline-card {
+    width: 48%;
+    padding: 22px;
+  }
+
+  /* =========================================
+   CARD
+========================================= */
+
+  .fm-timeline-card {
+    position: relative;
+    /* width: calc(50% - 70px); */
+
+    /* padding: 34px; */
+
+    border-radius: 22px;
+
+    background: var(--fm-surface);
+
+    border: 1px solid var(--fm-border);
+
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+
+    transition: 0.35s ease;
+
+    z-index: 3;
+  }
+
+  .fm-timeline-card:hover {
+    transform: translateY(-8px);
+  }
+
+  .left .fm-timeline-card {
+    margin-right: 40px;
+  }
+
+  .right .fm-timeline-card {
+    margin-left: 40px;
+  }
+
+  /* =========================================
+   CARD HOLE
+========================================= */
+
+  .fm-timeline-hole {
+    position: absolute;
+
+    top: 42px;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background: var(--fm-body);
+
+    border: 7px solid #171717;
+
+    z-index: 5;
+  }
+
+  .left .fm-timeline-hole {
+    right: -77px;
+  }
+
+  .right .fm-timeline-hole {
+    left: -77px;
+  }
+
+  .fm-timeline-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .fm-timeline-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .fm-timeline-year {
+    font-size: 0.72rem;
+  }
+
+  .fm-timeline-hole,
+  .fm-timeline-end-hole {
+    width: 28px;
+    height: 28px;
+    border-width: 6px;
+  }
+
+  .left .fm-timeline-hole {
+    right: -14px;
+  }
+
+  .right .fm-timeline-hole {
+    left: -14px;
+  }
+
+  .fm-timeline-end-card {
+    width: min(92vw, 520px);
+    padding: 28px;
+  }
+
+  .fm-timeline-end-card h3 {
+    font-size: 1.6rem;
+  }
+}

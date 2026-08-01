@@ -916,7 +916,7 @@ body {
   position: relative;
   padding: 120px 20px;
   overflow: hidden;
-  background-color: var(--fm-surface);
+  background-color: var(--fm-body);
 }
 
 .fm-clients-container {
@@ -3671,6 +3671,7 @@ body {
 .fm-cta {
   position: relative;
   margin: auto;
+  margin-top: 76px;
   max-width: 1300px;
   border-radius: 24px;
   border-top: 3px solid var(--fm-text);
