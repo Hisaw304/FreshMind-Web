@@ -2,4 +2,4 @@ User-agent: *
 
 Allow: /
 
-Sitemap: https://freshmindweb.online/sitemap.xml
+Sitemap: https://www.freshmindweb.online/sitemap.xml

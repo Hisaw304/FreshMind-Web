@@ -1,66 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <!-- Main Pages -->
 
     <url>
-        <loc>https://freshmindweb.online/</loc>
+        <loc>https://www.freshmindweb.online/</loc>
         <lastmod>2026-07-28</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
 
     <url>
-        <loc>https://freshmindweb.online/about</loc>
+        <loc>https://www.freshmindweb.online/about</loc>
         <lastmod>2026-07-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://freshmindweb.online/services</loc>
+        <loc>https://www.freshmindweb.online/services</loc>
         <lastmod>2026-07-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://freshmindweb.online/pricing</loc>
+        <loc>https://www.freshmindweb.online/pricing</loc>
         <lastmod>2026-07-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://freshmindweb.online/industries</loc>
+        <loc>https://www.freshmindweb.online/industries</loc>
         <lastmod>2026-07-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://freshmindweb.online/blog</loc>
+        <loc>https://www.freshmindweb.online/blog</loc>
         <lastmod>2026-07-28</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://freshmindweb.online/contact</loc>
+        <loc>https://www.freshmindweb.online/contact</loc>
         <lastmod>2026-07-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://freshmindweb.online/privacy-policy</loc>
+        <loc>https://www.freshmindweb.online/privacy-policy</loc>
         <lastmod>2026-07-28</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
 
     <url>
-        <loc>https://freshmindweb.online/terms</loc>
+        <loc>https://www.freshmindweb.online/terms</loc>
         <lastmod>2026-07-28</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
@@ -69,56 +70,56 @@
     <!-- Blog Posts -->
 
     <url>
-        <loc>https://freshmindweb.online/blog/7-digital-marketing-strategies-every-small-business-should-use-in-2026</loc>
+        <loc>https://www.freshmindweb.online/blog/7-digital-marketing-strategies-every-small-business-should-use-in-2026</loc>
         <lastmod>2026-07-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://freshmindweb.online/blog/the-hidden-costs-of-cheap-websites</loc>
+        <loc>https://www.freshmindweb.online/blog/the-hidden-costs-of-cheap-websites</loc>
         <lastmod>2026-07-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://freshmindweb.online/blog/case-study-building-a-modern-real-estate-website-that-inspires-trust-and-generates-leads</loc>
+        <loc>https://www.freshmindweb.online/blog/case-study-building-a-modern-real-estate-website-that-inspires-trust-and-generates-leads</loc>
         <lastmod>2026-07-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://freshmindweb.online/blog/ai-is-changing-web-development-forever-what-businesses-need-to-know-in-2026</loc>
+        <loc>https://www.freshmindweb.online/blog/ai-is-changing-web-development-forever-what-businesses-need-to-know-in-2026</loc>
         <lastmod>2026-07-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://freshmindweb.online/blog/google-s-ai-search-is-changing-seo-what-every-business-needs-to-know-in-2026</loc>
+        <loc>https://www.freshmindweb.online/blog/google-s-ai-search-is-changing-seo-what-every-business-needs-to-know-in-2026</loc>
         <lastmod>2026-07-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://freshmindweb.online/blog/10-signs-your-business-needs-a-new-website</loc>
+        <loc>https://www.freshmindweb.online/blog/10-signs-your-business-needs-a-new-website</loc>
         <lastmod>2026-07-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://freshmindweb.online/blog/why-every-small-business-needs-a-fast-website-in-2026</loc>
+        <loc>https://www.freshmindweb.online/blog/why-every-small-business-needs-a-fast-website-in-2026</loc>
         <lastmod>2026-07-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://freshmindweb.online/blog/how-a-professional-website-can-help-grow-your-business-in-2026</loc>
+        <loc>https://www.freshmindweb.online/blog/how-a-professional-website-can-help-grow-your-business-in-2026</loc>
         <lastmod>2026-07-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>

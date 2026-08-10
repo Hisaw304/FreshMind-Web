@@ -4526,19 +4526,12 @@
 .fm-timeline-card {
   position: relative;
   width: 49.5%;
-
   padding: 22px;
-
   border-radius: 22px;
-
   background: var(--fm-surface);
-
   border: 1px solid var(--fm-border);
-
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
-
   transition: 0.35s ease;
-
   z-index: 3;
 }
 
