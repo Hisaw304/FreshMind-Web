@@ -67,7 +67,28 @@
         <priority>0.3</priority>
     </url>
 
-    <!-- Blog Posts -->
+  <!-- Blog Posts -->
+
+    <url>
+        <loc>https://www.freshmindweb.online/blog/when-google-ai-gets-your-business-wrong</loc>
+        <lastmod>2026-08-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.freshmindweb.online/blog/website-traffic-dropping-2026</loc>
+        <lastmod>2026-08-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.freshmindweb.online/blog/website-vs-social-media-which-should-your-business-invest-in-first</loc>
+        <lastmod>2026-08-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
     <url>
         <loc>https://www.freshmindweb.online/blog/7-digital-marketing-strategies-every-small-business-should-use-in-2026</loc>
@@ -124,5 +145,6 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    
 
 </urlset>
