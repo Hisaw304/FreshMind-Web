@@ -2452,6 +2452,7 @@
 
 .fm-privacy-content {
   padding: 120px 20px;
+  background: var(--fm-body);
 }
 
 .fm-privacy-content .fm-container {
@@ -4702,121 +4703,265 @@
 }
 
 /* =========================================
-   MOBILE
+   MOBILE — HORIZONTAL ALTERNATING TIMELINE
 ========================================= */
 
 @media (max-width: 900px) {
-  .fm-timeline-line {
-    left: 50%;
+  .fm-timeline-wrapper {
+    position: relative;
+
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 150px 20px 150px;
+
+    display: flex;
+    align-items: flex-start;
+
+    scroll-snap-type: x mandatory;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
   }
 
-  .fm-timeline-row {
-    margin-bottom: 60px;
-  }
-
-  .fm-timeline-card {
-    width: 48%;
-    padding: 22px;
+  .fm-timeline-wrapper::-webkit-scrollbar {
+    display: none;
   }
 
   /* =========================================
-   CARD
-========================================= */
+     HORIZONTAL LINE
+  ========================================= */
+
+  .fm-timeline-line {
+    display: none;
+  }
+
+  /* =========================================
+     ROW
+  ========================================= */
+
+  .fm-timeline-row {
+    position: relative;
+
+    flex: 0 0 290px;
+
+    width: 290px;
+
+    height: 500px;
+
+    margin: 0 35px 0 0 !important;
+
+    padding: 0;
+
+    display: flex;
+
+    justify-content: center !important;
+
+    align-items: center;
+
+    scroll-snap-align: center;
+  }
+
+  /* =========================================
+     CARD
+  ========================================= */
 
   .fm-timeline-card {
-    position: relative;
-    /* width: calc(50% - 70px); */
+    position: absolute;
 
-    /* padding: 34px; */
+    left: 0;
 
-    border-radius: 22px;
+    width: 290px;
+
+    height: 300px;
+
+    min-height: 300px;
+
+    padding: 24px;
+
+    margin: 0 !important;
+
+    border-radius: 18px;
 
     background: var(--fm-surface);
 
     border: 1px solid var(--fm-border);
 
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
-
-    transition: 0.35s ease;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 
     z-index: 3;
-  }
 
-  .fm-timeline-card:hover {
-    transform: translateY(-8px);
-  }
-
-  .left .fm-timeline-card {
-    margin-right: 40px;
-  }
-
-  .right .fm-timeline-card {
-    margin-left: 40px;
+    box-sizing: border-box;
   }
 
   /* =========================================
-   CARD HOLE
-========================================= */
+     TOP CARDS
+  ========================================= */
+
+  .fm-timeline-row.left .fm-timeline-card {
+    top: 0;
+  }
+
+  /* =========================================
+     BOTTOM CARDS
+  ========================================= */
+
+  .fm-timeline-row.right .fm-timeline-card {
+    bottom: 0;
+  }
+
+  /* =========================================
+     HOLE
+  ========================================= */
 
   .fm-timeline-hole {
     position: absolute;
 
-    top: 42px;
+    width: 28px;
 
-    width: 34px;
-    height: 34px;
+    height: 28px;
+
+    left: 50% !important;
+
+    right: auto !important;
+
+    transform: translateX(-50%);
 
     border-radius: 50%;
 
     background: var(--fm-body);
 
-    border: 7px solid #171717;
+    border: 6px solid #171717;
 
-    z-index: 5;
+    z-index: 10;
+
+    box-sizing: border-box;
   }
 
-  .left .fm-timeline-hole {
-    right: -77px;
+  /* Hole for top card */
+  .fm-timeline-row.left .fm-timeline-hole {
+    bottom: -114px;
+
+    top: auto;
   }
 
-  .right .fm-timeline-hole {
-    left: -77px;
+  /* Hole for bottom card */
+  .fm-timeline-row.right .fm-timeline-hole {
+    top: -114px;
+
+    bottom: auto;
+  }
+
+  /* =========================================
+     CARD TEXT
+  ========================================= */
+
+  .fm-timeline-year {
+    display: inline-flex;
+
+    margin-bottom: 14px;
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
   }
 
   .fm-timeline-card h3 {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
+
+    line-height: 1.3;
+
+    margin-bottom: 14px;
   }
 
   .fm-timeline-card p {
     font-size: 0.9rem;
-    line-height: 1.6;
+
+    line-height: 1.65;
+
+    margin: 0;
   }
 
-  .fm-timeline-year {
-    font-size: 0.72rem;
-  }
+  /* =========================================
+     FINAL CARD
+  ========================================= */
 
-  .fm-timeline-hole,
-  .fm-timeline-end-hole {
-    width: 28px;
-    height: 28px;
-    border-width: 6px;
-  }
+  .fm-timeline-end {
+    position: relative;
 
-  .left .fm-timeline-hole {
-    right: -14px;
-  }
+    flex: 0 0 290px;
 
-  .right .fm-timeline-hole {
-    left: -14px;
+    width: 290px;
+
+    height: 500px;
+
+    margin: 0 35px 0 0;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    scroll-snap-align: center;
   }
 
   .fm-timeline-end-card {
-    width: min(92vw, 520px);
-    padding: 28px;
+    position: absolute;
+
+    bottom: 0;
+
+    width: 290px;
+
+    min-height: 300px;
+
+    padding: 30px 24px;
+
+    border-radius: 18px;
+
+    background: var(--fm-surface);
+
+    outline: 12px solid var(--fm-primary);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+
+    text-align: center;
+
+    z-index: 3;
+
+    box-sizing: border-box;
   }
+
+  /* =========================================
+     FINAL HOLE
+  ========================================= */
+
+  .fm-timeline-end-hole {
+    display: none;
+  }
+
+  /* =========================================
+     FINAL CARD TEXT
+  ========================================= */
 
   .fm-timeline-end-card h3 {
     font-size: 1.6rem;
+
+    line-height: 1.3;
+
+    margin: 15px 0;
+  }
+
+  .fm-timeline-end-card p {
+    font-size: 0.9rem;
+
+    line-height: 1.65;
   }
 }

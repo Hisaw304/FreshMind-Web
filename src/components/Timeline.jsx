@@ -69,16 +69,34 @@ export default function Timeline() {
       // TIMELINE LINE
       // ==========================
 
-      gsap.from(".fm-timeline-line", {
-        scaleY: 0,
-        transformOrigin: "top center",
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".fm-timeline-wrapper",
-          start: "top 75%",
-          end: "bottom bottom",
-          scrub: true,
-        },
+      const mm = gsap.matchMedia();
+
+      mm.add("(min-width: 901px)", () => {
+        gsap.from(".fm-timeline-line", {
+          scaleY: 0,
+          transformOrigin: "top center",
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".fm-timeline-wrapper",
+            start: "top 75%",
+            end: "bottom bottom",
+            scrub: true,
+          },
+        });
+      });
+
+      mm.add("(max-width: 900px)", () => {
+        gsap.from(".fm-timeline-line", {
+          scaleX: 0,
+          transformOrigin: "left center",
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".fm-timeline-wrapper",
+            start: "top 75%",
+            end: "bottom 75%",
+            scrub: true,
+          },
+        });
       });
 
       // ==========================
