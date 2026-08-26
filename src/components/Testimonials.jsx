@@ -86,13 +86,13 @@ const testimonials = [
     role: "Marketing Manager, Create Escapes",
     image: "/images/clients/sophia.jpg",
   },
-  {
-    quote:
-      "From planning to launch, the entire experience was smooth and professional. They delivered on time and kept us informed throughout the project.",
-    name: "Michael Brown",
-    role: "Owner, Laconia Refrigeration",
-    image: "/michael-m.jpg",
-  },
+  // {
+  //   quote:
+  //     "From planning to launch, the entire experience was smooth and professional. They delivered on time and kept us informed throughout the project.",
+  //   name: "Michael Brown",
+  //   role: "Owner, Laconia Refrigeration",
+  //   image: "/michael.jpg",
+  // },
   {
     quote:
       "FreshMind understood our business from day one and built a custom solution that fits our workflow perfectly. It's made a huge difference to our team.",
