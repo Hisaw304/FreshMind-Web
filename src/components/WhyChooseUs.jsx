@@ -195,7 +195,7 @@ export default function WhyChooseUs() {
           <div className="fm-why-images-sticky">
             <div className="fm-why-images">
               <div className="fm-why-img img-back">
-                <img src="/images/IMG_8842.AVIF" alt="Team working" />
+                <img src="/images/marketing.jpg" alt="Team working" />
               </div>
 
               <div className="fm-why-img img-front">

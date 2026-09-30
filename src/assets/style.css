@@ -2587,7 +2587,7 @@ body {
 /* ========================= */
 
 .fm-contact {
-  max-width: 1000px;
+  max-width: 1300px;
   margin: 120px auto;
   padding: 80px 40px;
   border: 1px solid var(--fm-border);
@@ -2626,7 +2626,7 @@ body {
 
 .fm-contact-grid {
   display: flex;
-  flex-direction: column;
+  flex: 1.4fr 1fr;
   gap: 3rem;
 }
 
@@ -3052,7 +3052,8 @@ body {
   }
 
   .fm-contact-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 40px;
   }
 
