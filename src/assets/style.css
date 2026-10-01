@@ -40,6 +40,199 @@ body {
   background-attachment: fixed;
   overflow-x: hidden;
 }
+
+/* =========================================
+   INDUSTRIES DROPDOWN — DESKTOP
+========================================= */
+
+.fm-industries-wrapper {
+  position: relative;
+}
+
+.fm-industries-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.fm-industries-dropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+
+  width: 210px;
+  padding: 8px;
+
+  background: var(--fm-surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+
+  z-index: 1000;
+}
+
+/* Keeps hover active while moving from Industries to dropdown */
+.fm-industries-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
+}
+
+.fm-industries-wrapper:hover .fm-industries-dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.fm-industry-dropdown-link {
+  display: block;
+
+  padding: 11px 13px;
+
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  border-radius: 8px;
+
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.fm-industry-dropdown-link:hover {
+  color: var(--fm-primary);
+  background: rgba(0, 206, 209, 0.07);
+}
+
+/* =========================================
+   MOBILE INDUSTRIES ACCORDION
+========================================= */
+
+.fm-mobile-industries-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: transparent !important;
+}
+
+.fm-mobile-industries-row .fm-mobile-link {
+  flex: 1;
+  background: transparent !important;
+}
+
+.fm-mobile-industries-trigger {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  margin: 0;
+
+  border: 0;
+  outline: none;
+
+  background: transparent !important;
+  color: white;
+
+  cursor: pointer;
+}
+
+.fm-mobile-chevron-open {
+  transform: rotate(180deg);
+  transition: transform 0.2s ease;
+}
+
+/* THE ACTUAL EXPANDED INDUSTRIES AREA */
+
+.fm-mobile-industries {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 6px 0 10px 30px;
+
+  /* FORCE FRESHMIND SURFACE */
+  background-color: #093738 !important;
+  background-image: none !important;
+
+  border: 0;
+  border-left: 1px solid rgba(0, 206, 209, 0.28);
+
+  border-radius: 0;
+
+  box-shadow: none !important;
+}
+
+/* INDUSTRY LINKS */
+
+.fm-mobile-industry-link {
+  display: block;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 10px 16px;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  background-color: transparent !important;
+  background-image: none !important;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  border: 0;
+
+  transition: color 0.2s ease, padding-left 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.fm-mobile-industry-link:hover {
+  color: var(--fm-primary);
+
+  background-color: rgba(0, 206, 209, 0.06) !important;
+
+  padding-left: 20px;
+}
+
+/* MOBILE ONLY */
+
+@media (max-width: 900px) {
+  .fm-industries-dropdown {
+    display: none !important;
+  }
+
+  .fm-mobile-industries {
+    position: static !important;
+    transform: none !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    pointer-events: auto !important;
+  }
+}
 /* ========================= */
 /* NAVBAR */
 /* ========================= */
@@ -3797,6 +3990,7 @@ body {
   overflow: visible;
   background: var(--fm-body);
 }
+
 .fm-why-grid-bg {
   position: absolute;
   inset: 0;
@@ -3861,8 +4055,9 @@ body {
 }
 
 /* ========================= */
-/* IMAGE STACK (MODERN CARD) */
+/* IMAGE STACK */
 /* ========================= */
+
 .fm-why-images-sticky {
   position: sticky;
   top: 80px;
@@ -3887,7 +4082,6 @@ body {
   background: var(--fm-surface);
   border: 1px solid var(--fm-border);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-  /* transition: 0.4s ease; */
 }
 
 /* image inside */
@@ -3897,15 +4091,14 @@ body {
   object-fit: cover;
 }
 
-/* back image (left tilt) */
+/* back image */
 .fm-why-img.img-back {
   left: 0;
   transform: rotate(-6deg) scale(0.95);
   z-index: 3;
-  /* opacity: 0.9; */
 }
 
-/* front image (right tilt) */
+/* front image */
 .fm-why-img.img-front {
   right: 0;
   transform: rotate(6deg);
@@ -3921,6 +4114,16 @@ body {
   border-radius: 20px;
   padding: 30px;
   background: var(--fm-surface);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ========================= */
+/* MOBILE TRACK */
+/* ========================= */
+
+.fm-why-mobile-track {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -3964,24 +4167,58 @@ body {
   line-height: 1.6;
 }
 
-/* ========================= */
-/* MOBILE */
-/* ========================= */
-
 @media (max-width: 900px) {
-  .fm-why {
-    padding: 80px 16px;
+  .fm-why-mobile-scroll {
+    width: 100%;
+    overflow: hidden;
   }
-  .fm-why-images {
-    height: 420px;
+
+  .fm-why-mobile-scroll .fm-why-card {
+    width: 100%;
+    height: auto;
+    max-height: 65vh;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 30px 0;
   }
-  .fm-why-images-sticky {
-    position: relative;
-    top: auto;
+
+  .fm-why-mobile-track {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: max-content;
+    gap: 0;
   }
-  .fm-why-img {
-    width: 85%;
-    height: 320px;
+
+  .fm-why-mobile-track .fm-why-item {
+    width: 78vw;
+    min-width: 78vw;
+    max-width: 78vw;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    padding: 30px 38px;
+    border-right: 1px solid var(--fm-border);
+  }
+
+  .fm-why-mobile-track .fm-why-item:first-child {
+    padding-left: 30px;
+  }
+
+  .fm-why-mobile-track .fm-why-item:last-child {
+    border-right: none;
+    padding-right: 30px;
+  }
+
+  .fm-why-mobile-track .fm-why-item > div:last-child {
+    max-width: 480px;
+  }
+
+  .fm-why-mobile-track .fm-why-item p {
+    max-width: 440px;
+  }
+
+  .fm-blog-home-footer {
+    margin-top: 40px;
   }
 }
 /* ========================= */

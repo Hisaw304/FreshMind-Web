@@ -11,7 +11,9 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 gsap.registerPlugin(useGSAP, ScrollTrigger);
+
 const points = [
   {
     icon: <Users size={20} />,
@@ -48,12 +50,15 @@ const points = [
 export default function WhyChooseUs() {
   const whyRef = useRef(null);
   const whyItemsRef = useRef([]);
+  const mobileScrollRef = useRef(null);
+  const mobileTrackRef = useRef(null);
 
   useGSAP(
     () => {
       // ==========================
       // HEADER
       // ==========================
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: whyRef.current,
@@ -83,6 +88,7 @@ export default function WhyChooseUs() {
       // ==========================
       // IMAGES
       // ==========================
+
       tl.from(
         ".img-back",
         {
@@ -106,8 +112,9 @@ export default function WhyChooseUs() {
       );
 
       // ==========================
-      // WHY ITEMS
+      // DESKTOP CONTENT
       // ==========================
+
       whyItemsRef.current.forEach((item, index) => {
         if (!item) return;
 
@@ -124,7 +131,6 @@ export default function WhyChooseUs() {
           ease: "power3.out",
         });
 
-        // Hover
         const enter = () => {
           gsap.to(item, {
             x: 8,
@@ -148,6 +154,7 @@ export default function WhyChooseUs() {
       // ==========================
       // IMAGE PARALLAX
       // ==========================
+
       gsap.to(".img-back", {
         yPercent: -12,
         ease: "none",
@@ -169,9 +176,63 @@ export default function WhyChooseUs() {
           scrub: true,
         },
       });
+
+      // ==========================
+      // MOBILE HORIZONTAL SCROLL
+      // ==========================
+
+      const mm = gsap.matchMedia();
+
+      mm.add("(max-width: 900px)", () => {
+        const viewport = mobileScrollRef.current;
+        const track = mobileTrackRef.current;
+
+        if (!viewport || !track) return;
+
+        const getDistance = () => {
+          return track.scrollWidth - viewport.clientWidth;
+        };
+
+        const horizontalScroll = gsap.to(track, {
+          x: () => -getDistance(),
+          ease: "none",
+          paused: true,
+        });
+
+        ScrollTrigger.create({
+          trigger: viewport,
+
+          start: "top 200px",
+
+          end: () => `+=${getDistance()}`,
+
+          pin: true,
+
+          scrub: true,
+
+          animation: horizontalScroll,
+
+          anticipatePin: 1,
+
+          invalidateOnRefresh: true,
+
+          pinSpacing: true,
+
+          onRefresh: () => {
+            horizontalScroll.invalidate();
+          },
+        });
+      });
+
+      return () => {
+        mm.revert();
+      };
     },
-    { scope: whyRef }
+    {
+      scope: whyRef,
+    }
   );
+
   return (
     <section className="fm-why" ref={whyRef}>
       <div className="fm-why-grid-bg" />
@@ -191,7 +252,7 @@ export default function WhyChooseUs() {
 
         {/* GRID */}
         <div className="fm-why-grid">
-          {/* LEFT */}
+          {/* LEFT / STICKY IMAGES */}
           <div className="fm-why-images-sticky">
             <div className="fm-why-images">
               <div className="fm-why-img img-back">
@@ -204,28 +265,33 @@ export default function WhyChooseUs() {
             </div>
           </div>
 
-          {/* RIGHT */}
-          <div className="fm-why-card">
-            {points.map((item, index) => (
-              <div
-                key={item.title}
-                ref={(el) => (whyItemsRef.current[index] = el)}
-                className="fm-why-item"
-              >
-                <div className="fm-why-icon">{item.icon}</div>
+          {/* RIGHT CONTENT */}
+          <div className="fm-why-mobile-scroll" ref={mobileScrollRef}>
+            <div className="fm-why-card">
+              <div className="fm-why-mobile-track" ref={mobileTrackRef}>
+                {points.map((item, index) => (
+                  <div
+                    key={item.title}
+                    ref={(el) => (whyItemsRef.current[index] = el)}
+                    className="fm-why-item"
+                  >
+                    <div className="fm-why-icon">{item.icon}</div>
 
-                <div>
-                  <h4>{item.title}</h4>
-                  <p>{item.text}</p>
-                </div>
+                    <div>
+                      <h4>{item.title}</h4>
+                      <p>{item.text}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            <div className="fm-blog-home-footer">
+              <Link to="/about" className="fm-blog-home-viewall">
+                Learn More About Us
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="fm-blog-home-footer">
-          <Link to="/about" className="fm-blog-home-viewall">
-            Learn More About Us
-          </Link>
         </div>
       </div>
     </section>
