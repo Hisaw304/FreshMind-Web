@@ -168,40 +168,48 @@ export default function Testimonials() {
           <div className="fm-testimonials-track" ref={sliderRef}>
             {testimonials.map((t, i) => (
               <article key={i} className="fm-testimonial-card">
-                {/* Background Image */}
-                <div className="fm-testimonial-image">
-                  <img src={t.image} alt={t.name} />
+                {/* TOP ACCENT */}
+                <div className="fm-testimonial-accent" />
 
-                  <div className="fm-testimonial-overlay"></div>
-
-                  {/* Review over image */}
-                  <div className="fm-review-overlay">
-                    <p>"{t.quote}"</p>
-                  </div>
+                {/* RATING */}
+                <div className="fm-stars" aria-label="5 star rating">
+                  <span className="fm-star">★</span>
+                  <span className="fm-star">★</span>
+                  <span className="fm-star">★</span>
+                  <span className="fm-star">★</span>
+                  <span className="fm-star">★</span>
                 </div>
 
-                {/* Bottom Content */}
-                <div className="fm-testimonial-content">
-                  <div className="fm-stars">
-                    <span className="fm-star">★</span>
-                    <span className="fm-star">★</span>
-                    <span className="fm-star">★</span>
-                    <span className="fm-star">★</span>
-                    <span className="fm-star">★</span>
+                {/* QUOTE */}
+                <div className="fm-testimonial-quote">
+                  <span className="fm-quote-mark">“</span>
+
+                  <p>{t.quote}</p>
+                </div>
+
+                {/* CLIENT */}
+                <div className="fm-testimonial-client">
+                  <div className="fm-client-photo">
+                    <img src={t.image} alt={t.name} />
                   </div>
 
-                  <h3>{t.name}</h3>
-
-                  <span className="fm-role">{t.role}</span>
+                  <div className="fm-client-info">
+                    <h3>{t.name}</h3>
+                    <span className="fm-role">{t.role}</span>
+                  </div>
                 </div>
               </article>
             ))}
           </div>
         </div>
-        {/* CONTROLS */}
 
+        {/* CONTROLS */}
         <div className="fm-testimonial-controls">
-          <button className="fm-arrow-btn" onClick={prev}>
+          <button
+            className="fm-arrow-btn"
+            onClick={prev}
+            aria-label="Previous testimonial"
+          >
             ←
           </button>
 
@@ -214,12 +222,17 @@ export default function Testimonials() {
                     index === (isMobile ? active % 5 : active) ? "active" : ""
                   }`}
                   onClick={() => scrollToCard(index)}
+                  aria-label={`Go to testimonial ${index + 1}`}
                 />
               )
             )}
           </div>
 
-          <button className="fm-arrow-btn" onClick={next}>
+          <button
+            className="fm-arrow-btn"
+            onClick={next}
+            aria-label="Next testimonial"
+          >
             →
           </button>
         </div>

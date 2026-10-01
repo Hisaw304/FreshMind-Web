@@ -2247,6 +2247,7 @@ body {
 .fm-testimonials {
   padding: 120px 20px;
   background: var(--fm-body);
+  overflow: hidden;
 }
 
 .fm-testimonials-container {
@@ -2286,8 +2287,9 @@ body {
 ========================================================== */
 
 .fm-testimonials-slider {
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
+  width: 100%;
 }
 
 .fm-testimonials-track {
@@ -2316,101 +2318,212 @@ body {
 ========================================================== */
 
 .fm-testimonial-card {
+  position: relative;
+
   width: 390px;
+  min-height: 410px;
+
   flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 34px 32px 28px;
+
   background: var(--fm-surface);
-  border-radius: 24px;
-  overflow: hidden;
+
   border: 1px solid var(--fm-border);
-  transition: 0.35s;
+  border-radius: 26px;
+
+  overflow: hidden;
+
+  transition: transform 0.35s ease, border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .fm-testimonial-card:hover {
   transform: translateY(-8px);
   border-color: var(--fm-primary);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.14);
 }
 
 /* ==========================================================
-   IMAGE
+   TOP ACCENT
 ========================================================== */
 
-.fm-testimonial-image {
-  position: relative;
-  height: 340px;
-}
-
-.fm-testimonial-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.fm-testimonial-overlay {
+.fm-testimonial-accent {
   position: absolute;
-  inset: 0;
 
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.88),
-    rgba(0, 0, 0, 0.25),
-    transparent
-  );
+  top: 0;
+  left: 32px;
+
+  width: 48px;
+  height: 3px;
+
+  background: var(--fm-primary);
+  border-radius: 0 0 4px 4px;
 }
 
 /* ==========================================================
-   REVIEW
+   STARS
 ========================================================== */
-
-.fm-review-overlay {
-  position: absolute;
-  left: 24px;
-  right: 24px;
-  bottom: 22px;
-  z-index: 2;
-}
-
-.fm-review-overlay p {
-  color: white;
-  line-height: 1.8;
-  font-size: 0.97rem;
-  font-style: italic;
-}
-
-/* ==========================================================
-   CONTENT
-========================================================== */
-
-.fm-testimonial-content {
-  padding: 22px 24px 26px;
-}
 
 .fm-stars {
   display: flex;
+  align-items: center;
   gap: 4px;
-  margin-bottom: 12px;
+
+  margin-bottom: 22px;
 }
 
 .fm-star {
   color: #fbbf24;
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 1;
 }
 
-.fm-testimonial-content h3 {
-  color: var(--fm-text);
-  font-size: 1.15rem;
-  margin-bottom: 6px;
+/* ==========================================================
+   QUOTE
+========================================================== */
+
+.fm-testimonial-quote {
+  position: relative;
+
+  flex: 1;
+
+  padding-top: 4px;
+}
+
+.fm-quote-mark {
+  display: block;
+
+  height: 34px;
+
+  color: var(--fm-primary);
+
+  font-family: Georgia, serif;
+  font-size: 58px;
   font-weight: 700;
+
+  line-height: 0.8;
+
+  opacity: 0.8;
+}
+
+.fm-testimonial-quote p {
+  margin-top: 12px;
+
+  color: var(--fm-text);
+
+  font-size: 1rem;
+  line-height: 1.75;
+
+  font-style: italic;
+}
+
+/* ==========================================================
+   CLIENT AREA
+========================================================== */
+
+.fm-testimonial-client {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 76px;
+
+  margin-top: 28px;
+
+  padding-left: 66px;
+}
+
+/* ==========================================================
+   CLIENT PHOTO
+   PHOTO SITS BEHIND THE NAME
+========================================================== */
+
+.fm-client-photo {
+  position: absolute;
+
+  left: 0;
+  top: 50%;
+
+  width: 72px;
+  height: 72px;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  border: 3px solid var(--fm-surface);
+
+  background: var(--fm-body);
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+
+  z-index: 1;
+}
+
+.fm-client-photo img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+/* ==========================================================
+   CLIENT INFO
+   SITS IN FRONT OF PHOTO
+========================================================== */
+
+.fm-client-info {
+  position: relative;
+
+  z-index: 2;
+
+  min-width: 0;
+
+  padding: 12px 18px;
+
+  background: var(--fm-surface);
+
+  border: 1px solid var(--fm-border);
+
+  border-radius: 12px;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.fm-client-info h3 {
+  margin: 0;
+
+  color: var(--fm-text);
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  line-height: 1.25;
 }
 
 .fm-role {
+  display: block;
+
+  margin-top: 4px;
+
   color: var(--fm-text-muted);
-  font-size: 0.95rem;
+
+  font-size: 0.82rem;
+  line-height: 1.35;
 }
 
-/* ===========================
+/* ==========================================================
    CONTROLS
-=========================== */
+========================================================== */
 
 .fm-testimonial-controls {
   margin-top: 35px;
@@ -2418,12 +2531,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
   gap: 18px;
 }
 
 .fm-arrow-btn {
   width: 46px;
   height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   border-radius: 50%;
 
@@ -2433,9 +2551,12 @@ body {
 
   color: var(--fm-text);
 
+  font-size: 18px;
+
   cursor: pointer;
 
-  transition: 0.3s;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .fm-arrow-btn:hover {
@@ -2444,10 +2565,13 @@ body {
   color: white;
 
   border-color: var(--fm-primary);
+
+  transform: translateY(-2px);
 }
 
 .fm-testimonial-dots {
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 
@@ -2455,15 +2579,17 @@ body {
   width: 10px;
   height: 10px;
 
-  border-radius: 999px;
+  padding: 0;
 
   border: none;
 
-  background: rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+
+  background: var(--fm-border);
 
   cursor: pointer;
 
-  transition: 0.35s;
+  transition: width 0.35s ease, background 0.35s ease;
 }
 
 .fm-dot.active {
@@ -2479,10 +2605,17 @@ body {
 @media (max-width: 991px) {
   .fm-testimonial-card {
     width: 340px;
+    min-height: 400px;
+
+    padding: 32px 28px 26px;
   }
 
-  .fm-testimonial-image {
-    height: 300px;
+  .fm-testimonial-accent {
+    left: 28px;
+  }
+
+  .fm-testimonial-quote p {
+    font-size: 0.96rem;
   }
 }
 
@@ -2499,35 +2632,22 @@ body {
     margin-bottom: 40px;
   }
 
-  .fm-testimonial-card {
-    flex: 0 0 82%;
-    max-width: 340px;
-    scroll-snap-align: start;
-  }
-
-  .fm-testimonial-image {
-    height: 300px;
-  }
-
-  .fm-review-overlay {
-    left: 18px;
-    right: 18px;
-    bottom: 18px;
-  }
-
-  .fm-review-overlay p {
-    font-size: 0.93rem;
+  .fm-testimonials-header p {
+    font-size: 0.98rem;
     line-height: 1.7;
   }
 
-  /* Show a peek of the next card */
+  /* ========================================================
+     MOBILE SLIDER
+  ======================================================== */
+
   .fm-testimonials-slider {
     overflow-x: auto;
     overflow-y: hidden;
 
     scroll-snap-type: x mandatory;
 
-    padding-right: 40px;
+    padding-right: 30px;
 
     scrollbar-width: none;
   }
@@ -2535,16 +2655,97 @@ body {
   .fm-testimonials-slider::-webkit-scrollbar {
     display: none;
   }
+
   .fm-testimonials-track {
     display: flex;
+
     gap: 14px;
-    animation: none;
+
+    width: max-content;
+
     padding: 0 20px 20px;
+
+    animation: none;
   }
 
+  /* ========================================================
+     MOBILE CARD
+  ======================================================== */
+
   .fm-testimonial-card {
-    /* flex: 0 0 88%; */
+    width: 82vw;
+    max-width: 340px;
+
+    min-height: 390px;
+
+    padding: 30px 24px 26px;
+
+    border-radius: 22px;
+
     scroll-snap-align: start;
+  }
+
+  .fm-testimonial-accent {
+    left: 24px;
+  }
+
+  .fm-stars {
+    margin-bottom: 18px;
+  }
+
+  .fm-testimonial-quote p {
+    font-size: 0.94rem;
+    line-height: 1.7;
+  }
+
+  .fm-testimonial-client {
+    margin-top: 24px;
+    padding-left: 60px;
+  }
+
+  .fm-client-photo {
+    width: 66px;
+    height: 66px;
+  }
+
+  .fm-client-info {
+    padding: 10px 14px;
+  }
+
+  .fm-client-info h3 {
+    font-size: 0.94rem;
+  }
+
+  .fm-role {
+    font-size: 0.78rem;
+  }
+
+  /* ========================================================
+     CONTROLS
+  ======================================================== */
+
+  .fm-testimonial-controls {
+    margin-top: 25px;
+    gap: 14px;
+  }
+
+  .fm-arrow-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 16px;
+  }
+
+  .fm-testimonial-dots {
+    gap: 8px;
+  }
+
+  .fm-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .fm-dot.active {
+    width: 26px;
   }
 }
 /* ========================= */
@@ -3981,45 +4182,32 @@ body {
     font-size: 28px;
   }
 }
-/* ========================= */
-/* WHY SECTION */
-/* ========================= */
-
+/* ========================= */ /* WHY SECTION */ /* ========================= */
 .fm-why {
   padding: 120px 20px;
   overflow: visible;
   background: var(--fm-body);
 }
-
 .fm-why-grid-bg {
   position: absolute;
   inset: 0;
-
   background-image: linear-gradient(
       to right,
       rgba(15, 23, 42, 0.06) 1px,
       transparent 1px
     ),
     linear-gradient(to bottom, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
-
   background-size: 40px 40px;
   pointer-events: none;
 }
-
 .fm-why-container {
   max-width: 1300px;
   margin: auto;
-}
-
-/* ========================= */
-/* HEADER */
-/* ========================= */
-
+} /* ========================= */ /* HEADER */ /* ========================= */
 .fm-why-header {
   margin-bottom: 60px;
   max-width: 760px;
 }
-
 .fm-why-header h2 {
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 800;
@@ -4027,52 +4215,36 @@ body {
   margin-bottom: 18px;
   line-height: 1.15;
 }
-
 .fm-why-header span {
   color: var(--fm-primary);
 }
-
 .fm-why-header p {
   margin-top: 16px;
   color: var(--fm-text-muted);
   line-height: 1.6;
-}
-
-/* ========================= */
-/* GRID */
-/* ========================= */
-
+} /* ========================= */ /* GRID */ /* ========================= */
 .fm-why-grid {
   display: grid;
   gap: 50px;
   align-items: start;
 }
-
 @media (min-width: 900px) {
   .fm-why-grid {
     grid-template-columns: 1fr 1fr;
   }
-}
-
-/* ========================= */
-/* IMAGE STACK */
-/* ========================= */
-
+} /* ========================= */ /* IMAGE STACK (MODERN CARD) */ /* ========================= */
 .fm-why-images-sticky {
   position: sticky;
   top: 80px;
   align-self: start;
 }
-
 .fm-why-images {
   height: 520px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-}
-
-/* base card */
+} /* base card */
 .fm-why-img {
   position: absolute;
   width: 75%;
@@ -4081,34 +4253,23 @@ body {
   overflow: hidden;
   background: var(--fm-surface);
   border: 1px solid var(--fm-border);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-}
-
-/* image inside */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25); /* transition: 0.4s ease; */
+} /* image inside */
 .fm-why-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-/* back image */
+} /* back image (left tilt) */
 .fm-why-img.img-back {
   left: 0;
   transform: rotate(-6deg) scale(0.95);
-  z-index: 3;
-}
-
-/* front image */
+  z-index: 3; /* opacity: 0.9; */
+} /* front image (right tilt) */
 .fm-why-img.img-front {
   right: 0;
   transform: rotate(6deg);
   z-index: 2;
-}
-
-/* ========================= */
-/* CARD */
-/* ========================= */
-
+} /* ========================= */ /* CARD */ /* ========================= */
 .fm-why-card {
   border: 1px solid var(--fm-border);
   border-radius: 20px;
@@ -4117,29 +4278,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 24px;
-}
-
-/* ========================= */
-/* MOBILE TRACK */
-/* ========================= */
-
-.fm-why-mobile-track {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-/* ========================= */
-/* ITEM */
-/* ========================= */
-
+} /* ========================= */ /* ITEM */ /* ========================= */
 .fm-why-item {
   display: flex;
   gap: 14px;
   align-items: flex-start;
-}
-
-/* icon */
+} /* icon */
 .fm-why-icon {
   width: 40px;
   height: 40px;
@@ -4151,76 +4295,35 @@ body {
   border: 1px solid var(--fm-border);
   background: rgba(255, 255, 255, 0.05);
   color: var(--fm-primary);
-}
-
-/* text */
+} /* text */
 .fm-why-item h4 {
   font-size: 16px;
   font-weight: 600;
   color: var(--fm-text);
 }
-
 .fm-why-item p {
   margin-top: 4px;
   font-size: 14px;
   color: var(--fm-text-muted);
   line-height: 1.6;
-}
-
+} /* ========================= */ /* MOBILE */ /* ========================= */
 @media (max-width: 900px) {
-  .fm-why-mobile-scroll {
-    width: 100%;
-    overflow: hidden;
+  .fm-why {
+    padding: 80px 16px;
   }
-
-  .fm-why-mobile-scroll .fm-why-card {
-    width: 100%;
-    height: auto;
-    max-height: 65vh;
-    overflow: hidden;
-    box-sizing: border-box;
-    padding: 30px 0;
+  .fm-why-images {
+    height: 420px;
   }
-
-  .fm-why-mobile-track {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: max-content;
-    gap: 0;
+  .fm-why-images-sticky {
+    position: relative;
+    top: auto;
   }
-
-  .fm-why-mobile-track .fm-why-item {
-    width: 78vw;
-    min-width: 78vw;
-    max-width: 78vw;
-    flex-shrink: 0;
-    box-sizing: border-box;
-    padding: 30px 38px;
-    border-right: 1px solid var(--fm-border);
-  }
-
-  .fm-why-mobile-track .fm-why-item:first-child {
-    padding-left: 30px;
-  }
-
-  .fm-why-mobile-track .fm-why-item:last-child {
-    border-right: none;
-    padding-right: 30px;
-  }
-
-  .fm-why-mobile-track .fm-why-item > div:last-child {
-    max-width: 480px;
-  }
-
-  .fm-why-mobile-track .fm-why-item p {
-    max-width: 440px;
-  }
-
-  .fm-blog-home-footer {
-    margin-top: 40px;
+  .fm-why-img {
+    width: 85%;
+    height: 320px;
   }
 }
+
 /* ========================= */
 /* CHAT WIDGET*/
 /* ========================= */
