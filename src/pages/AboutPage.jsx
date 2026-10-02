@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import FooterCTA from "../components/FooterCTA";
 // import ChatWidget from "../components/ChatWidget";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Pagination, EffectCoverflow } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -217,41 +217,75 @@ export default function AboutPage() {
           </div>
 
           {/* SWIPER */}
-          <div className="fm-portfolio-slider">
+          <div className="fm-clients-slider">
             <Swiper
-              modules={[Autoplay, Pagination]}
-              spaceBetween={24}
+              modules={[Autoplay, Pagination, EffectCoverflow]}
+              effect="coverflow"
+              centeredSlides={true}
+              slidesPerView={5}
+              spaceBetween={0}
               loop={true}
               speed={1200}
               autoplay={{
                 delay: 2500,
                 disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              coverflowEffect={{
+                rotate: 0,
+                stretch: -45,
+                depth: 190,
+                modifier: 1.25,
+                slideShadows: false,
               }}
               pagination={{
                 clickable: true,
               }}
               breakpoints={{
                 0: {
-                  slidesPerView: 1.1,
+                  slidesPerView: 1.35,
+                  spaceBetween: 0,
+                  coverflowEffect: {
+                    rotate: 0,
+                    stretch: -20,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: false,
+                  },
                 },
+
                 640: {
-                  slidesPerView: 1.5,
+                  slidesPerView: 2.5,
+                  spaceBetween: 0,
+                  coverflowEffect: {
+                    rotate: 0,
+                    stretch: -35,
+                    depth: 140,
+                    modifier: 1.1,
+                    slideShadows: false,
+                  },
                 },
-                900: {
-                  slidesPerView: 2.2,
-                },
-                1200: {
-                  slidesPerView: 3,
+
+                1024: {
+                  slidesPerView: 5,
+                  spaceBetween: 0,
+                  coverflowEffect: {
+                    rotate: 0,
+                    stretch: -45,
+                    depth: 190,
+                    modifier: 1.25,
+                    slideShadows: false,
+                  },
                 },
               }}
             >
               {clients.map((client, i) => (
                 <SwiperSlide key={i}>
-                  <div className="fm-portfolio-card">
+                  <div className="fm-client-slide">
                     <img src={client.logo} alt={client.name} />
 
-                    <div className="fm-portfolio-overlay">
-                      <h4>{client.name}</h4>
+                    <div className="fm-client-overlay">
+                      <p>{client.name}</p>
                     </div>
                   </div>
                 </SwiperSlide>
