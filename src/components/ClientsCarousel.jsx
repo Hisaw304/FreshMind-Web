@@ -4,7 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Pagination, EffectCoverflow } from "swiper/modules";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
 import "swiper/css";
@@ -140,44 +140,79 @@ export default function Clients() {
           </div>
         </div>
 
-        <div className="fm-clients-slider">
-          <Swiper
-            modules={[Autoplay, Pagination]}
-            spaceBetween={24}
-            loop
-            speed={900}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-            pagination={{
-              clickable: true,
-            }}
-            breakpoints={{
-              0: {
-                slidesPerView: 1.1,
+        <Swiper
+          modules={[Autoplay, Pagination, EffectCoverflow]}
+          effect="coverflow"
+          centeredSlides={true}
+          slidesPerView={5}
+          spaceBetween={0}
+          loop
+          speed={1000}
+          autoplay={{
+            delay: 2800,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: -35,
+            depth: 180,
+            modifier: 1.2,
+            slideShadows: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1.35,
+              spaceBetween: 0,
+              coverflowEffect: {
+                rotate: 0,
+                stretch: -20,
+                depth: 100,
+                modifier: 1,
+                slideShadows: false,
               },
-              640: {
-                slidesPerView: 2,
-              },
-              1024: {
-                slidesPerView: 3,
-              },
-            }}
-          >
-            {clients.map((client, i) => (
-              <SwiperSlide key={i}>
-                <div className="fm-client-slide">
-                  <img src={client.logo} alt={client.name} />
+            },
 
-                  <div className="fm-client-overlay">
-                    <p>{client.name}</p>
-                  </div>
+            640: {
+              slidesPerView: 2.5,
+              spaceBetween: 0,
+              coverflowEffect: {
+                rotate: 0,
+                stretch: -35,
+                depth: 140,
+                modifier: 1.1,
+                slideShadows: false,
+              },
+            },
+
+            1024: {
+              slidesPerView: 5,
+              spaceBetween: 0,
+              coverflowEffect: {
+                rotate: 0,
+                stretch: -45,
+                depth: 190,
+                modifier: 1.25,
+                slideShadows: false,
+              },
+            },
+          }}
+        >
+          {clients.map((client, i) => (
+            <SwiperSlide key={i}>
+              <div className="fm-client-slide">
+                <img src={client.logo} alt={client.name} />
+
+                <div className="fm-client-overlay">
+                  <p>{client.name}</p>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
         <div className="fm-blog-home-footer">
           <Link to="/industries" className="fm-blog-home-viewall">
