@@ -65,12 +65,12 @@ export default function BlogPage() {
 
       <FeaturedPost />
 
-      <BlogSearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      {/* <BlogSearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
       <BlogCategories
         selectedCategory={selectedCategory}
         onCategoryChange={setSelectedCategory}
-      />
+      /> */}
 
       <BlogGrid searchTerm={searchTerm} selectedCategory={selectedCategory} />
 
