@@ -1624,7 +1624,7 @@ body {
 
 @media (max-width: 700px) {
   .fm-steps-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .fm-step-image {
@@ -4687,5 +4687,151 @@ body {
   .fm-chat-trigger {
     right: 16px;
     bottom: 16px;
+  }
+}
+/* ========================================= */
+/* WHATSAPP FLOATING BUTTON */
+/* ========================================= */
+
+.fm-whatsapp {
+  position: fixed;
+  left: 22px;
+  bottom: 22px;
+  z-index: 9999;
+
+  width: 56px;
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0;
+
+  border-radius: 999px;
+
+  background: #25d366;
+  color: #ffffff;
+
+  text-decoration: none;
+
+  overflow: hidden;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16),
+    0 5px 14px rgba(37, 211, 102, 0.2);
+
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* ========================================= */
+/* ICON */
+/* ========================================= */
+
+.fm-whatsapp-icon {
+  width: 56px;
+  height: 56px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fm-whatsapp-icon svg {
+  width: 26px;
+  height: 26px;
+
+  display: block;
+}
+
+/* ========================================= */
+/* TEXT */
+/* ========================================= */
+
+.fm-whatsapp-content {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 190px;
+
+  padding-right: 18px;
+
+  opacity: 0;
+  transform: translateX(-8px);
+
+  transition: opacity 0.25s ease, transform 0.35s ease;
+}
+
+.fm-whatsapp-label {
+  font-size: 11px;
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  opacity: 0.82;
+}
+
+.fm-whatsapp-text {
+  margin-top: 3px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+/* ========================================= */
+/* HOVER */
+/* ========================================= */
+
+.fm-whatsapp:hover {
+  width: 218px;
+
+  transform: translateY(-4px);
+
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2),
+    0 7px 20px rgba(37, 211, 102, 0.28);
+}
+
+.fm-whatsapp:hover .fm-whatsapp-content {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ========================================= */
+/* MOBILE */
+/* ========================================= */
+
+@media (max-width: 700px) {
+  .fm-whatsapp {
+    left: 16px;
+    bottom: 16px;
+
+    width: 52px;
+    height: 52px;
+  }
+
+  .fm-whatsapp-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .fm-whatsapp-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /*
+    Keep it circular on touch devices.
+  */
+
+  .fm-whatsapp:hover {
+    width: 52px;
+    transform: none;
+  }
+
+  .fm-whatsapp-content {
+    display: none;
   }
 }

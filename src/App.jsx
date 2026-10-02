@@ -19,6 +19,7 @@ import TermsPage from "./pages/TermsPage";
 import ServicesPage from "./pages/ServicesPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPost from "./pages/BlogPost";
+import WhatsApp from "./components/WhatsApp";
 
 export default function App() {
   const [chatOpen, setChatOpen] = useState(false);
@@ -44,6 +45,8 @@ export default function App() {
       </main>
 
       <Footer />
+
+      <WhatsApp />
 
       {/* AI Chat */}
 
